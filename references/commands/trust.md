@@ -22,7 +22,7 @@ Use [../diagnosis-trees.md](../diagnosis-trees.md) for the trust-boundary tree.
 
 ## Log Writes
 
-Append to `objection_log.md` when trust, compliance, auditability, or error-tolerance objections surface.
+Append to `objection_log.md`, creating the file if needed, when trust, compliance, auditability, or error-tolerance objections surface.
 Keep observed trust facts, founder assertions, and model inferences separate before recommending an operating mode.
 If `cohort_memory/objection_patterns.md` exists and a concrete objection surfaced, append a normalized objection pattern entry.
 If `cohort_memory/trust_patterns.md` exists and the trust boundary is concrete enough, append a normalized trust-pattern entry using [../cohort-memory.md](../cohort-memory.md).
@@ -84,7 +84,8 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update `Trust Boundary`.
-- Update `Evidence Log` if the trust thesis or its support changed materially.
-- Update `Trust Architecture` in company scores only with cited observed evidence and a confidence label; otherwise keep it suppressed.
-- Update `Current Diagnosis` and `Next 7 Days`.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move`.
+- Add or update `Trust Boundary` only if expanded mode is active or newly warranted.
+- Update `Trust Architecture` only when `Company Assessments` is in use.
+- Update `Current Diagnosis` only if that section exists or is newly warranted.

@@ -9,15 +9,15 @@ If recent changes, evidence, or the current thesis are unclear, ask one clarifyi
 
 Read:
 
-- `founder_state.md`
+- `state.md`
+
+If present, also read:
+
 - `interview_log.md`
 - `objection_log.md`
 - `experiment_log.md`
 - `market_research_log.md`
 - `wedge_graveyard.md`
-
-If present, also read:
-
 - `cohort_memory/wedge_failures.md`
 - `cohort_memory/objection_patterns.md`
 - `cohort_memory/trust_patterns.md`
@@ -27,15 +27,16 @@ Use [../cohort-memory.md](../cohort-memory.md) when these files are available.
 
 ## Required Behavior
 
-- Score only the six company-level dimensions in [../rubrics.md](../rubrics.md).
-- Show deltas using `Score History`.
+- Use `state.md` as the primary source of truth.
+- If expanded assessment detail exists or is clearly warranted, assess the six company-level dimensions in [../rubrics.md](../rubrics.md).
+- Show deltas using `Assessment History` when that section exists.
 - Call out `Value Recurrence` explicitly every time.
 - Identify at least one founder archetype when the evidence supports it.
 - Identify the current coaching posture when the evidence supports it.
 - Name repeated pathologies without drifting into generic coaching.
 - Include what external market research has confirmed or weakened.
 - Separate observed facts, founder assertions, and model inferences explicitly in the summary.
-- Suppress any dimension that lacks direct observed support instead of forcing a numeric score.
+- Keep any dimension at `untested` when there is no direct observed support instead of pretending it is stronger.
 - Produce accelerator ops outputs: partner briefing, weekly company status delta, red-flag memo, and `needs human help now` triggers.
 - Evaluate whether human intervention is needed now, not just what the founder should do next.
 - Compare the company against relevant cohort memory when shared cohort files are available.
@@ -46,7 +47,7 @@ Use [../cohort-memory.md](../cohort-memory.md) when these files are available.
 Set `Needs human help now` to `yes` when one or more of these conditions fire:
 
 - `Wedge reset`: the current wedge is dead, split without a credible surviving branch, or clearly needs reseeding.
-- `Evidence stall`: evidence quality is weak or suppressed and no meaningful new observed facts were added since the last snapshot.
+- `Evidence stall`: evidence quality is `untested` or `weak evidence` and no meaningful new observed facts were added since the last snapshot.
 - `Buyer blockage`: the buyer path is still unclear and that ambiguity is blocking sales, pilots, or wedge selection.
 - `Trust blocker`: trust, compliance, audit, or irreversible-action constraints require expert intervention beyond the founder team.
 - `External contradiction`: market research, pilot feedback, or user behavior materially undermines the current thesis.
@@ -71,15 +72,23 @@ If progress cannot be summarized honestly yet, return exactly:
 Once there is enough clarity, return exactly:
 
 ```markdown
-## Current Scoreboard
-- Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+## Current Thesis
+- Best current wedge:
+- Primary user:
+- Economic buyer:
+- Trust boundary:
+- Current bottleneck:
 
-## Score Trend
+## Open Questions
+- Most important unresolved question:
+- Second unresolved question:
+
+## Evidence Collected
+- Observed fact:
+- Founder assertion:
+- Model inference:
+
+## Progress Read
 - Biggest improvement:
 - Biggest unresolved drag:
 - Value recurrence read:
@@ -123,7 +132,7 @@ Once there is enough clarity, return exactly:
 ## Weekly Status Delta
 - New observed facts since last snapshot:
 - Thesis change since last snapshot:
-- Score changes since last snapshot:
+- Assessment changes since last snapshot:
 - Decision changes since last snapshot:
 
 ## Red-Flag Memo
@@ -157,11 +166,9 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update `Company Scores`.
-- Append a new `Score History` row when scores changed since the last snapshot.
-- Refresh `Evidence Log` when the evidence mix or thesis changed.
-- Update `Founder Handling`.
-- Update `Accelerator Ops`.
-- Update `Cohort Comparison`.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move`.
+- Update `Company Assessments` and append to `Assessment History` only when expanded mode is active or newly warranted.
+- Update `Founder Handling`, `Accelerator Ops`, and `Cohort Comparison` only when those sections exist or are newly warranted.
 - If `cohort_memory/segment_benchmarks.md` exists and the segment is specific enough with direct observed support, append a new benchmark snapshot using [../cohort-memory.md](../cohort-memory.md).
-- Update `Current Diagnosis` and `Next 7 Days`.
+- Update `Current Diagnosis` only if that section exists or is newly warranted.

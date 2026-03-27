@@ -1,6 +1,6 @@
 # kickoff
 
-`kickoff` initializes founder state or reseeds it after a dead wedge.
+`kickoff` initializes state or reseeds it after a dead wedge.
 
 ## Modes
 
@@ -11,7 +11,7 @@
 Use [../conversation-protocol.md](../conversation-protocol.md) for question cadence.
 Use [../guided-flow.md](../guided-flow.md) for the onboarding sequence.
 
-If the founder has prior interviews, objections, or experiments, backfill them into the append-only logs.
+If the founder has prior interviews, objections, or experiments, backfill them into the optional append-only logs.
 
 ## Required Collection
 
@@ -44,7 +44,7 @@ Treat the workspace as uninitialized if any of the following are true:
 
 - runtime files do not exist
 - runtime files are empty
-- `founder_state.md` is mostly placeholder or scaffold text
+- `state.md` is mostly placeholder or scaffold text
 - core fields are still mostly `Unknown`, `None`, `None recorded`, or equivalent boilerplate
 
 In that case:
@@ -54,23 +54,23 @@ In that case:
 - do not output fake company facts
 - do not assign an archetype from empty evidence
 - do not claim confidence beyond the fact that intake is missing
-- do not create durable baseline scores until the founder has supplied enough facts to justify them
+- do not create durable baseline assessments until the founder has supplied enough facts to justify them
 
 ## Required State Actions
 
-- Create all runtime files if missing.
+- Create `state.md` if missing.
+- Create optional logs only when the founder supplies backfill detail or a workflow trigger fires.
 - If intake is incomplete, ask the single most useful next question first and wait for the founder's answer.
-- Populate `founder_state.md` as soon as there is enough information to make the state useful, even if some fields remain open.
-- Keep `Evidence Log` split into `Observed facts`, `Founder assertions`, and `Model inferences` from the start.
-- Populate `Founder Handling` as soon as there is enough evidence to justify an archetype or posture. Do not invent one from thin signal.
-- During early kickoff, populate `Guided Discovery`, `Market Reality Check`, and `Current plan of attack` before scoring aggressively.
-- Backfill `interview_log.md`, `objection_log.md`, and `experiment_log.md` if the founder supplies prior history.
-- Append a starter entry to `market_research_log.md` when kickoff defines concrete claims or open questions worth validating externally.
+- Populate `state.md` as soon as there is enough information to make the state useful, even if some fields remain open.
+- Keep `state.md` focused on `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move` until expanded mode is justified.
+- Keep `Evidence Collected` split into `Observed facts`, `Founder assertions`, and `Model inferences` from the start.
+- During early kickoff, update those four sections before adding expanded-mode detail.
+- Backfill `interview_log.md`, `objection_log.md`, and `experiment_log.md` if the founder supplies prior history that warrants those logs.
+- Append a starter entry to `market_research_log.md` only when kickoff defines concrete claims or open questions worth validating externally.
 - If prior dead wedges are backfilled and `cohort_memory/wedge_failures.md` exists, append normalized failed-wedge entries using [../cohort-memory.md](../cohort-memory.md).
 - If recurring objections are backfilled and `cohort_memory/objection_patterns.md` exists, append normalized objection entries using [../cohort-memory.md](../cohort-memory.md).
 - If this is a reseed after `kill`, preserve surviving assets and next-wedge constraints from `wedge_graveyard.md`.
-- Record the first `Company Scores` baseline and append a `Score History` row with the trigger `initial baseline` or `reseed after wedge kill` only when each numeric score has direct observed support.
-- If a dimension lacks direct observed support, mark that score as `suppressed` with a reason instead of forcing a baseline number.
+- Add `Company Assessments` and `Assessment History` only when the evidence depth justifies expanded mode.
 
 ## Intake Checklist
 
@@ -129,34 +129,25 @@ If discovery is still in progress and one more answer is needed before readback,
 If intake is sufficient for discovery but not yet sufficient for a hard diagnosis, return exactly:
 
 ```markdown
-## Kickoff Readback
-- What you're building:
+## Current Thesis
+- Company / product:
 - Candidate workflow:
 - Primary user:
 - Economic buyer:
 - Current workaround:
-- AI role:
+- Trust boundary:
 
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Founder Handling
-- Current archetype:
-- Coaching posture:
-- Why this posture now:
-
-## What Looks Promising
+## Open Questions
 - ...
 
-## What Needs Validation
-- ...
+## Evidence Collected
+- Observed fact:
+- Founder assertion:
+- Model inference:
 
-## Plan Of Attack
-1. ...
-2. ...
-3. ...
+## Next Move
+- Immediate action:
+- Why this now:
 
 **Recommended next**: `[command]` - ...
 ```
@@ -164,43 +155,27 @@ If intake is sufficient for discovery but not yet sufficient for a hard diagnosi
 If intake is complete enough to initialize state, return exactly:
 
 ```markdown
-## Kickoff Summary
-- Mode:
+## Current Thesis
 - Company:
 - Product one-liner:
-- Primary concern:
-- Current archetype:
-
-## Company Snapshot
-- Stage:
-- Team size:
-- Sales motion:
-- Revenue / pilots / design partners:
-
-## Current Thesis
 - Workflow wedge:
 - Primary user:
 - Economic buyer:
 - Trigger:
-- Why now:
+- Current workaround:
+- Trust boundary:
 
-## Baseline Scores
-- Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+## Open Questions
+- ...
 
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
+## Evidence Collected
+- Observed fact:
+- Founder assertion:
+- Model inference:
 
-## Founder Handling
-- Current archetype:
-- Coaching posture:
-- Why this posture now:
+## Next Move
+- Immediate action:
+- Why this now:
 
 ## Diagnosis
 - Primary bottleneck:

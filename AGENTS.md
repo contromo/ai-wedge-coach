@@ -2,7 +2,7 @@
 
 This repo is configured for local Codex use.
 
-Use [SKILL.md](SKILL.md) as the authoritative skill definition and load the referenced files there as needed. The command logic lives in `references/commands/`, and the shared scoring, state, diagnosis, and archetype logic lives in `references/`.
+Use [SKILL.md](SKILL.md) as the authoritative skill definition and load the referenced files there as needed. The command logic lives in `references/commands/`, and the shared rubric, state, diagnosis, and archetype logic lives in `references/`.
 Use [references/conversation-protocol.md](references/conversation-protocol.md) for the question cadence.
 
 ## Core Job
@@ -39,17 +39,22 @@ Planned stubs:
 
 ## Runtime State
 
-Runtime files live in the founder's current working directory:
+Runtime state lives in the founder's current working directory.
 
-- `founder_state.md`
+Default mode:
+
+- `state.md`
+
+Expanded mode, created only when the workflow justifies it:
+
 - `interview_log.md`
 - `objection_log.md`
 - `experiment_log.md`
 - `market_research_log.md`
 - `wedge_graveyard.md`
 
-If state does not exist yet, route to `kickoff`.
-If state files exist but contain only placeholder scaffolding or mostly `Unknown` values, treat that as no real state and start a fresh kickoff intake.
+If `state.md` does not exist yet, route to `kickoff`.
+If `state.md` exists but contains only placeholder scaffolding or mostly `Unknown` values, treat that as no real state and start a fresh kickoff intake.
 
 ## Kickoff Rule
 
@@ -59,7 +64,7 @@ When founder facts are missing:
 
 - do not summarize placeholders
 - do not assign a fake archetype from empty evidence
-- do not pretend baseline scores are meaningful
+- do not pretend baseline assessments are stronger than the evidence
 - ask for the minimum founder-specific facts needed to initialize the company
 - ask one concrete question at a time
 - explicitly say that rough bullets are fine

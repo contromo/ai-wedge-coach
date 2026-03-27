@@ -30,9 +30,12 @@ Your job is not generic startup advice. Your job is to take a founder from fuzzy
 
 Runtime state lives in the founder's current working directory, not inside this skill package.
 
-Canonical runtime files:
+Default runtime file:
 
-- `founder_state.md`
+- `state.md`
+
+Expanded-mode files, created only when the workflow justifies them:
+
 - `interview_log.md`
 - `objection_log.md`
 - `experiment_log.md`
@@ -48,14 +51,14 @@ Optional shared accelerator memory:
 
 Read [references/state-system.md](references/state-system.md) before creating or updating any of them.
 
-If a founder invokes any working command before state exists, redirect to `kickoff`.
-If state files exist but are placeholder-only, scaffold-only, or mostly `Unknown` / `None recorded` boilerplate, treat them as uninitialized and run `kickoff` intake instead of summarizing them back.
+If a founder invokes any working command before `state.md` exists, redirect to `kickoff`.
+If `state.md` exists but is placeholder-only, scaffold-only, or mostly `Unknown` / `None recorded` boilerplate, treat it as uninitialized and run `kickoff` intake instead of summarizing it back.
 
 ## Shared References
 
 Load these as needed:
 
-- [references/rubrics.md](references/rubrics.md) for company-level and wedge-level scoring.
+- [references/rubrics.md](references/rubrics.md) for company-level and wedge-level assessment rubrics.
 - [references/state-system.md](references/state-system.md) for file schemas and log write contracts.
 - [references/diagnosis-trees.md](references/diagnosis-trees.md) for recurrence and trust triage.
 - [references/archetypes.md](references/archetypes.md) for founder-pattern detection and routing.
@@ -108,19 +111,19 @@ Planned command stubs:
 - For `research`, require multiple source types, a minimum evidence threshold, explicit contradiction handling, and an `insufficient evidence` verdict when the threshold is not met.
 - Across all commands, separate `Observed facts`, `Founder assertions`, and `Model inferences`.
 - Never present founder assertions or model inferences as if they were observed facts.
-- Never emit a naked score. Every score must include cited observed evidence and a confidence label, or be explicitly suppressed.
+- Never emit a naked assessment. Every assessment must include cited observed evidence and one of the allowed evidence states: `untested`, `weak evidence`, `validated`, or `strong`.
 - Use `progress` as the accelerator operator handoff: include a partner briefing, weekly company status delta, red-flag memo, and explicit `needs human help now` triggers.
 - If shared `cohort_memory/` exists, use it to compare against common failed wedges, repeated objections, trust-boundary patterns, and segment benchmarks.
 - Enforce experiment quality control: every experiment must have an owner, deadline, falsifier, thresholds, and a decision rule, and experiment results must feed back into state automatically.
 - Detect founder type and choose a coaching posture: `compression`, `contradiction`, `proof`, or `containment`.
 - Let the coaching posture shape the next question and pressure style, not just the label in the summary.
-- Force wedge compression before scoring when a description is vague.
+- Force wedge compression before assessing when a description is vague.
 - Distinguish user, buyer, and champion explicitly.
 - Ask what happens if the workflow is not solved.
 - Treat recurrence and return behavior as core facts, not afterthoughts.
 - Surface evidence quality separately from founder confidence.
-- Preserve dead-wedge learning in `wedge_graveyard.md`.
-- Use append-only behavior for the logs defined in [references/state-system.md](references/state-system.md).
+- Preserve dead-wedge learning in `wedge_graveyard.md` when expanded mode has been triggered.
+- Use append-only behavior for the optional logs defined in [references/state-system.md](references/state-system.md).
 
 ## Output Contract
 

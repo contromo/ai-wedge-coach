@@ -40,7 +40,7 @@ If the founder is reporting back on an existing experiment:
 - apply the linked decision rule
 - feed that result back into founder state automatically
 
-Do not leave an experiment result sitting in `experiment_log.md` without updating the active state.
+Do not leave an experiment result sitting in `experiment_log.md` without updating `state.md`.
 
 If the current coaching posture is `proof`, use the experiment to convert the biggest assertion into an observed fact.
 If the current coaching posture is `containment`, make the experiment define the threshold for changing direction.
@@ -57,10 +57,10 @@ If the current coaching posture is `containment`, make the experiment define the
 - The method must be concrete enough to run this week.
 - Success and failure thresholds must imply a decision.
 - If the hypothesis depends on unvalidated market assumptions, recommend `research` first or in parallel.
-- If the experiment uses customer conversations, append those results to `interview_log.md`.
-- If the experiment surfaces objections, append them to `objection_log.md`.
+- If the experiment uses customer conversations, append those results to `interview_log.md`, creating the file if needed.
+- If the experiment surfaces objections, append them to `objection_log.md`, creating the file if needed.
 - If `cohort_memory/objection_patterns.md` exists and the experiment surfaces a concrete objection with direct evidence, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
-- Always append the experiment itself to `experiment_log.md`.
+- Always append the experiment itself to `experiment_log.md`, creating the file if needed.
 - Separate observed facts, founder assertions, and model inferences before choosing the experiment.
 
 ## Output Schema
@@ -119,8 +119,9 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update `Active Experiments` with the experiment's status, linked dimension, hypothesis, falsifier, owner, deadline, thresholds, and decision rule.
-- Update `Evidence Log` if the hypothesis basis changed materially.
-- When a result is reported, append the outcome to `experiment_log.md`, update `Evidence Log`, update `Current Diagnosis`, update `Next 7 Days`, and append a `Decision Log` entry if the decision rule fired.
-- Update `Learning Velocity` and any linked company-level dimension that materially changed only with cited observed evidence and a confidence label; otherwise keep the score suppressed.
-- Append a `Score History` row when scores change.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move`.
+- If `Active Experiments` exists or expanded mode is newly warranted, update it with the experiment's status, linked dimension, hypothesis, falsifier, owner, deadline, thresholds, and decision rule.
+- When a result is reported, append the outcome to `experiment_log.md`, update `Evidence Collected`, update `Current Diagnosis` if that section exists, and append a `Decision Log` entry if that section exists and the decision rule fired.
+- Update `Learning Velocity` and any linked company-level dimension only when `Company Assessments` is in use.
+- Append an `Assessment History` row only when that section exists or expanded mode is newly warranted.

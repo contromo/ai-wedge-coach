@@ -4,7 +4,7 @@ A Codex-based coaching system for early-stage B2B AI founders who need to choose
 
 This is not generic startup advice. It is a debugging system for the company.
 
-It scores the business across six top-level dimensions, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and pushes every session toward one concrete next move.
+It assesses the business across six top-level dimensions with qualitative evidence states, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and pushes every session toward one concrete next move.
 
 Say `kickoff`, describe what you're building, and the coach will start narrowing the wedge immediately.
 
@@ -14,7 +14,7 @@ See `examples/` for a worked coaching session.
 
 ## What It Does
 
-**Wedge diagnosis** - Forces workflow compression, scores the wedge across seven dimensions, surfaces recurrence as a first-class concern, and recommends `keep`, `narrow`, `kill`, or `split`.
+**Wedge diagnosis** - Forces workflow compression, assesses the wedge across seven rubric axes, surfaces recurrence as a first-class concern, and recommends `keep`, `narrow`, `kill`, or `split`.
 
 **ICP pressure-testing** - Separates user, buyer, and champion, forces explicit exclusions, and identifies the narrowest credible beachhead instead of letting the founder hide in a broad market story.
 
@@ -22,7 +22,7 @@ See `examples/` for a worked coaching session.
 
 **Experiment design** - Turns the current diagnosis into one 7-day or 14-day falsifiable experiment with an owner, a deadline, a falsifier, and a decision rule.
 
-**Progress and continuity** - Maintains `founder_state.md`, `interview_log.md`, `objection_log.md`, `experiment_log.md`, and `wedge_graveyard.md` so the system compounds over time instead of restarting every session.
+**Progress and continuity** - Starts with one `state.md`, then creates interview, objection, experiment, research, and wedge-death logs only when the workflow actually produces that detail.
 
 **Accelerator ops handoff** - Produces partner briefings, weekly company status deltas, red-flag memos, and `needs human help now` triggers so human operators know when to step in.
 
@@ -106,16 +106,21 @@ Installer options:
 
 ## Runtime Files
 
-The coach writes persistent state into the founder's current working directory:
+The coach writes persistent state into the founder's current working directory.
 
-- `founder_state.md`
+Default mode starts with:
+
+- `state.md`
+
+Expanded mode creates these on demand:
+
 - `interview_log.md`
 - `objection_log.md`
 - `experiment_log.md`
 - `market_research_log.md`
 - `wedge_graveyard.md`
 
-These files are created and updated automatically. If you test the skill from this repo root, they are gitignored.
+These files are created and updated automatically when the workflow justifies them. If you test the skill from this repo root, they are gitignored.
 
 Optional shared accelerator memory:
 
@@ -134,13 +139,13 @@ If you want cross-company memory, point each founder workspace at the same `coho
 
 | Command | Purpose | Typical Output |
 | --- | --- | --- |
-| `kickoff` | Initialize founder state or reseed after a dead wedge | Company snapshot, evidence-backed baseline scores or suppressions, initial diagnosis, recommended next command |
-| `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis scorecard or suppressions, `Why AI?` check, keep/narrow/kill/split recommendation |
+| `kickoff` | Initialize founder state or reseed after a dead wedge | Company snapshot, evidence-backed baseline assessments, initial diagnosis, recommended next command |
+| `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis wedge assessment, `Why AI?` check, keep/narrow/kill/split recommendation |
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
 | `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
 | `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule, automatic state feedback |
-| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension scoreboard with score evidence or suppressions, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
+| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension assessment read, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
 | `help` | Show the command menu and starting points | Command list plus recommended entry point |
 
 ### Planned Commands
@@ -154,17 +159,17 @@ If you want cross-company memory, point each founder workspace at the same `coho
 
 ---
 
-## Scoring System
+## Assessment System
 
-Score discipline:
+Assessment discipline:
 
-- every numeric score must include a confidence label and cited observed evidence
-- if the evidence is mostly assertion or inference, suppress the score instead of guessing
-- wedge totals and bands should be suppressed if any underlying wedge axis is suppressed
+- use only `untested`, `weak evidence`, `validated`, or `strong`
+- every assessment must cite observed evidence or explicitly stay `untested`
+- do not add numeric totals, bands, or confidence overlays to rubric outputs
 
 ### Company-Level Progress Rubric
 
-Every `progress` run scores:
+Every `progress` run assesses:
 
 - `Wedge Sharpness`
 - `ICP Focus`
@@ -175,7 +180,7 @@ Every `progress` run scores:
 
 ### Wedge-Specific Rubric
 
-The `wedge` command scores:
+The `wedge` command assesses:
 
 - `Specificity`
 - `Pain`
@@ -185,7 +190,7 @@ The `wedge` command scores:
 - `Value Realization`
 - `Deployment Fit`
 
-It also runs a non-scored `Why AI?` check to make sure the product actually benefits from AI rather than just wearing the label.
+It also runs a non-rubric `Why AI?` check to make sure the product actually benefits from AI rather than just wearing the label.
 
 ---
 
@@ -201,7 +206,7 @@ Expected output:
 
 - company snapshot
 - current thesis
-- baseline 6-dimension scores with confidence and evidence, or suppressions where proof is weak
+- baseline 6-dimension assessments with evidence-backed status labels
 - primary bottleneck
 - recommended next command
 
@@ -219,7 +224,7 @@ Then describe the product. The coach will force three wedge versions:
 
 Expected output:
 
-- wedge scorecard with confidence and cited evidence per axis, or suppressions where proof is weak
+- wedge assessment with cited evidence per axis
 - recurrence read
 - `Why AI?` check
 - keep / narrow / kill / split recommendation
@@ -290,7 +295,7 @@ progress
 
 Expected output:
 
-- current six-dimension scoreboard
+- current six-dimension assessment read
 - value recurrence read
 - primary archetype
 - coaching posture

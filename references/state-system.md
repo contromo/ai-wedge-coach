@@ -1,6 +1,8 @@
 # State System
 
-Runtime state lives in the founder's current working directory. Use append-only behavior for logs. Do not silently overwrite prior learning.
+Runtime state lives in the founder's current working directory.
+Default mode is one-file-first: `state.md` is the only required runtime file.
+Use append-only behavior for optional logs. Do not silently overwrite prior learning.
 
 Do not commit runtime files as part of the skill package. They are founder-specific working state, not repo content.
 
@@ -17,10 +19,33 @@ Founder assertions are unverified founder claims.
 Model inferences are coach interpretations built on top of the other two buckets.
 
 Do not silently promote an assertion or an inference into a fact.
+Use these tags literally inside `## Evidence Collected`:
 
-## Canonical File Set
+- `Observed fact:`
+- `Founder assertion:`
+- `Model inference:`
 
-- `founder_state.md`
+## Default Mode File Set
+
+- `state.md`
+
+## Expanded Mode
+
+Expanded mode is optional. Do not activate it by session count alone.
+Activate lazy expansion when the workflow actually produces detail that is worth preserving:
+
+- first real customer conversation: create `interview_log.md`
+- first durable objection or trust blocker: create `objection_log.md`
+- first real experiment: create `experiment_log.md`
+- first external market validation pass: create `market_research_log.md`
+- first killed or split-deprioritized wedge: create `wedge_graveyard.md`
+- `state.md` is getting too long or too detailed to scan quickly: split supporting detail into the relevant log and keep `state.md` as the latest synthesis
+
+When expanded mode is active, `state.md` stays canonical.
+The logs hold append-only supporting detail. They do not replace `state.md`.
+
+## Optional Expanded Files
+
 - `interview_log.md`
 - `objection_log.md`
 - `experiment_log.md`
@@ -39,111 +64,66 @@ Shared cohort files:
 - `cohort_memory/trust_patterns.md`
 - `cohort_memory/segment_benchmarks.md`
 
-## founder_state.md
+## state.md
 
-`founder_state.md` is the canonical state file. All working commands update it.
+`state.md` is the canonical state file. All working commands update it first.
 
-Create it with this structure after kickoff intake is complete:
+Create it with this structure as soon as kickoff intake becomes useful:
 
 ```markdown
-# Founder State
+# State
 
-## Company Snapshot
+## Current Thesis
 - Company:
-- Stage:
-- Team size:
-- Category:
 - Product one-liner:
-- Funding context:
-- Sales motion:
-- Current revenue:
-- Active pilots:
-- Design partners:
-- Main concern right now:
-
-## Current Primary Wedge
-- Workflow:
-- Job to be done:
+- Current workflow wedge:
 - Primary user:
 - Economic buyer:
-- Champion:
-- Trigger moment:
+- Trigger:
 - Current workaround:
-- Why now:
-- Time to value:
-- Frequency:
-- Consequence of failure:
-- Must-have or nice-to-have:
-- Why AI step-change:
-- Recommendation status:
-- Last wedge score: [numeric total or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Trust boundary:
+- Current bottleneck:
 
-## ICP Hypotheses
-### Primary
-- Persona:
-- Company type:
-- Team:
-- Pain:
-- Buyer:
-- Champion:
-- Budget owner:
-- Urgency trigger:
+## Open Questions
+- ...
 
-### Secondary
-- Persona:
-- Company type:
-- Why considered:
+## Evidence Collected
+- Observed fact:
+- Founder assertion:
+- Model inference:
 
-### Excluded
-- ICPs we are explicitly not chasing:
+## Next Move
+- Immediate action:
+- Why this now:
+- Recommended next command:
+```
 
-## Trust Boundary
-- Fully autonomous steps:
-- Human review steps:
-- Human-only steps:
-- Irreversible actions:
-- Compliance / audit constraints:
-- Error tolerance:
-- Main trust blocker:
-- Recommended operating mode:
+Default mode rules:
 
-## Evidence Log
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-- Interviews completed:
-- Strongest observed signal:
-- Weakest assertion:
-- Biggest inference risk:
-- Pricing evidence:
-- Retention evidence:
-- Top objections:
+- Keep `Current Thesis` to the best current read, not every discarded theory.
+- Keep `Open Questions` to the highest-signal unresolved questions.
+- Keep `Evidence Collected` as tagged bullets, not raw transcripts.
+- Keep `Next Move` operational and singular when possible.
 
-## Founder Handling
-- Current archetype:
-- Coaching posture: [compression / contradiction / proof / containment]
-- Why this posture:
-- Secondary blocking archetype:
-- What the coach should do next:
-- Last updated:
+## Expanded Mode Sections Inside state.md
 
-## Guided Discovery
-- Current phase:
-- What we know:
-- What still needs validation:
-- Planned market checks:
-- Current plan of attack:
+When more structure materially helps, add only the sections that are justified:
 
-## Market Reality Check
+### Market Reality
 - Claims tested:
 - Strongest external validation:
 - Biggest external contradiction:
 - Visible substitutes:
 - Buyer / procurement clues:
 - Trust / deployment clues:
-- Open research questions:
 
-## Current Diagnosis
+### Founder Handling
+- Current archetype:
+- Coaching posture:
+- Why this posture:
+- What the coach should do next:
+
+### Current Diagnosis
 - Primary bottleneck:
 - Confidence:
 - Observed facts used:
@@ -152,44 +132,22 @@ Create it with this structure after kickoff intake is complete:
 - If we're wrong:
 - Recommended next command:
 
-## Accelerator Ops
-- Partner briefing:
-- Weekly company status delta:
-- Red-flag memo:
-- Needs human help now: [yes / no]
-- Trigger(s):
-- Suggested human owner:
-- Suggested intervention:
-- By when:
-- Last ops update:
+### Company Assessments
+- Wedge Sharpness: [untested / weak evidence / validated / strong] | Evidence: ...
+- ICP Focus: [untested / weak evidence / validated / strong] | Evidence: ...
+- Value Recurrence: [untested / weak evidence / validated / strong] | Evidence: ...
+- Trust Architecture: [untested / weak evidence / validated / strong] | Evidence: ...
+- Evidence Quality: [untested / weak evidence / validated / strong] | Evidence: ...
+- Learning Velocity: [untested / weak evidence / validated / strong] | Evidence: ...
 
-## Cohort Comparison
-- Similar failed wedge patterns:
-- Repeated objection patterns:
-- Relevant trust-boundary patterns:
-- Segment benchmark read:
-- Where this company is above cohort:
-- Where this company is below cohort:
-- Cohort sample caveat:
-- Last cohort update:
-
-## Company Scores
-- Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-
-## Score History
+### Assessment History
 | Date | Wedge | ICP | Recurrence | Trust | Evidence | Velocity | Trigger |
 |------|-------|-----|------------|-------|----------|----------|---------|
-| YYYY-MM-DD |  |  |  |  |  |  | initial baseline / score change trigger |
+| YYYY-MM-DD |  |  |  |  |  |  | initial baseline / assessment change trigger |
 
-## Active Experiments
-### Experiment 1
+### Active Experiments
 - Name:
-- Status: [planned / running / complete / killed]
+- Status:
 - Linked dimension:
 - Hypothesis:
 - Falsifier:
@@ -202,37 +160,7 @@ Create it with this structure after kickoff intake is complete:
 - Latest result:
 - Next decision:
 
-### Experiment 2
-- Name:
-- Status: [planned / running / complete / killed]
-- Linked dimension:
-- Hypothesis:
-- Falsifier:
-- Owner:
-- Deadline:
-- Success threshold:
-- Failure threshold:
-- Ambiguous threshold:
-- Decision rule:
-- Latest result:
-- Next decision:
-
-### Experiment 3
-- Name:
-- Status: [planned / running / complete / killed]
-- Linked dimension:
-- Hypothesis:
-- Falsifier:
-- Owner:
-- Deadline:
-- Success threshold:
-- Failure threshold:
-- Ambiguous threshold:
-- Decision rule:
-- Latest result:
-- Next decision:
-
-## Decision Log
+### Decision Log
 - Older decisions summary:
 - Date:
   - Source experiment:
@@ -241,51 +169,63 @@ Create it with this structure after kickoff intake is complete:
   - Evidence:
   - Revisit when:
 
-## Next Wedge Constraints
-- What must remain true in the next wedge:
-- What we refuse to repeat:
+### Accelerator Ops
+- Partner briefing:
+- Weekly company status delta:
+- Red-flag memo:
+- Needs human help now:
+- Trigger(s):
+- Suggested human owner:
+- Suggested intervention:
+- By when:
 
-## Next 7 Days
-- 
-- 
-- 
-```
+### Cohort Comparison
+- Similar failed wedge patterns:
+- Repeated objection patterns:
+- Relevant trust-boundary patterns:
+- Segment benchmark read:
+- Where this company is above cohort:
+- Where this company is below cohort:
+- Cohort sample caveat:
 
 ## Write Contracts
 
-Whenever a working command materially changes the thesis, update `Evidence Log` with the latest observed facts, founder assertions, and model inferences instead of blending them into one evidence summary.
-`kickoff` and `progress` are the canonical commands for updating `Founder Handling`.
-`progress` is the canonical command for updating `Accelerator Ops`.
-`progress` is also the canonical command for updating `Cohort Comparison`.
+All working commands update `state.md` first.
+Whenever a working command materially changes the thesis, update `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move` before writing supporting detail anywhere else.
+`kickoff` and `progress` are the canonical commands for updating `Founder Handling` when that section exists.
+`progress` is the canonical command for updating `Accelerator Ops` and `Cohort Comparison` when those sections exist.
 
 ## Experiment Feedback Loop
 
-`experiment` is the canonical command for maintaining `Active Experiments`.
+`experiment` is the canonical command for maintaining experiment state.
 
 When an experiment is created or updated:
 
-- write the structured experiment entry into `Active Experiments`
+- update `Next Move` in `state.md`
 - ensure owner, deadline, falsifier, thresholds, and decision rule are all present
-- append the experiment plan to `experiment_log.md`
+- if `Active Experiments` exists or the experiment cadence is real enough to justify expanded mode, write the structured experiment entry there
+- append the experiment plan to `experiment_log.md`, creating the file if needed
 
 When an experiment result is reported:
 
 - append the outcome to `experiment_log.md`
-- update the matching `Active Experiments` entry with `Latest result`, `Status`, and `Next decision`
-- update `Evidence Log` with any new observed facts
-- update `Current Diagnosis` if the result materially changes the best current thesis
-- update `Next 7 Days`
-- append a `Decision Log` entry if the result triggered a real decision
-- update linked scores only with cited observed evidence and confidence, otherwise keep them suppressed
+- update the matching `Active Experiments` entry with `Latest result`, `Status`, and `Next decision` if that section exists
+- update `Evidence Collected` with any new observed facts
+- update `Current Thesis`, `Open Questions`, and `Next Move`
+- update `Current Diagnosis` if that section exists and the result materially changes the best current thesis
+- append a `Decision Log` entry if that section exists and the result triggered a real decision
+- update linked assessments only when `Company Assessments` is in use
 
 ## Decision Log Archival Rule
 
-When `Decision Log` exceeds `15` entries:
+When `Decision Log` in `state.md` exceeds `15` entries:
 
 - compress older entries into `Older decisions summary`
 - keep the most recent `10` full entries
 - preserve the main narrative arc, major thesis changes, and still-open revisitation points
 - do not drop unresolved decisions just to hit the limit
+
+These logs are optional. Create each one only when its trigger first fires.
 
 ### interview_log.md
 
@@ -482,9 +422,11 @@ Primary writer:
 ## Update Rules
 
 - Do not delete historical decisions unless the founder explicitly asks.
-- When a wedge dies, clear only the active wedge fields that are no longer true; preserve the rest of company state.
-- When a score changes, append a dated row to `Score History`.
+- When a wedge dies, clear only the active wedge fields in `state.md` that are no longer true; preserve the rest of company state.
+- Do not create expanded-mode sections just to satisfy a template. Add them only when they are materially useful.
+- When an assessment changes and `Assessment History` exists or expanded mode clearly warrants it, append a dated row.
 - Use the compact columns `Wedge`, `ICP`, `Recurrence`, `Trust`, `Evidence`, `Velocity`, and `Trigger`.
-- Use `suppressed` in any score cell that was intentionally not scored because evidence was too weak.
-- `progress` reads all founder logs and should not append to founder-specific logs unless it is explicitly recording a new decision in `founder_state.md`.
+- Use only `untested`, `weak evidence`, `validated`, or `strong` in assessment cells.
+- `progress` always reads `state.md` and reads founder-specific logs only if they exist.
+- `progress` should not append to founder-specific logs unless it is explicitly recording a new decision or expanded-mode update in `state.md`.
 - `progress` may append to shared cohort memory files when [cohort-memory.md](cohort-memory.md) says the evidence threshold is met.

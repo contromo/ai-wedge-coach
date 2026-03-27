@@ -15,8 +15,8 @@ Stay in `icp` mode until the beachhead is clear enough to name credibly.
 
 ## Evidence Handling
 
-If the founder shares customer conversations, append them to `interview_log.md`.
-If they share objections, append them to `objection_log.md`.
+If the founder shares customer conversations, append them to `interview_log.md`, creating the file if needed.
+If they share objections, append them to `objection_log.md`, creating the file if needed.
 Keep observed facts, founder assertions, and model inferences separate in the ICP read.
 If `cohort_memory/objection_patterns.md` exists and a concrete objection surfaced, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
 
@@ -69,7 +69,8 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update `ICP Hypotheses`.
-- Update `Evidence Log` if the ICP thesis or supporting evidence changed materially.
-- Update `ICP Focus` in company scores only with cited observed evidence and a confidence label; otherwise keep it suppressed.
-- Update `Current Diagnosis` and `Next 7 Days`.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move`.
+- Add or update `ICP Hypotheses` only if expanded mode is active or newly warranted.
+- Update `ICP Focus` only when `Company Assessments` is in use.
+- Update `Current Diagnosis` only if that section exists or is newly warranted.

@@ -53,10 +53,11 @@ Use these verdicts for each major claim:
 
 ## State And Logging
 
-- Update `Evidence Log` in `founder_state.md`.
-- Update `Current Diagnosis` only if the research materially changes the best current thesis.
-- Append a summary entry to `market_research_log.md`.
-- If research uncovers concrete objections, append them to `objection_log.md`.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move` when research materially changes the best current thesis.
+- Update `Current Diagnosis` only if expanded mode is active or the research clearly warrants that section.
+- Append a summary entry to `market_research_log.md`, creating the file if needed.
+- If research uncovers concrete objections, append them to `objection_log.md`, creating the file if needed.
 - If `cohort_memory/objection_patterns.md` exists and research uncovered a concrete objection with direct evidence, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
 - Record the source types reviewed, whether the minimum threshold was met, the strongest contradiction, and the overall verdict.
 

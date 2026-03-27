@@ -23,14 +23,14 @@ Return exactly:
 
 ## Commands
 - `kickoff` - Guided onboarding flow: asks one question at a time, builds clarity, creates a plan of attack, then establishes the current diagnosis.
-- `wedge` - Pressure-test the current workflow wedge with the 7-axis wedge rubric and only emit evidence-backed scores.
+- `wedge` - Pressure-test the current workflow wedge with the 7-axis wedge rubric and only emit evidence-backed assessments.
 - `icp` - Pressure-test who this is really for and force explicit exclusions.
 - `trust` - Design the AI autonomy boundary: what runs unattended, what needs review, and what must stay human-only.
 - `autonomy` - Alias of `trust`.
 - `research` - Validate founder claims against external market evidence with a minimum source mix, explicit contradiction handling, and `insufficient evidence` when the proof is weak.
 - `market` - Alias of `research`.
 - `experiment` - Design or update one 7-day or 14-day experiment tied to a top-level dimension.
-- `progress` - Summarize what has actually been learned, score trends, cohort-memory comparisons, partner briefing outputs, and the next critical question without forcing unsupported scores.
+- `progress` - Summarize what has actually been learned, assessment trends, cohort-memory comparisons, partner briefing outputs, and the next critical question without inflating unsupported labels.
 - `signals` - Planned. For now, use `progress` for evidence weighting.
 - `objections` - Planned. For now, use `icp` for buyer objections or `trust` for trust/compliance objections.
 - `pivot` - Planned. For now, use `wedge` for kill-path review, then `kickoff` reseed if needed.
@@ -52,7 +52,8 @@ Return exactly:
 - If a critical fact is missing, the coach asks one best next question and waits.
 - Diagnosis comes only after enough clarity exists for that command.
 - The coach labels observed facts, founder assertions, and model inferences instead of blending them together.
-- The coach attaches evidence and confidence to every score, or suppresses the score when the evidence is weak.
+- The coach starts with one `state.md` and expands into supporting logs only when the workflow actually produces enough detail to justify them.
+- The coach attaches evidence to every assessment and uses only `untested`, `weak evidence`, `validated`, or `strong`.
 
 ## Evidence Classification
 - Observed facts:

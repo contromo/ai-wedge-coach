@@ -2,13 +2,13 @@
 
 `wedge` pressure-tests the current workflow wedge.
 
-If a single missing fact blocks useful scoring, ask the single best next wedge question and wait before scoring.
+If a single missing fact blocks useful assessment, ask the single best next wedge question and wait before assessing.
 
-Stay in `wedge` mode until there is enough clarity to score the wedge honestly.
+Stay in `wedge` mode until there is enough clarity to assess the wedge honestly.
 
 ## First Step
 
-If the founder is vague, force wedge compression before scoring:
+If the founder is vague, force wedge compression before assessing:
 
 1. Broad version
 2. Narrower version
@@ -18,10 +18,10 @@ Use this sentence frame:
 
 `We help [specific user] handle [specific recurring workflow] when [trigger] so they can [measurable outcome].`
 
-Do not score a broad category statement like "AI operations agent for SMBs" without compressing it first.
+Do not assess a broad category statement like "AI operations agent for SMBs" without compressing it first.
 If the current coaching posture is `contradiction`, surface the strongest wedge inconsistency before deciding whether to keep, narrow, kill, or split.
 
-## Scoring
+## Assessment
 
 Use the 7-axis wedge rubric in [../rubrics.md](../rubrics.md):
 
@@ -33,16 +33,15 @@ Use the 7-axis wedge rubric in [../rubrics.md](../rubrics.md):
 - Value Realization
 - Deployment Fit
 
-Then run the non-scored `Why AI?` check.
+Then run the non-rubric `Why AI?` check.
 
-Before scoring, separate observed facts from founder assertions and model inferences.
-If a wedge score depends mostly on assertions or inference, suppress it and say so.
-If any wedge axis lacks direct observed support, suppress that axis instead of forcing a number.
-If any wedge axis is suppressed, suppress `Total` and `Band` too.
+Before assessing, separate observed facts from founder assertions and model inferences.
+If a wedge assessment depends mostly on assertions or inference, keep it at `untested` or `weak evidence` and say so.
+If any wedge axis lacks direct observed support, mark that axis `untested` instead of forcing a stronger label.
 
 ## Recurrence Rule
 
-Always surface `Recurrence` as a first-class line item in both the scorecard and diagnosis. Do not bury it.
+Always surface `Recurrence` as a first-class line item in both the assessment and diagnosis. Do not bury it.
 
 ## Recommendation Options
 
@@ -58,19 +57,19 @@ If the result is `kill`:
 - Append a `wedge_graveyard.md` entry.
 - If `cohort_memory/wedge_failures.md` exists, append a normalized failed-wedge entry using [../cohort-memory.md](../cohort-memory.md).
 - Preserve surviving assets, evidence, and next-wedge constraints.
-- Clear the active wedge fields in `founder_state.md` that are no longer true.
+- Clear the active wedge fields in `state.md` that are no longer true.
 - Update `Current Diagnosis` to reflect that the wedge is dead and the company needs a reseed.
 - Route to `kickoff` in reseed-after-kill mode.
 
 If the result is `split`:
 
-- Keep the active branch in `founder_state.md`.
+- Keep the active branch in `state.md`.
 - Append the deprioritized branch to `wedge_graveyard.md` as `split-deprioritized`.
 - If `cohort_memory/wedge_failures.md` exists, append the deprioritized branch as a normalized failed-wedge pattern using [../cohort-memory.md](../cohort-memory.md).
 
 ## Output Schema
 
-If the wedge is still too fuzzy to score, return exactly:
+If the wedge is still too fuzzy to assess, return exactly:
 
 ```markdown
 [one best next wedge question]
@@ -92,16 +91,14 @@ Once there is enough clarity, return exactly:
 - Narrower:
 - Brutally narrow:
 
-## Scorecard
-- Specificity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Pain: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Buyer Alignment: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Trust Fit: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Value Realization: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Deployment Fit: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Total: [numeric total or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-- Band: [band or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+## Wedge Assessment
+- Specificity: [untested / weak evidence / validated / strong] | Evidence: ...
+- Pain: [untested / weak evidence / validated / strong] | Evidence: ...
+- Recurrence: [untested / weak evidence / validated / strong] | Evidence: ...
+- Buyer Alignment: [untested / weak evidence / validated / strong] | Evidence: ...
+- Trust Fit: [untested / weak evidence / validated / strong] | Evidence: ...
+- Value Realization: [untested / weak evidence / validated / strong] | Evidence: ...
+- Deployment Fit: [untested / weak evidence / validated / strong] | Evidence: ...
 
 ## Why AI?
 - Step-change:
@@ -130,7 +127,7 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update the `Current Primary Wedge` section.
-- Update `Evidence Log` if the wedge thesis or its support changed materially.
-- Update `Wedge Sharpness`, `Value Recurrence`, and any other company-level scores materially affected.
-- Append a `Score History` row when scores change.
+- Update `state.md` first.
+- Refresh `Current Thesis`, `Open Questions`, `Evidence Collected`, and `Next Move`.
+- If expanded mode is active or newly warranted, update any detailed wedge, assessment, or diagnosis sections that are in use.
+- Append an `Assessment History` row only when that section exists or expanded mode is newly warranted.
