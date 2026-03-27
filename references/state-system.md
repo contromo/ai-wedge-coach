@@ -108,6 +108,7 @@ Default mode rules:
 ## Expanded Mode Sections Inside state.md
 
 When more structure materially helps, add only the sections that are justified:
+These sections are not required at kickoff. A fresh founder can stay in the four default sections until the coaching actually produces enough evidence, operator need, or workflow detail to warrant expansion.
 
 ### Market Reality
 - Claims tested:
