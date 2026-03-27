@@ -37,6 +37,9 @@ For each research run:
 6. Surface the highest-signal contradiction explicitly instead of averaging it away.
 7. If the minimum threshold is not met, say `insufficient evidence` rather than pretending the market check is complete.
 
+If the current coaching posture is `contradiction`, prioritize the strongest disconfirming evidence first.
+If the current coaching posture is `proof`, prioritize converting the highest-load founder assertion into an observed external fact.
+
 Do not call a claim `supported` from one good-looking source or repeated vendor copy.
 
 ## Verdict Rules

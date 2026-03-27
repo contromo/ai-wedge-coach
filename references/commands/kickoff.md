@@ -24,7 +24,7 @@ Collect enough to populate:
 - Evidence baseline
 - Current bottleneck
 
-Also detect one primary archetype from [../archetypes.md](../archetypes.md) when possible.
+Also detect one primary archetype and coaching posture from [../archetypes.md](../archetypes.md) when possible.
 
 ## Guided Pre-Diagnosis Flow
 
@@ -62,6 +62,7 @@ In that case:
 - If intake is incomplete, ask the single most useful next question first and wait for the founder's answer.
 - Populate `founder_state.md` as soon as there is enough information to make the state useful, even if some fields remain open.
 - Keep `Evidence Log` split into `Observed facts`, `Founder assertions`, and `Model inferences` from the start.
+- Populate `Founder Handling` as soon as there is enough evidence to justify an archetype or posture. Do not invent one from thin signal.
 - During early kickoff, populate `Guided Discovery`, `Market Reality Check`, and `Current plan of attack` before scoring aggressively.
 - Backfill `interview_log.md`, `objection_log.md`, and `experiment_log.md` if the founder supplies prior history.
 - Append a starter entry to `market_research_log.md` when kickoff defines concrete claims or open questions worth validating externally.
@@ -141,6 +142,11 @@ If intake is sufficient for discovery but not yet sufficient for a hard diagnosi
 - Founder assertions:
 - Model inferences:
 
+## Founder Handling
+- Current archetype:
+- Coaching posture:
+- Why this posture now:
+
 ## What Looks Promising
 - ...
 
@@ -190,6 +196,11 @@ If intake is complete enough to initialize state, return exactly:
 - Observed facts:
 - Founder assertions:
 - Model inferences:
+
+## Founder Handling
+- Current archetype:
+- Coaching posture:
+- Why this posture now:
 
 ## Diagnosis
 - Primary bottleneck:

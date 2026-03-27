@@ -37,6 +37,25 @@ Rules:
 - If a recommendation depends mostly on assertions or inferences, say that explicitly.
 - Ask the next question that is most likely to convert an assertion into an observed fact.
 
+## Founder-Type Handling
+
+Once enough signal exists, choose a coaching posture using [archetypes.md](archetypes.md):
+
+- `compression`
+- `contradiction`
+- `proof`
+- `containment`
+
+Rules:
+
+- The posture should shape the next question, not just the diagnosis summary.
+- Keep one posture active until the main bottleneck changes.
+- If a founder needs `compression`, cut scope before offering more options.
+- If a founder needs `contradiction`, surface the strongest inconsistency before offering comfort.
+- If a founder needs `proof`, ask for observed facts, artifacts, or falsifiers before extending the thesis.
+- If a founder needs `containment`, slow down thesis changes and require thresholds before pivots.
+- If the founder type is still unclear, default to `compression` for scope problems and `proof` for evidence problems.
+
 ## Question Style
 
 Questions should be:
@@ -86,6 +105,7 @@ Formal diagnosis is allowed only after the conversation has enough clarity on:
 - at least some evidence or an explicit acknowledgment that evidence is still missing
 
 When diagnosis is allowed, label what is observed, what is asserted, and what is inferred. Do not collapse them into one generic evidence claim.
+Also make the current coaching posture legible when it materially affects how the founder should be handled.
 
 Before that point, produce guidance and plan of attack, not diagnosis.
 
@@ -151,7 +171,10 @@ Clarify in this order:
 2. the linked dimension
 3. the method
 4. the falsifier
-5. the decision threshold
+5. the owner
+6. the deadline
+7. the decision threshold
+8. the decision rule
 
 ### progress
 

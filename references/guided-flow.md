@@ -11,9 +11,10 @@ Move through discovery in order:
 1. founder narrative
 2. workflow extraction
 3. evidence audit
-4. market reality check
-5. plan of attack
-6. diagnosis
+4. founder handling read
+5. market reality check
+6. plan of attack
+7. diagnosis
 
 Diagnosis comes last, not first.
 
@@ -55,7 +56,19 @@ Model inferences are the coach's interpretations, extrapolations, or pattern mat
 Only observed facts count as evidence.
 Founder assertions and model inferences can guide the next move, but they are not proof.
 
-## Step 4: Market Reality Check
+## Step 4: Founder Handling Read
+
+Use [archetypes.md](archetypes.md).
+
+Before diagnosis, decide:
+
+- the most likely primary archetype
+- the coaching posture this founder needs now: `compression`, `contradiction`, `proof`, or `containment`
+- why that posture is the right one
+
+The posture should change how the next question is asked, not just what label appears in state.
+
+## Step 5: Market Reality Check
 
 Use [market-research.md](market-research.md).
 
@@ -68,22 +81,25 @@ Validate:
 
 If the story is still mostly assertion, the next move is usually `research`.
 
-## Step 5: Plan Of Attack
+## Step 6: Plan Of Attack
 
 Before diagnosis, create a short plan of attack:
 
 - what appears strongest
 - what is still fragile
 - what must be validated next
+- what coaching posture to use next and why
 - which command should run next and why
 
 Keep it to 2-4 moves.
 
-## Step 6: Diagnosis
+## Step 7: Diagnosis
 
 Only after the first five steps are complete enough should you lock in:
 
 - primary bottleneck
+- current archetype
+- coaching posture
 - confidence
 - observed facts
 - founder assertions

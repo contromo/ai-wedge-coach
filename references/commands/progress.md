@@ -31,6 +31,7 @@ Use [../cohort-memory.md](../cohort-memory.md) when these files are available.
 - Show deltas using `Score History`.
 - Call out `Value Recurrence` explicitly every time.
 - Identify at least one founder archetype when the evidence supports it.
+- Identify the current coaching posture when the evidence supports it.
 - Name repeated pathologies without drifting into generic coaching.
 - Include what external market research has confirmed or weakened.
 - Separate observed facts, founder assertions, and model inferences explicitly in the summary.
@@ -84,9 +85,14 @@ Once there is enough clarity, return exactly:
 - Value recurrence read:
 
 ## Pattern Read
-- Primary archetype:
 - Repeated pathology:
 - Current best thesis:
+
+## Founder Handling
+- Primary archetype:
+- Coaching posture:
+- Why this posture now:
+- What the coach should do next:
 
 ## Evidence Classification
 - Observed facts:
@@ -154,6 +160,7 @@ Once there is enough clarity, return exactly:
 - Update `Company Scores`.
 - Append a new `Score History` entry when scores changed since the last snapshot, including confidence, evidence, or suppression reason.
 - Refresh `Evidence Log` when the evidence mix or thesis changed.
+- Update `Founder Handling`.
 - Update `Accelerator Ops`.
 - Update `Cohort Comparison`.
 - If `cohort_memory/segment_benchmarks.md` exists and the segment is specific enough with direct observed support, append a new benchmark snapshot using [../cohort-memory.md](../cohort-memory.md).

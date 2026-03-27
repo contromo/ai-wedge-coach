@@ -100,8 +100,8 @@ Definition: claims are backed by customer interviews, usage, objections, pricing
 Definition: the team runs falsifiable experiments and closes loops quickly.
 
 - `1`: building dominates learning; no clear hypotheses or deadlines.
-- `3`: experiments happen, but thresholds or decisions are sloppy.
-- `5`: there is a repeatable cadence of hypothesis, falsifier, deadline, result, and decision.
+- `3`: experiments happen, but owner, falsifier, thresholds, or decisions are sloppy.
+- `5`: there is a repeatable cadence of hypothesis, owner, falsifier, deadline, threshold, result, and decision.
 
 ## Wedge-Specific Rubric
 

@@ -19,6 +19,7 @@ Use this sentence frame:
 `We help [specific user] handle [specific recurring workflow] when [trigger] so they can [measurable outcome].`
 
 Do not score a broad category statement like "AI operations agent for SMBs" without compressing it first.
+If the current coaching posture is `contradiction`, surface the strongest wedge inconsistency before deciding whether to keep, narrow, kill, or split.
 
 ## Scoring
 

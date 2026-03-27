@@ -26,7 +26,9 @@ Say `kickoff`, describe what you're building, and the coach will start narrowing
 
 **Cohort memory** - Tracks common failed wedges, repeated objections, trust-boundary patterns, and segment-specific benchmarks across companies when shared cohort memory is available.
 
-**Pattern recognition** - Detects founder archetypes like Premature Scaler, Demo Polisher, Feature Hoarder, Data Avoider, Pivot Junkie, and Services-in-Denial, then routes to the right intervention.
+**Experiment quality control** - Requires every experiment to carry an owner, deadline, falsifier, thresholds, and a decision rule, then pushes the result back into active state automatically.
+
+**Pattern recognition** - Detects founder archetypes like Premature Scaler, Demo Polisher, Feature Hoarder, Data Avoider, Pivot Junkie, and Services-in-Denial, then changes the coaching posture accordingly: some founders need compression, others contradiction, proof, or containment.
 
 **Market reality checking** - Runs market research against founder claims with a minimum source mix, explicit contradiction handling, and an `insufficient evidence` outcome when the proof is weak.
 
@@ -135,8 +137,8 @@ If you want cross-company memory, point each founder workspace at the same `coho
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
 | `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
-| `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule |
-| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension scoreboard with score evidence or suppressions, evidence split, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
+| `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule, automatic state feedback |
+| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension scoreboard with score evidence or suppressions, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
 | `help` | Show the command menu and starting points | Command list plus recommended entry point |
 
 ### Planned Commands
@@ -257,7 +259,9 @@ Expected output:
 - one falsifier
 - one owner
 - one deadline
+- one threshold set
 - one decision rule
+- automatic state feedback when results are reported
 
 ### 6) The founder needs market validation
 
@@ -287,6 +291,7 @@ Expected output:
 - current six-dimension scoreboard
 - value recurrence read
 - primary archetype
+- coaching posture
 - current best thesis
 - cohort memory read
 - partner briefing

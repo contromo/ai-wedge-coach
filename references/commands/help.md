@@ -16,6 +16,8 @@ Return exactly:
 - Interprets evidence and recurrence signals
 - Produces accelerator partner briefings and human-escalation triggers
 - Builds cohort memory across companies when shared cohort files are available
+- Enforces experiment quality control and automatic feedback into state
+- Adapts coaching posture by founder type: compression, contradiction, proof, or containment
 - Guides the founder one question at a time before giving a verdict
 - Forces one concrete next experiment
 

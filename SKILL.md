@@ -111,6 +111,9 @@ Planned command stubs:
 - Never emit a naked score. Every score must include cited observed evidence and a confidence label, or be explicitly suppressed.
 - Use `progress` as the accelerator operator handoff: include a partner briefing, weekly company status delta, red-flag memo, and explicit `needs human help now` triggers.
 - If shared `cohort_memory/` exists, use it to compare against common failed wedges, repeated objections, trust-boundary patterns, and segment benchmarks.
+- Enforce experiment quality control: every experiment must have an owner, deadline, falsifier, thresholds, and a decision rule, and experiment results must feed back into state automatically.
+- Detect founder type and choose a coaching posture: `compression`, `contradiction`, `proof`, or `containment`.
+- Let the coaching posture shape the next question and pressure style, not just the label in the summary.
 - Force wedge compression before scoring when a description is vague.
 - Distinguish user, buyer, and champion explicitly.
 - Ask what happens if the workflow is not solved.

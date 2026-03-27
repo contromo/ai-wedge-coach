@@ -119,6 +119,14 @@ Create it with this structure after kickoff intake is complete:
 - Retention evidence:
 - Top objections:
 
+## Founder Handling
+- Current archetype:
+- Coaching posture: [compression / contradiction / proof / containment]
+- Why this posture:
+- Secondary blocking archetype:
+- What the coach should do next:
+- Last updated:
+
 ## Guided Discovery
 - Current phase:
 - What we know:
@@ -184,12 +192,54 @@ Create it with this structure after kickoff intake is complete:
   - Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
 
 ## Active Experiments
-1.
-2.
-3.
+### Experiment 1
+- Name:
+- Status: [planned / running / complete / killed]
+- Linked dimension:
+- Hypothesis:
+- Falsifier:
+- Owner:
+- Deadline:
+- Success threshold:
+- Failure threshold:
+- Ambiguous threshold:
+- Decision rule:
+- Latest result:
+- Next decision:
+
+### Experiment 2
+- Name:
+- Status: [planned / running / complete / killed]
+- Linked dimension:
+- Hypothesis:
+- Falsifier:
+- Owner:
+- Deadline:
+- Success threshold:
+- Failure threshold:
+- Ambiguous threshold:
+- Decision rule:
+- Latest result:
+- Next decision:
+
+### Experiment 3
+- Name:
+- Status: [planned / running / complete / killed]
+- Linked dimension:
+- Hypothesis:
+- Falsifier:
+- Owner:
+- Deadline:
+- Success threshold:
+- Failure threshold:
+- Ambiguous threshold:
+- Decision rule:
+- Latest result:
+- Next decision:
 
 ## Decision Log
 - Date:
+  - Source experiment:
   - Decision:
   - Why:
   - Evidence:
@@ -208,8 +258,29 @@ Create it with this structure after kickoff intake is complete:
 ## Write Contracts
 
 Whenever a working command materially changes the thesis, update `Evidence Log` with the latest observed facts, founder assertions, and model inferences instead of blending them into one evidence summary.
+`kickoff` and `progress` are the canonical commands for updating `Founder Handling`.
 `progress` is the canonical command for updating `Accelerator Ops`.
 `progress` is also the canonical command for updating `Cohort Comparison`.
+
+## Experiment Feedback Loop
+
+`experiment` is the canonical command for maintaining `Active Experiments`.
+
+When an experiment is created or updated:
+
+- write the structured experiment entry into `Active Experiments`
+- ensure owner, deadline, falsifier, thresholds, and decision rule are all present
+- append the experiment plan to `experiment_log.md`
+
+When an experiment result is reported:
+
+- append the outcome to `experiment_log.md`
+- update the matching `Active Experiments` entry with `Latest result`, `Status`, and `Next decision`
+- update `Evidence Log` with any new observed facts
+- update `Current Diagnosis` if the result materially changes the best current thesis
+- update `Next 7 Days`
+- append a `Decision Log` entry if the result triggered a real decision
+- update linked scores only with cited observed evidence and confidence, otherwise keep them suppressed
 
 ### interview_log.md
 
@@ -288,6 +359,10 @@ Append format:
 - Owner:
 - Deadline:
 - Method:
+- Success threshold:
+- Failure threshold:
+- Ambiguous threshold:
+- Decision rule:
 - Expected signal:
 - Result:
 - Interpretation:

@@ -18,10 +18,42 @@ In both modes, attach the experiment to one company-level dimension:
 - Evidence Quality
 - Learning Velocity
 
+## Experiment Quality Gate
+
+An experiment is not valid unless it has all of these:
+
+- owner
+- deadline
+- falsifier
+- signal threshold
+- decision rule
+
+If any of those fields are missing, do not draft a partial experiment and do not pretend it is ready to run.
+Ask the single missing question that most directly completes the experiment.
+
+## Result Update Mode
+
+If the founder is reporting back on an existing experiment:
+
+- interpret the result against the stated thresholds
+- decide whether the result is `success`, `failure`, or `ambiguous`
+- apply the linked decision rule
+- feed that result back into founder state automatically
+
+Do not leave an experiment result sitting in `experiment_log.md` without updating the active state.
+
+If the current coaching posture is `proof`, use the experiment to convert the biggest assertion into an observed fact.
+If the current coaching posture is `containment`, make the experiment define the threshold for changing direction.
+
 ## Rules
 
 - One experiment only.
 - The hypothesis must be falsifiable.
+- The experiment must name one explicit owner.
+- The experiment must have one deadline.
+- The experiment must have one explicit falsifier.
+- The experiment must have concrete success, failure, and ambiguous thresholds.
+- The experiment must have a decision rule that changes what the team does next.
 - The method must be concrete enough to run this week.
 - Success and failure thresholds must imply a decision.
 - If the hypothesis depends on unvalidated market assumptions, recommend `research` first or in parallel.
@@ -43,6 +75,7 @@ Once there is enough clarity, return exactly:
 
 ```markdown
 ## Experiment Brief
+- Status: [planned / running / complete / killed]
 - Mode:
 - Linked dimension:
 - Hypothesis:
@@ -86,7 +119,8 @@ Once there is enough clarity, return exactly:
 
 ## State Updates
 
-- Update `Active Experiments`.
+- Update `Active Experiments` with the experiment's status, linked dimension, hypothesis, falsifier, owner, deadline, thresholds, and decision rule.
 - Update `Evidence Log` if the hypothesis basis changed materially.
+- When a result is reported, append the outcome to `experiment_log.md`, update `Evidence Log`, update `Current Diagnosis`, update `Next 7 Days`, and append a `Decision Log` entry if the decision rule fired.
 - Update `Learning Velocity` and any linked company-level dimension that materially changed only with cited observed evidence and a confidence label; otherwise keep the score suppressed.
 - Append a `Score History` entry when scores change, including confidence, evidence, or suppression reason.
