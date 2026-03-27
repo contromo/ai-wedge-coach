@@ -69,7 +69,7 @@ In that case:
 - If prior dead wedges are backfilled and `cohort_memory/wedge_failures.md` exists, append normalized failed-wedge entries using [../cohort-memory.md](../cohort-memory.md).
 - If recurring objections are backfilled and `cohort_memory/objection_patterns.md` exists, append normalized objection entries using [../cohort-memory.md](../cohort-memory.md).
 - If this is a reseed after `kill`, preserve surviving assets and next-wedge constraints from `wedge_graveyard.md`.
-- Record the first `Company Scores` baseline and append a `Score History` entry with the reason `initial baseline` or `reseed after wedge kill` only when each numeric score has direct observed support.
+- Record the first `Company Scores` baseline and append a `Score History` row with the trigger `initial baseline` or `reseed after wedge kill` only when each numeric score has direct observed support.
 - If a dimension lacks direct observed support, mark that score as `suppressed` with a reason instead of forcing a baseline number.
 
 ## Intake Checklist

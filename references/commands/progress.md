@@ -158,7 +158,7 @@ Once there is enough clarity, return exactly:
 ## State Updates
 
 - Update `Company Scores`.
-- Append a new `Score History` entry when scores changed since the last snapshot, including confidence, evidence, or suppression reason.
+- Append a new `Score History` row when scores changed since the last snapshot.
 - Refresh `Evidence Log` when the evidence mix or thesis changed.
 - Update `Founder Handling`.
 - Update `Accelerator Ops`.

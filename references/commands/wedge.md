@@ -133,4 +133,4 @@ Once there is enough clarity, return exactly:
 - Update the `Current Primary Wedge` section.
 - Update `Evidence Log` if the wedge thesis or its support changed materially.
 - Update `Wedge Sharpness`, `Value Recurrence`, and any other company-level scores materially affected.
-- Append a `Score History` entry when scores change, including confidence, evidence, or suppression reason.
+- Append a `Score History` row when scores change.

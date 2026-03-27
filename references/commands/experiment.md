@@ -123,4 +123,4 @@ Once there is enough clarity, return exactly:
 - Update `Evidence Log` if the hypothesis basis changed materially.
 - When a result is reported, append the outcome to `experiment_log.md`, update `Evidence Log`, update `Current Diagnosis`, update `Next 7 Days`, and append a `Decision Log` entry if the decision rule fired.
 - Update `Learning Velocity` and any linked company-level dimension that materially changed only with cited observed evidence and a confidence label; otherwise keep the score suppressed.
-- Append a `Score History` entry when scores change, including confidence, evidence, or suppression reason.
+- Append a `Score History` row when scores change.

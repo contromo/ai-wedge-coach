@@ -182,14 +182,9 @@ Create it with this structure after kickoff intake is complete:
 - Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
 
 ## Score History
-- Date:
-  - Reason for score change:
-  - Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-  - ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-  - Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-  - Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-  - Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
-  - Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+| Date | Wedge | ICP | Recurrence | Trust | Evidence | Velocity | Trigger |
+|------|-------|-----|------------|-------|----------|----------|---------|
+| YYYY-MM-DD |  |  |  |  |  |  | initial baseline / score change trigger |
 
 ## Active Experiments
 ### Experiment 1
@@ -488,6 +483,8 @@ Primary writer:
 
 - Do not delete historical decisions unless the founder explicitly asks.
 - When a wedge dies, clear only the active wedge fields that are no longer true; preserve the rest of company state.
-- When a score changes, add a dated entry to `Score History` with a short reason, confidence label, and cited evidence or suppression reason.
+- When a score changes, append a dated row to `Score History`.
+- Use the compact columns `Wedge`, `ICP`, `Recurrence`, `Trust`, `Evidence`, `Velocity`, and `Trigger`.
+- Use `suppressed` in any score cell that was intentionally not scored because evidence was too weak.
 - `progress` reads all founder logs and should not append to founder-specific logs unless it is explicitly recording a new decision in `founder_state.md`.
 - `progress` may append to shared cohort memory files when [cohort-memory.md](cohort-memory.md) says the evidence threshold is met.
