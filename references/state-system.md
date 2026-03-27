@@ -238,6 +238,7 @@ Create it with this structure after kickoff intake is complete:
 - Next decision:
 
 ## Decision Log
+- Older decisions summary:
 - Date:
   - Source experiment:
   - Decision:
@@ -281,6 +282,15 @@ When an experiment result is reported:
 - update `Next 7 Days`
 - append a `Decision Log` entry if the result triggered a real decision
 - update linked scores only with cited observed evidence and confidence, otherwise keep them suppressed
+
+## Decision Log Archival Rule
+
+When `Decision Log` exceeds `15` entries:
+
+- compress older entries into `Older decisions summary`
+- keep the most recent `10` full entries
+- preserve the main narrative arc, major thesis changes, and still-open revisitation points
+- do not drop unresolved decisions just to hit the limit
 
 ### interview_log.md
 
