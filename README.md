@@ -8,6 +8,8 @@ It scores the business across six top-level dimensions, pressure-tests wedges wi
 
 Say `kickoff`, describe what you're building, and the coach will start narrowing the wedge immediately.
 
+See `examples/` for a worked coaching session.
+
 ---
 
 ## What It Does
