@@ -23,6 +23,9 @@ Use [../diagnosis-trees.md](../diagnosis-trees.md) for the trust-boundary tree.
 ## Log Writes
 
 Append to `objection_log.md` when trust, compliance, auditability, or error-tolerance objections surface.
+Keep observed trust facts, founder assertions, and model inferences separate before recommending an operating mode.
+If `cohort_memory/objection_patterns.md` exists and a concrete objection surfaced, append a normalized objection pattern entry.
+If `cohort_memory/trust_patterns.md` exists and the trust boundary is concrete enough, append a normalized trust-pattern entry using [../cohort-memory.md](../cohort-memory.md).
 
 ## Output Schema
 
@@ -59,6 +62,11 @@ Once there is enough clarity, return exactly:
 - Fallback behavior:
 - Eval set:
 
+## Evidence Classification
+- Observed facts:
+- Founder assertions:
+- Model inferences:
+
 ## Diagnosis
 - Primary bottleneck:
 - Confidence:
@@ -77,5 +85,6 @@ Once there is enough clarity, return exactly:
 ## State Updates
 
 - Update `Trust Boundary`.
-- Update `Trust Architecture` in company scores.
+- Update `Evidence Log` if the trust thesis or its support changed materially.
+- Update `Trust Architecture` in company scores only with cited observed evidence and a confidence label; otherwise keep it suppressed.
 - Update `Current Diagnosis` and `Next 7 Days`.

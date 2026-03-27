@@ -4,6 +4,20 @@ Runtime state lives in the founder's current working directory. Use append-only 
 
 Do not commit runtime files as part of the skill package. They are founder-specific working state, not repo content.
 
+## Evidence Classification Rule
+
+All working commands must keep three evidence buckets separate in state and outputs:
+
+- `Observed facts`
+- `Founder assertions`
+- `Model inferences`
+
+Observed facts are things actually seen in interviews, usage, pilots, pricing conversations, objections, experiment results, or external artifacts.
+Founder assertions are unverified founder claims.
+Model inferences are coach interpretations built on top of the other two buckets.
+
+Do not silently promote an assertion or an inference into a fact.
+
 ## Canonical File Set
 
 - `founder_state.md`
@@ -12,6 +26,18 @@ Do not commit runtime files as part of the skill package. They are founder-speci
 - `experiment_log.md`
 - `market_research_log.md`
 - `wedge_graveyard.md`
+
+## Optional Shared Cohort Memory
+
+If `cohort_memory/` exists in the current working directory, treat it as shared accelerator memory.
+For multi-company use, point each founder workspace at the same shared directory.
+
+Shared cohort files:
+
+- `cohort_memory/wedge_failures.md`
+- `cohort_memory/objection_patterns.md`
+- `cohort_memory/trust_patterns.md`
+- `cohort_memory/segment_benchmarks.md`
 
 ## founder_state.md
 
@@ -50,7 +76,7 @@ Create it with this structure after kickoff intake is complete:
 - Must-have or nice-to-have:
 - Why AI step-change:
 - Recommendation status:
-- Last wedge score:
+- Last wedge score: [numeric total or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
 
 ## ICP Hypotheses
 ### Primary
@@ -82,9 +108,13 @@ Create it with this structure after kickoff intake is complete:
 - Recommended operating mode:
 
 ## Evidence Log
+- Observed facts:
+- Founder assertions:
+- Model inferences:
 - Interviews completed:
-- Strongest signal:
-- Weakest assumption:
+- Strongest observed signal:
+- Weakest assertion:
+- Biggest inference risk:
 - Pricing evidence:
 - Retention evidence:
 - Top objections:
@@ -108,27 +138,50 @@ Create it with this structure after kickoff intake is complete:
 ## Current Diagnosis
 - Primary bottleneck:
 - Confidence:
-- Evidence:
+- Observed facts used:
+- Founder assertions carrying load:
+- Model inferences used:
 - If we're wrong:
 - Recommended next command:
 
+## Accelerator Ops
+- Partner briefing:
+- Weekly company status delta:
+- Red-flag memo:
+- Needs human help now: [yes / no]
+- Trigger(s):
+- Suggested human owner:
+- Suggested intervention:
+- By when:
+- Last ops update:
+
+## Cohort Comparison
+- Similar failed wedge patterns:
+- Repeated objection patterns:
+- Relevant trust-boundary patterns:
+- Segment benchmark read:
+- Where this company is above cohort:
+- Where this company is below cohort:
+- Cohort sample caveat:
+- Last cohort update:
+
 ## Company Scores
-- Wedge Sharpness:
-- ICP Focus:
-- Value Recurrence:
-- Trust Architecture:
-- Evidence Quality:
-- Learning Velocity:
+- Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
 
 ## Score History
 - Date:
-  - Wedge Sharpness:
-  - ICP Focus:
-  - Value Recurrence:
-  - Trust Architecture:
-  - Evidence Quality:
-  - Learning Velocity:
   - Reason for score change:
+  - Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+  - ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+  - Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+  - Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+  - Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+  - Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
 
 ## Active Experiments
 1.
@@ -153,6 +206,10 @@ Create it with this structure after kickoff intake is complete:
 ```
 
 ## Write Contracts
+
+Whenever a working command materially changes the thesis, update `Evidence Log` with the latest observed facts, founder assertions, and model inferences instead of blending them into one evidence summary.
+`progress` is the canonical command for updating `Accelerator Ops`.
+`progress` is also the canonical command for updating `Cohort Comparison`.
 
 ### interview_log.md
 
@@ -255,12 +312,20 @@ Append format:
 ## YYYY-MM-DD - [research focus]
 - Command source:
 - Workflow / claim tested:
+- Founder assertions tested:
+- Observed external facts:
+- Model inferences carried forward:
+- Required source types:
+- Minimum evidence threshold:
+- Threshold met:
 - What supports the story:
 - What weakens the story:
+- Strongest contradiction:
 - Visible substitutes:
 - Buyer / procurement clues:
 - Trust / deployment clues:
 - Sources or artifact types reviewed:
+- Overall verdict:
 - What changed in our thesis:
 ```
 
@@ -290,9 +355,54 @@ Append format:
 - Routed next step:
 ```
 
+### cohort_memory/
+
+Purpose: optional shared accelerator memory across companies.
+
+Use [cohort-memory.md](cohort-memory.md) for normalization and write thresholds.
+If the directory does not exist, skip cohort reads and writes.
+
+#### cohort_memory/wedge_failures.md
+
+Append-only record of failed wedges across companies.
+
+Primary writer:
+
+- `wedge`
+
+#### cohort_memory/objection_patterns.md
+
+Append-only record of normalized objection patterns across companies.
+
+Primary writers:
+
+- `kickoff`
+- `icp`
+- `trust`
+- `research`
+- `experiment`
+
+#### cohort_memory/trust_patterns.md
+
+Append-only record of trust-boundary patterns across companies.
+
+Primary writers:
+
+- `trust`
+- `progress`
+
+#### cohort_memory/segment_benchmarks.md
+
+Append-only record of segment benchmark snapshots across companies.
+
+Primary writer:
+
+- `progress`
+
 ## Update Rules
 
 - Do not delete historical decisions unless the founder explicitly asks.
 - When a wedge dies, clear only the active wedge fields that are no longer true; preserve the rest of company state.
-- When a score changes, add a dated entry to `Score History` with a short reason.
-- `progress` reads all files but should not append to the logs unless it is explicitly recording a new decision in `founder_state.md`.
+- When a score changes, add a dated entry to `Score History` with a short reason, confidence label, and cited evidence or suppression reason.
+- `progress` reads all founder logs and should not append to founder-specific logs unless it is explicitly recording a new decision in `founder_state.md`.
+- `progress` may append to shared cohort memory files when [cohort-memory.md](cohort-memory.md) says the evidence threshold is met.

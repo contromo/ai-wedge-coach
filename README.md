@@ -22,9 +22,15 @@ Say `kickoff`, describe what you're building, and the coach will start narrowing
 
 **Progress and continuity** - Maintains `founder_state.md`, `interview_log.md`, `objection_log.md`, `experiment_log.md`, and `wedge_graveyard.md` so the system compounds over time instead of restarting every session.
 
+**Accelerator ops handoff** - Produces partner briefings, weekly company status deltas, red-flag memos, and `needs human help now` triggers so human operators know when to step in.
+
+**Cohort memory** - Tracks common failed wedges, repeated objections, trust-boundary patterns, and segment-specific benchmarks across companies when shared cohort memory is available.
+
 **Pattern recognition** - Detects founder archetypes like Premature Scaler, Demo Polisher, Feature Hoarder, Data Avoider, Pivot Junkie, and Services-in-Denial, then routes to the right intervention.
 
-**Market reality checking** - Runs market research against founder claims so the coach can validate pain, substitutes, buying motion, demand clues, and trust constraints before treating the story as true.
+**Market reality checking** - Runs market research against founder claims with a minimum source mix, explicit contradiction handling, and an `insufficient evidence` outcome when the proof is weak.
+
+**Evidence discipline** - Separates observed facts, founder assertions, and model inferences so the coach does not smuggle guesses into the evidence base.
 
 **Guided conversation** - Every working command should guide the founder one question at a time, force clarity step by step, and hold diagnosis until the command has enough signal.
 
@@ -107,6 +113,15 @@ The coach writes persistent state into the founder's current working directory:
 
 These files are created and updated automatically. If you test the skill from this repo root, they are gitignored.
 
+Optional shared accelerator memory:
+
+- `cohort_memory/wedge_failures.md`
+- `cohort_memory/objection_patterns.md`
+- `cohort_memory/trust_patterns.md`
+- `cohort_memory/segment_benchmarks.md`
+
+If you want cross-company memory, point each founder workspace at the same `cohort_memory/` directory, usually by symlink.
+
 ---
 
 ## Commands
@@ -115,13 +130,13 @@ These files are created and updated automatically. If you test the skill from th
 
 | Command | Purpose | Typical Output |
 | --- | --- | --- |
-| `kickoff` | Initialize founder state or reseed after a dead wedge | Company snapshot, baseline scores, initial diagnosis, recommended next command |
-| `wedge` | Pressure-test the current workflow wedge | Wedge compression, 7-axis scorecard, `Why AI?` check, keep/narrow/kill/split recommendation |
+| `kickoff` | Initialize founder state or reseed after a dead wedge | Company snapshot, evidence-backed baseline scores or suppressions, initial diagnosis, recommended next command |
+| `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis scorecard or suppressions, `Why AI?` check, keep/narrow/kill/split recommendation |
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
-| `research` | Validate founder claims against the market | Claim inventory, external validation, substitutes, demand clues, contradictions, research-backed next move |
+| `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
 | `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule |
-| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension scoreboard, score trend, archetype read, current best thesis |
+| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension scoreboard with score evidence or suppressions, evidence split, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
 | `help` | Show the command menu and starting points | Command list plus recommended entry point |
 
 ### Planned Commands
@@ -136,6 +151,12 @@ These files are created and updated automatically. If you test the skill from th
 ---
 
 ## Scoring System
+
+Score discipline:
+
+- every numeric score must include a confidence label and cited observed evidence
+- if the evidence is mostly assertion or inference, suppress the score instead of guessing
+- wedge totals and bands should be suppressed if any underlying wedge axis is suppressed
 
 ### Company-Level Progress Rubric
 
@@ -176,7 +197,7 @@ Expected output:
 
 - company snapshot
 - current thesis
-- baseline 6-dimension scores
+- baseline 6-dimension scores with confidence and evidence, or suppressions where proof is weak
 - primary bottleneck
 - recommended next command
 
@@ -194,7 +215,7 @@ Then describe the product. The coach will force three wedge versions:
 
 Expected output:
 
-- wedge scorecard
+- wedge scorecard with confidence and cited evidence per axis, or suppressions where proof is weak
 - recurrence read
 - `Why AI?` check
 - keep / narrow / kill / split recommendation
@@ -246,7 +267,10 @@ research
 
 Expected output:
 
+- observed facts vs founder assertions vs model inferences
+- source types reviewed and whether the threshold was met
 - founder claims to validate
+- claim verdicts: supported / mixed / contradicted / insufficient evidence
 - what the market evidence supports
 - what contradicts the story
 - substitutes and competitors
@@ -264,7 +288,11 @@ Expected output:
 - value recurrence read
 - primary archetype
 - current best thesis
-- next critical question
+- cohort memory read
+- partner briefing
+- weekly company status delta
+- red-flag memo
+- `needs human help now` triggers
 
 ---
 

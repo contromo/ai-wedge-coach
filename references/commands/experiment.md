@@ -27,7 +27,9 @@ In both modes, attach the experiment to one company-level dimension:
 - If the hypothesis depends on unvalidated market assumptions, recommend `research` first or in parallel.
 - If the experiment uses customer conversations, append those results to `interview_log.md`.
 - If the experiment surfaces objections, append them to `objection_log.md`.
+- If `cohort_memory/objection_patterns.md` exists and the experiment surfaces a concrete objection with direct evidence, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
 - Always append the experiment itself to `experiment_log.md`.
+- Separate observed facts, founder assertions, and model inferences before choosing the experiment.
 
 ## Output Schema
 
@@ -62,6 +64,11 @@ Once there is enough clarity, return exactly:
 - If failure:
 - If ambiguous:
 
+## Evidence Classification
+- Observed facts:
+- Founder assertions:
+- Model inferences:
+
 ## Diagnosis
 - Primary bottleneck:
 - Confidence:
@@ -80,5 +87,6 @@ Once there is enough clarity, return exactly:
 ## State Updates
 
 - Update `Active Experiments`.
-- Update `Learning Velocity` and any linked company-level dimension that materially changed.
-- Append a `Score History` entry when scores change.
+- Update `Evidence Log` if the hypothesis basis changed materially.
+- Update `Learning Velocity` and any linked company-level dimension that materially changed only with cited observed evidence and a confidence label; otherwise keep the score suppressed.
+- Append a `Score History` entry when scores change, including confidence, evidence, or suppression reason.

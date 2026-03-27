@@ -5,7 +5,51 @@ This skill uses two scoring layers:
 - A company-level progress rubric used by `progress` and stored in `founder_state.md`.
 - A wedge-specific rubric used only by `wedge`.
 
-Use 1-5 integer scores only. Do not invent half-points.
+Use 1-5 integer scores only when a numeric score is justified. Do not invent half-points.
+If the evidence is too weak, suppress the score instead of forcing a number.
+
+## Evidence Taxonomy For Scoring
+
+All scoring and diagnosis should separate:
+
+- `Observed facts`
+- `Founder assertions`
+- `Model inferences`
+
+Scoring rules:
+
+- Observed facts can support strong scores and high confidence.
+- Founder assertions can shape a hypothesis, but they should not justify an aggressive score by themselves.
+- Model inferences can explain a pattern, but they should never be the only reason a score moves.
+- If a dimension depends mostly on assertions or inferences, suppress the score and say why.
+
+## Score Reporting Rule
+
+Never emit a naked score.
+
+Every score must include:
+
+- `Score`: `1-5` or `suppressed`
+- `Confidence`: `High`, `Medium`, `Low`, or `n/a`
+- `Evidence`: a short citation to the observed fact or artifact that justifies the score, or the reason the score was suppressed
+
+Numeric score rule:
+
+- Use a numeric score only when at least one direct observed fact bears on that dimension.
+- If the support is mostly founder assertions or model inferences, suppress the score.
+- If contradictions are strong enough that a single number would be misleading, suppress the score until the contradiction is resolved.
+
+Score confidence rule:
+
+- `High`: multiple direct observed facts support the score and little contradiction remains.
+- `Medium`: at least one direct observed fact supports the score, but gaps or caveats remain.
+- `Low`: a small amount of direct observed evidence supports the score, but it is still fragile.
+- If no direct observed fact exists, use `suppressed` rather than `Low`.
+
+Wedge total rule:
+
+- Compute `Total` and `Band` only when all seven wedge axes have numeric scores.
+- If any wedge axis is suppressed, suppress `Total` and `Band` and say which axes were not scorable.
 
 ## Company-Level Progress Rubric
 
@@ -48,8 +92,8 @@ Definition: autonomy and review boundaries match reversibility, observability, a
 Definition: claims are backed by customer interviews, usage, objections, pricing, external market validation, or eval evidence.
 
 - `1`: mostly founder intuition or anecdote.
-- `3`: some real evidence exists but it is thin, inconsistent, or unranked.
-- `5`: multiple evidence types point in the same direction and support decisions.
+- `3`: some real evidence exists but it is thin, inconsistent, unranked, or mixed with too many assertions.
+- `5`: multiple observed evidence types point in the same direction and support decisions.
 
 ### Learning Velocity
 
@@ -149,8 +193,14 @@ If the answer is weak, say so in the diagnosis. Do not turn this into an eighth 
 
 Use the weakest score as the first candidate for `Primary bottleneck`, but override that default if stronger evidence points elsewhere.
 
+In every diagnosis, make clear:
+
+- which points are observed facts
+- which points are founder assertions still carrying the thesis
+- which points are model inferences used to connect the dots
+
 Confidence labels:
 
-- `High`: multiple evidence types agree.
-- `Medium`: some evidence exists, but alternatives remain plausible.
-- `Low`: diagnosis is mostly inferred from sparse or conflicting evidence.
+- `High`: multiple observed evidence types agree.
+- `Medium`: some observed evidence exists, but alternatives remain plausible or assertions still carry part of the case.
+- `Low`: diagnosis is mostly inferred from sparse, assertion-heavy, or conflicting evidence.

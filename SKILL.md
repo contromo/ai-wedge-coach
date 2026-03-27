@@ -39,6 +39,13 @@ Canonical runtime files:
 - `market_research_log.md`
 - `wedge_graveyard.md`
 
+Optional shared accelerator memory:
+
+- `cohort_memory/wedge_failures.md`
+- `cohort_memory/objection_patterns.md`
+- `cohort_memory/trust_patterns.md`
+- `cohort_memory/segment_benchmarks.md`
+
 Read [references/state-system.md](references/state-system.md) before creating or updating any of them.
 
 If a founder invokes any working command before state exists, redirect to `kickoff`.
@@ -55,6 +62,7 @@ Load these as needed:
 - [references/conversation-protocol.md](references/conversation-protocol.md) for step-by-step coaching cadence.
 - [references/guided-flow.md](references/guided-flow.md) for the pre-diagnosis onboarding flow.
 - [references/market-research.md](references/market-research.md) for founder-claim validation and market reality checks.
+- [references/cohort-memory.md](references/cohort-memory.md) for shared accelerator memory across companies.
 
 ## Command Registry
 
@@ -97,6 +105,12 @@ Planned command stubs:
 - Accept rough answers. Do not require every field to be complete before the coach becomes useful.
 - Before giving a formal diagnosis on a new company, walk through the guided flow: founder narrative, workflow extraction, evidence audit, market reality check, then plan of attack.
 - Validate founder claims with market research before treating them as established fact.
+- For `research`, require multiple source types, a minimum evidence threshold, explicit contradiction handling, and an `insufficient evidence` verdict when the threshold is not met.
+- Across all commands, separate `Observed facts`, `Founder assertions`, and `Model inferences`.
+- Never present founder assertions or model inferences as if they were observed facts.
+- Never emit a naked score. Every score must include cited observed evidence and a confidence label, or be explicitly suppressed.
+- Use `progress` as the accelerator operator handoff: include a partner briefing, weekly company status delta, red-flag memo, and explicit `needs human help now` triggers.
+- If shared `cohort_memory/` exists, use it to compare against common failed wedges, repeated objections, trust-boundary patterns, and segment benchmarks.
 - Force wedge compression before scoring when a description is vague.
 - Distinguish user, buyer, and champion explicitly.
 - Ask what happens if the workflow is not solved.
@@ -135,6 +149,15 @@ Exception:
 - during early kickoff discovery, it is acceptable to return a readback plus plan of attack before formal diagnosis
 - while kickoff discovery is incomplete, stay in kickoff mode implicitly until the founder changes commands or the guided flow is complete
 - open conversationally, ask for the minimum missing context in one compact message, and wait for the founder's reply
+
+When a working command has enough context to produce a substantive output, include an evidence split somewhere before diagnosis:
+
+```markdown
+## Evidence Classification
+- Observed facts:
+- Founder assertions:
+- Model inferences:
+```
 
 ## Tone
 

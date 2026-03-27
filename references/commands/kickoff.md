@@ -61,11 +61,15 @@ In that case:
 - Create all runtime files if missing.
 - If intake is incomplete, ask the single most useful next question first and wait for the founder's answer.
 - Populate `founder_state.md` as soon as there is enough information to make the state useful, even if some fields remain open.
+- Keep `Evidence Log` split into `Observed facts`, `Founder assertions`, and `Model inferences` from the start.
 - During early kickoff, populate `Guided Discovery`, `Market Reality Check`, and `Current plan of attack` before scoring aggressively.
 - Backfill `interview_log.md`, `objection_log.md`, and `experiment_log.md` if the founder supplies prior history.
 - Append a starter entry to `market_research_log.md` when kickoff defines concrete claims or open questions worth validating externally.
+- If prior dead wedges are backfilled and `cohort_memory/wedge_failures.md` exists, append normalized failed-wedge entries using [../cohort-memory.md](../cohort-memory.md).
+- If recurring objections are backfilled and `cohort_memory/objection_patterns.md` exists, append normalized objection entries using [../cohort-memory.md](../cohort-memory.md).
 - If this is a reseed after `kill`, preserve surviving assets and next-wedge constraints from `wedge_graveyard.md`.
-- Record the first `Company Scores` baseline and append a `Score History` entry with the reason `initial baseline` or `reseed after wedge kill` only when there is enough founder-specific data to support those scores.
+- Record the first `Company Scores` baseline and append a `Score History` entry with the reason `initial baseline` or `reseed after wedge kill` only when each numeric score has direct observed support.
+- If a dimension lacks direct observed support, mark that score as `suppressed` with a reason instead of forcing a baseline number.
 
 ## Intake Checklist
 
@@ -132,6 +136,11 @@ If intake is sufficient for discovery but not yet sufficient for a hard diagnosi
 - Current workaround:
 - AI role:
 
+## Evidence Classification
+- Observed facts:
+- Founder assertions:
+- Model inferences:
+
 ## What Looks Promising
 - ...
 
@@ -170,12 +179,17 @@ If intake is complete enough to initialize state, return exactly:
 - Why now:
 
 ## Baseline Scores
-- Wedge Sharpness:
-- ICP Focus:
-- Value Recurrence:
-- Trust Architecture:
-- Evidence Quality:
-- Learning Velocity:
+- Wedge Sharpness: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- ICP Focus: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Value Recurrence: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Trust Architecture: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Evidence Quality: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+- Learning Velocity: [1-5 or suppressed] | Confidence: [High / Medium / Low / n/a] | Evidence: ...
+
+## Evidence Classification
+- Observed facts:
+- Founder assertions:
+- Model inferences:
 
 ## Diagnosis
 - Primary bottleneck:

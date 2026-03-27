@@ -44,12 +44,16 @@ If they cannot do this, the next move is usually `wedge`.
 
 Sort claims into:
 
-- observed
-- inferred
-- assumed
+- observed facts
+- founder assertions
+- model inferences
 
-Observed means interviews, usage, pilots, pricing conversations, objections, or experiments.
-Everything else is not evidence yet.
+Observed facts mean interviews, usage, pilots, pricing conversations, objections, experiments, or external artifacts that were actually reviewed.
+Founder assertions are claims the founder makes but has not yet validated.
+Model inferences are the coach's interpretations, extrapolations, or pattern matches.
+
+Only observed facts count as evidence.
+Founder assertions and model inferences can guide the next move, but they are not proof.
 
 ## Step 4: Market Reality Check
 
@@ -81,7 +85,9 @@ Only after the first five steps are complete enough should you lock in:
 
 - primary bottleneck
 - confidence
-- evidence
+- observed facts
+- founder assertions
+- model inferences
 - if I'm wrong
 
 If the evidence base is still thin, say so and keep the emphasis on validation rather than verdicts.
