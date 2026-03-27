@@ -59,12 +59,6 @@ Return exactly:
 - Founder assertions:
 - Model inferences:
 
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
 ## Recommendation
 - ...
 
