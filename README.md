@@ -45,7 +45,7 @@ Say `kickoff`, describe what you're building, and the coach will start narrowing
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-org-or-user>/ai-wedge-coach.git
+git clone https://github.com/contromo/ai-wedge-coach.git
 cd ai-wedge-coach
 ```
 
@@ -69,7 +69,7 @@ On a fresh repo with no founder-specific state yet, `kickoff` should guide the f
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-org-or-user>/ai-wedge-coach.git
+git clone https://github.com/contromo/ai-wedge-coach.git
 cd ai-wedge-coach
 ```
 
