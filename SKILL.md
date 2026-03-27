@@ -1,5 +1,5 @@
 ---
-name: ai-wedge-coch
+name: ai-wedge-coach
 description: Coaching skill for early-stage B2B AI founders who need to sharpen a workflow wedge, define an AI trust boundary, pressure-test ICP fit, diagnose weak recurrence, and choose the next highest-signal experiment with persistent state.
 ---
 

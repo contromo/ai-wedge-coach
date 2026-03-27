@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SKILL_NAME="ai-wedge-coch"
+SKILL_NAME="ai-wedge-coach"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_DIR="$SCRIPT_DIR"
 CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
@@ -107,12 +107,12 @@ Install mode:
 $restart_message
 
 Then run:
-  \$ai-wedge-coch kickoff
+  \$ai-wedge-coach kickoff
 
 Other useful commands:
-  \$ai-wedge-coch wedge
-  \$ai-wedge-coch icp
-  \$ai-wedge-coch trust
-  \$ai-wedge-coch experiment
-  \$ai-wedge-coch progress
+  \$ai-wedge-coach wedge
+  \$ai-wedge-coach icp
+  \$ai-wedge-coach trust
+  \$ai-wedge-coach experiment
+  \$ai-wedge-coach progress
 EOF

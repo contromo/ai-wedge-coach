@@ -37,8 +37,8 @@ Say `kickoff`, describe what you're building, and the coach will start narrowing
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-org-or-user>/ai-wedge-coch.git
-cd ai-wedge-coch
+git clone https://github.com/<your-org-or-user>/ai-wedge-coach.git
+cd ai-wedge-coach
 ```
 
 Or download it as a ZIP and unzip it.
@@ -61,8 +61,8 @@ On a fresh repo with no founder-specific state yet, `kickoff` should guide the f
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/<your-org-or-user>/ai-wedge-coch.git
-cd ai-wedge-coch
+git clone https://github.com/<your-org-or-user>/ai-wedge-coach.git
+cd ai-wedge-coach
 ```
 
 Or download it as a ZIP and unzip it.
@@ -78,10 +78,10 @@ By default this installs a symlink into Codex's skill directory. If `$CODEX_HOME
 3. Restart Codex, then say:
 
 ```text
-$ai-wedge-coch kickoff
+$ai-wedge-coach kickoff
 ```
 
-For installed session-skill mode, use the `$ai-wedge-coch` prefix.
+For installed session-skill mode, use the `$ai-wedge-coach` prefix.
 On first use, `kickoff` should request the missing founder intake one question at a time, then build a plan of attack before issuing a hard diagnosis.
 
 Installer options:
@@ -282,10 +282,10 @@ research
 If you install it as a session skill with `./install.sh`, use:
 
 ```text
-$ai-wedge-coch kickoff
-$ai-wedge-coch wedge
-$ai-wedge-coch trust
-$ai-wedge-coch research
+$ai-wedge-coach kickoff
+$ai-wedge-coach wedge
+$ai-wedge-coach trust
+$ai-wedge-coach research
 ```
 
 The behavior is the same. The only difference is whether Codex is reading the repo-local `AGENTS.md` or the installed session skill package.

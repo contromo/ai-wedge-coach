@@ -1,7 +1,7 @@
 interface:
   display_name: "AI Agent Wedge Coach"
   short_description: "Guide an AI founder to a real wedge"
-  default_prompt: "Use $ai-wedge-coch to guide kickoff discovery, validate our market claims, and sharpen the workflow wedge before we choose the next experiment."
+  default_prompt: "Use $ai-wedge-coach to guide kickoff discovery, validate our market claims, and sharpen the workflow wedge before we choose the next experiment."
 
 policy:
   allow_implicit_invocation: true
