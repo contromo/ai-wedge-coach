@@ -1,8 +1,9 @@
 # evals
 
-`evals` is planned but not fully implemented in v1.
+`evals` is a hidden compatibility shortcut.
+Do not advertise it in `help`, startup menus, or `**Recommended next**` guidance.
 
-For now:
+If the founder explicitly invokes it:
 
 - Route to `experiment`.
 - In that redirect, force the founder to define real proof of value, failure thresholds, and the difference between demo metrics and business metrics.

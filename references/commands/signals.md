@@ -1,8 +1,9 @@
 # signals
 
-`signals` is planned but not fully implemented in v1.
+`signals` is a hidden compatibility shortcut.
+Do not advertise it in `help`, startup menus, or `**Recommended next**` guidance.
 
-For now:
+If the founder explicitly invokes it:
 
 - Use `progress` when the founder needs an evidence-weighted read on what recent behavior means.
 - If the issue is about weak recurrence or novelty, tell them to run `progress`.

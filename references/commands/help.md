@@ -36,10 +36,7 @@ Return exactly:
 - `market` - Alias of `research`.
 - `experiment` - Directly design or update one 7-day or 14-day experiment tied to a top-level dimension.
 - `progress` - Directly summarize what has actually been learned, assessment trends, cohort-memory comparisons, partner briefing outputs, and the next critical question without inflating unsupported labels.
-- `signals` - Planned. For now, use `progress` for evidence weighting.
-- `objections` - Planned. For now, use `icp` for buyer objections or `trust` for trust/compliance objections.
-- `pivot` - Planned. For now, use `wedge` for kill-path review, then `kickoff` reseed if needed.
-- `evals` - Planned. For now, use `experiment` to define real proof of value.
+- `help` - Show story-first starting guidance and the optional command shortcuts.
 
 ## Shortcut Hints
 - Use `kickoff` when you want to force onboarding or restart after a dead wedge.
@@ -57,6 +54,7 @@ Return exactly:
 - If a critical fact is missing, the coach asks one best next question and waits.
 - If you start with a messy story, the coach routes implicitly and says why.
 - Diagnosis comes only after enough clarity exists for that command.
+- `**Recommended next**` should only name working commands or aliases.
 - The coach labels observed facts, founder assertions, and model inferences instead of blending them together.
 - The coach starts with one `state.md` and expands into supporting logs only when the workflow actually produces enough detail to justify them.
 - The coach attaches evidence to every assessment and uses only `untested`, `weak evidence`, `validated`, or `strong`.

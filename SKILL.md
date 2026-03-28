@@ -85,12 +85,15 @@ Working commands:
 - `progress` -> [references/commands/progress.md](references/commands/progress.md)
 - `help` -> [references/commands/help.md](references/commands/help.md)
 
-Planned command stubs:
+Hidden compatibility redirects:
 
 - `signals` -> [references/commands/signals.md](references/commands/signals.md)
 - `objections` -> [references/commands/objections.md](references/commands/objections.md)
 - `pivot` -> [references/commands/pivot.md](references/commands/pivot.md)
 - `evals` -> [references/commands/evals.md](references/commands/evals.md)
+
+These exist only for explicit legacy invocation.
+Do not list these in `help`, startup menus, or `**Recommended next**` guidance.
 
 ## Entry And Routing
 
@@ -124,7 +127,7 @@ Default to `kickoff` when:
 - If the founder needs proof, a falsifier, or a next step, route to `experiment`.
 - If the founder is unsure what has actually been learned so far, route to `progress`.
 - If the founder has killed a wedge or needs a reseed, route to `kickoff` in reseed-after-kill mode.
-- For `signals`, `objections`, `pivot`, and `evals`, follow the stub routing rules in the command file. Do not pretend those commands are fully implemented.
+- If the founder explicitly invokes a hidden compatibility redirect, follow the matching command file and hand off into a working command without advertising the redirect as part of the menu.
 
 ## Required Behaviors
 
@@ -174,6 +177,7 @@ All working commands must return the same diagnosis structure after enough found
 ```
 
 Add any command-specific sections before or after this block, but keep the diagnosis structure intact.
+Only recommend working commands or aliases in `**Recommended next**`. Never recommend hidden compatibility redirects.
 
 Exception:
 

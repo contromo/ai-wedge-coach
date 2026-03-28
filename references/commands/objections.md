@@ -1,8 +1,9 @@
 # objections
 
-`objections` is planned but not fully implemented in v1.
+`objections` is a hidden compatibility shortcut.
+Do not advertise it in `help`, startup menus, or `**Recommended next**` guidance.
 
-For now:
+If the founder explicitly invokes it:
 
 - Route to `trust` if the dominant objections are trust, compliance, auditability, or error tolerance.
 - Otherwise route to `icp` to diagnose buyer, user, ROI, timing, or pricing objections.

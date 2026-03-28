@@ -169,19 +169,12 @@ You do not need to pick one before the coach can help.
 | `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis wedge assessment, `Why AI?` check, keep/narrow/kill/split recommendation |
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
+| `autonomy` | Alias of `trust` | Same as `trust` |
 | `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
+| `market` | Alias of `research` | Same as `research` |
 | `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule, automatic state feedback |
 | `progress` | Summarize accumulated learning and current bottleneck | Six-dimension assessment read, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
 | `help` | Explain story-first entry and optional command shortcuts | Story-first starting guidance plus command list |
-
-### Planned Commands
-
-| Command | Current Behavior |
-| --- | --- |
-| `signals` | Redirects to `progress` for evidence weighting |
-| `objections` | Redirects to `icp` or `trust` depending on the root cause |
-| `pivot` | Redirects to `wedge` kill-path review or `kickoff` reseed mode |
-| `evals` | Redirects to `experiment` to define real proof and thresholds |
 
 ---
 

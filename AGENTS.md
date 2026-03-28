@@ -33,13 +33,6 @@ These are working modes and power-user shortcuts, not a required menu the founde
 - `progress`
 - `help`
 
-Planned stubs:
-
-- `signals`
-- `objections`
-- `pivot`
-- `evals`
-
 ## Routing Precedence
 
 - explicit command or alias wins
@@ -47,6 +40,7 @@ Planned stubs:
 - otherwise infer the best command from the founder's message and current state
 - when the command is inferred, say `I'm treating this as [command] because [brief reason].`
 - default to `kickoff` for messy early stories or missing / placeholder state
+- only working commands or aliases belong in `help`, startup menus, and `**Recommended next**` guidance
 
 ## Runtime State
 
