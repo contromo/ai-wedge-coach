@@ -1,12 +1,12 @@
 # AI Agent Wedge Coach
 
-A Codex-based coaching system for early-stage B2B AI founders who need to choose the right workflow wedge, define trust boundaries, avoid demo traps, and run the next highest-signal experiment.
+A Codex-based coaching system for early-stage B2B AI founders who need to find a real workflow wedge, define trust boundaries, avoid demo traps, and run the next highest-signal experiment.
 
 This is not generic startup advice. It is a debugging system for the company.
 
 It assesses the business across six top-level dimensions with qualitative evidence states, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and pushes every session toward one concrete next move.
 
-Say `kickoff`, describe what you're building, and the coach will start narrowing the wedge immediately.
+Paste your messy founder story and the coach will infer the right mode, explain the route, and start narrowing the wedge immediately. Commands like `kickoff` or `wedge` remain available as optional shortcuts for power users.
 
 See `examples/` for a worked coaching session.
 
@@ -57,14 +57,17 @@ Or download it as a ZIP and unzip it.
 
 This repo already includes `AGENTS.md`, so no rename step is needed.
 
-3. Say:
+3. Paste your founder story:
 
 ```text
-kickoff
+We're building an AI copilot for security questionnaires.
+It drafts first-pass answers from our prior responses and evidence base.
+The wedge still feels fuzzy and I'm not sure which team we should own first.
 ```
 
-Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You talk to the coach with plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress`.
-On a fresh repo with no founder-specific state yet, `kickoff` should guide the founder one question at a time, force clarity step by step, run a market-reality check, and only then settle into diagnosis.
+Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
+Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
+On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
 
 ### Option 2: Installed Session Skill
 
@@ -85,14 +88,16 @@ Or download it as a ZIP and unzip it.
 
 By default this installs a symlink into Codex's skill directory. If `$CODEX_HOME` is unset, the installer uses `~/.codex/skills`.
 
-3. Restart Codex, then say:
+3. Restart Codex, then paste a founder story like:
 
 ```text
-$ai-wedge-coach kickoff
+We're building AI agents for finance ops teams to reconcile exceptions faster.
+The story is still broad and I need help finding the first workflow wedge.
 ```
 
-For installed session-skill mode, use the `$ai-wedge-coach` prefix.
-On first use, `kickoff` should request the missing founder intake one question at a time, then build a plan of attack before issuing a hard diagnosis.
+Installed session-skill mode should also accept a free-form founder story first and route implicitly.
+If you want to force a specific command in session-skill mode, use the `$ai-wedge-coach` prefix, for example `$ai-wedge-coach kickoff`.
+On first use, the inferred path should normally be `kickoff`, request the missing founder intake one question at a time, then build a plan of attack before issuing a hard diagnosis.
 
 Installer options:
 
@@ -133,20 +138,41 @@ If you want cross-company memory, point each founder workspace at the same `coho
 
 ---
 
-## Commands
+## Verification
+
+This repo is still doc-driven, but it now includes lightweight checks so the protocol can drift less silently as the spec grows.
+
+Run:
+
+```bash
+bash scripts/verify_docs.sh
+```
+
+What it checks:
+
+- story-first onboarding copy still exists and commands are framed as optional shortcuts
+- the conversation protocol still enforces one-question cadence
+- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and supports inferred kickoff from a founder story
+- golden transcript fixtures exist for a bare `kickoff` turn, an inferred `kickoff` turn, and a diagnosis-allowed `wedge` turn
+
+---
+
+## Command Shortcuts
+
+You do not need to pick one before the coach can help.
 
 ### Core Commands
 
 | Command | Purpose | Typical Output |
 | --- | --- | --- |
-| `kickoff` | Initialize founder state or reseed after a dead wedge | Company snapshot, evidence-backed baseline assessments, initial diagnosis, recommended next command |
+| `kickoff` | Force onboarding or reseed after a dead wedge | Guided intake, plan of attack, then company snapshot and diagnosis when justified |
 | `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis wedge assessment, `Why AI?` check, keep/narrow/kill/split recommendation |
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
 | `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
 | `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule, automatic state feedback |
 | `progress` | Summarize accumulated learning and current bottleneck | Six-dimension assessment read, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
-| `help` | Show the command menu and starting points | Command list plus recommended entry point |
+| `help` | Explain story-first entry and optional command shortcuts | Story-first starting guidance plus command list |
 
 ### Planned Commands
 
@@ -196,19 +222,19 @@ It also runs a non-rubric `Why AI?` check to make sure the product actually bene
 
 ## Fast Workflow Examples
 
-### 1) Initial setup
+### 1) Paste a messy founder story
 
 ```text
-kickoff
+We're building an AI copilot for procurement teams.
+It reads vendor emails, drafts responses, and pulls contract context.
+I know the pain is real, but the wedge and buyer are still fuzzy.
 ```
 
 Expected output:
 
-- company snapshot
-- current thesis
-- baseline 6-dimension assessments with evidence-backed status labels
-- primary bottleneck
-- recommended next command
+- inferred command acknowledgement
+- one best next question
+- kickoff readback and plan of attack before diagnosis
 
 ### 2) Broad product claim that needs compression
 
@@ -310,7 +336,7 @@ Expected output:
 
 ## Local Repo Mode vs Installed Skill Mode
 
-If you open the repo directly in Codex, use plain commands like:
+If you open the repo directly in Codex, you can just paste a founder story. If you want direct control, use plain commands like:
 
 ```text
 kickoff
@@ -319,7 +345,7 @@ trust
 research
 ```
 
-If you install it as a session skill with `./install.sh`, use:
+If you install it as a session skill with `./install.sh`, you can still start with a founder story. If you want to force a command, use:
 
 ```text
 $ai-wedge-coach kickoff

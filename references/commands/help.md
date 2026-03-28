@@ -1,12 +1,17 @@
 # help
 
-Use `help` when the founder needs the command registry or is unsure where to start.
+Use `help` when the founder needs the command registry, wants optional shortcuts, or asks how to start without learning the command model first.
 
 ## Return Format
 
 Return exactly:
 
 ```markdown
+## Best Way To Start
+- Paste your messy founder story. Rough bullets are fine.
+- If you do not name a command, the coach infers one and says `I'm treating this as [command] because [brief reason].`
+- Commands are optional shortcuts for direct control.
+
 ## What This Coach Does
 - Sharpens workflow wedge selection
 - Clarifies ICP, buyer, and champion
@@ -22,34 +27,35 @@ Return exactly:
 - Forces one concrete next experiment
 
 ## Commands
-- `kickoff` - Guided onboarding flow: asks one question at a time, builds clarity, creates a plan of attack, then establishes the current diagnosis.
+- `kickoff` - Force guided onboarding or reseed after a dead wedge.
 - `wedge` - Pressure-test the current workflow wedge with the 7-axis wedge rubric and only emit evidence-backed assessments.
-- `icp` - Pressure-test who this is really for and force explicit exclusions.
-- `trust` - Design the AI autonomy boundary: what runs unattended, what needs review, and what must stay human-only.
+- `icp` - Directly pressure-test who this is really for and force explicit exclusions.
+- `trust` - Directly design the AI autonomy boundary: what runs unattended, what needs review, and what must stay human-only.
 - `autonomy` - Alias of `trust`.
-- `research` - Validate founder claims against external market evidence with a minimum source mix, explicit contradiction handling, and `insufficient evidence` when the proof is weak.
+- `research` - Directly validate founder claims against external market evidence with a minimum source mix, explicit contradiction handling, and `insufficient evidence` when the proof is weak.
 - `market` - Alias of `research`.
-- `experiment` - Design or update one 7-day or 14-day experiment tied to a top-level dimension.
-- `progress` - Summarize what has actually been learned, assessment trends, cohort-memory comparisons, partner briefing outputs, and the next critical question without inflating unsupported labels.
+- `experiment` - Directly design or update one 7-day or 14-day experiment tied to a top-level dimension.
+- `progress` - Directly summarize what has actually been learned, assessment trends, cohort-memory comparisons, partner briefing outputs, and the next critical question without inflating unsupported labels.
 - `signals` - Planned. For now, use `progress` for evidence weighting.
 - `objections` - Planned. For now, use `icp` for buyer objections or `trust` for trust/compliance objections.
 - `pivot` - Planned. For now, use `wedge` for kill-path review, then `kickoff` reseed if needed.
 - `evals` - Planned. For now, use `experiment` to define real proof of value.
 
-## Starting Point
-- If you do not have state yet, start with `kickoff`.
-- If the description is broad or hand-wavy, start with `wedge`.
-- If the story sounds plausible but unvalidated, start with `research`.
-- If buyer and user are blurred, start with `icp`.
-- If the team wants an agent, start with `trust`.
-- If you need the next test, start with `experiment`.
-- If you need a summary of what has been learned, start with `progress`.
-- If a partner or accelerator operator needs the current company read, start with `progress`.
-- If you need a cohort comparison or segment benchmark read, start with `progress`.
+## Shortcut Hints
+- Use `kickoff` when you want to force onboarding or restart after a dead wedge.
+- Use `wedge` when you want to compress or score the active wedge directly.
+- Use `research` when you want external validation before locking the story.
+- Use `icp` when user, buyer, and champion are blurred.
+- Use `trust` when the team is pushing toward an agent or risky automation.
+- Use `experiment` when you need the next falsifiable test.
+- Use `progress` when you want the hard read on what has actually been learned.
+- Use `progress` when a partner or accelerator operator needs the current company read.
+- Use `progress` when you need a cohort comparison or segment benchmark read.
 
 ## Interaction Style
 - Every working command is interactive.
 - If a critical fact is missing, the coach asks one best next question and waits.
+- If you start with a messy story, the coach routes implicitly and says why.
 - Diagnosis comes only after enough clarity exists for that command.
 - The coach labels observed facts, founder assertions, and model inferences instead of blending them together.
 - The coach starts with one `state.md` and expands into supporting logs only when the workflow actually produces enough detail to justify them.

@@ -8,6 +8,7 @@
 - `Reseed after kill`: preserve what was learned, clear the dead wedge, and define constraints for the next wedge.
 
 `kickoff` is intake-first. If founder-specific facts are missing, do not fabricate a completed kickoff summary from placeholders or empty state.
+If `kickoff` is inferred from a founder story that already contains useful context, use those facts immediately and ask the next missing question instead of restarting intake.
 Use [../conversation-protocol.md](../conversation-protocol.md) for question cadence.
 Use [../guided-flow.md](../guided-flow.md) for the onboarding sequence.
 
@@ -50,11 +51,21 @@ Treat the workspace as uninitialized if any of the following are true:
 In that case:
 
 - ask for the missing intake directly
+- if the founder already supplied partial intake, ask only for the next missing fact
 - ask one best next question instead of a multi-question template
 - do not output fake company facts
 - do not assign an archetype from empty evidence
 - do not claim confidence beyond the fact that intake is missing
 - do not create durable baseline assessments until the founder has supplied enough facts to justify them
+
+## Inferred Entry Behavior
+
+When `kickoff` is inferred instead of explicitly requested:
+
+- start with `I'm treating this as kickoff because [brief reason].`
+- use any facts already present in the founder's message
+- ask the next missing kickoff question, not a generic opener
+- on follow-up turns, stay in `kickoff` without repeating the acknowledgement unless routing changes
 
 ## Required State Actions
 
@@ -110,7 +121,7 @@ Do not block on having every buyer, trust, and evidence detail perfectly filled 
 
 ## Output Schema
 
-If intake is incomplete, return exactly:
+If this is a bare `kickoff` with no founder-specific context yet, return exactly:
 
 ```markdown
 Let's make this concrete fast.
@@ -120,7 +131,15 @@ Start with this: what are you building, in one sentence?
 Rough bullets are fine.
 ```
 
-If discovery is still in progress and one more answer is needed before readback, return exactly:
+If `kickoff` was inferred from a founder story or the founder has already given partial intake, and one more answer is needed before readback, return exactly:
+
+```markdown
+I'm treating this as kickoff because [brief reason].
+
+[one best next question]
+```
+
+If `kickoff` is already active and discovery is still in progress, return exactly:
 
 ```markdown
 [one best next question]
@@ -194,6 +213,7 @@ If intake is complete enough to initialize state, return exactly:
 
 ## Routing Guidance
 
+- If the founder story is still mostly narrative and no usable state exists yet, keep `kickoff` active until the guided flow is complete.
 - If the founder story needs external validation, recommend `research`.
 - If the wedge is broad, recommend `wedge`.
 - If the wedge was killed and a new segment is emerging, recommend `icp`.

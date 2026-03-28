@@ -106,10 +106,12 @@ Install mode:
 
 $restart_message
 
-Then run:
-  \$ai-wedge-coach kickoff
+Best first move:
+  Paste a messy founder story into Codex.
+  The coach will infer kickoff when the wedge is still fuzzy.
 
-Other useful commands:
+If you want direct control, use:
+  \$ai-wedge-coach kickoff
   \$ai-wedge-coach wedge
   \$ai-wedge-coach icp
   \$ai-wedge-coach trust

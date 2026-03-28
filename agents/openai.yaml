@@ -1,7 +1,7 @@
 interface:
   display_name: "AI Agent Wedge Coach"
   short_description: "Guide an AI founder to a real wedge"
-  default_prompt: "Use $ai-wedge-coach to guide kickoff discovery, validate our market claims, and sharpen the workflow wedge before we choose the next experiment."
+  default_prompt: "When a founder pastes a messy story, infer the best working command, say \"I'm treating this as [command] because [brief reason].\", default to kickoff when the wedge is still fuzzy or state is missing, and stay in that command until explicit handoff or command switch."
 
 policy:
   allow_implicit_invocation: true

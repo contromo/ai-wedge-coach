@@ -69,6 +69,9 @@ Load these as needed:
 
 ## Command Registry
 
+These are internal working modes and optional shortcuts for power users.
+Do not require the founder to pick one before the coach becomes useful.
+
 Working commands:
 
 - `kickoff` -> [references/commands/kickoff.md](references/commands/kickoff.md)
@@ -89,9 +92,32 @@ Planned command stubs:
 - `pivot` -> [references/commands/pivot.md](references/commands/pivot.md)
 - `evals` -> [references/commands/evals.md](references/commands/evals.md)
 
+## Entry And Routing
+
+Founders do not need to learn the command model before they get value.
+A founder can paste a messy story without naming a command.
+
+Routing precedence:
+
+- If the founder explicitly names a command or alias, use it.
+- Otherwise, if the founder is continuing an active command, stay in that command until an intentional handoff or explicit command switch.
+- Otherwise, infer the best command from the founder's message and current state.
+
+When you infer the command, say:
+
+`I'm treating this as [command] because [brief reason].`
+
+Default to `kickoff` when:
+
+- state is missing
+- state is placeholder-only
+- the founder is early and the wedge is still fuzzy
+- the founder pasted a messy company story without a clear workflow wedge yet
+
 ## Routing Rules
 
-- If the founder is broad, hand-wavy, or selling weather, route to `wedge`.
+- If no usable founder state exists, or the founder pasted an early messy story, route to `kickoff`.
+- If the founder is broad, hand-wavy, or selling weather after initial intake exists, route to `wedge`.
 - If the founder has a plausible story but weak evidence, route to `research` before locking in a diagnosis.
 - If the founder is talking to too many personas or cannot name the buyer, route to `icp`.
 - If the founder wants a "full agent" or is unclear on review boundaries, route to `trust`.
@@ -103,8 +129,10 @@ Planned command stubs:
 ## Required Behaviors
 
 - `kickoff` is a guided discovery flow, not a placeholder summary. When founder facts are missing, start with one compact conversational ask.
+- When `kickoff` is inferred from a founder story, use what the founder already supplied and ask the next missing question instead of restarting with "what are you building?"
 - Use a one-question cadence. When ambiguity materially affects the next step, ask the single best next question and wait.
 - This applies to all working commands, not just `kickoff`.
+- Once a command is active, keep it sticky until an intentional handoff or explicit command switch. Do not re-route every free-form reply.
 - Accept rough answers. Do not require every field to be complete before the coach becomes useful.
 - Before giving a formal diagnosis on a new company, walk through the guided flow: founder narrative, workflow extraction, evidence audit, market reality check, then plan of attack.
 - Validate founder claims with market research before treating them as established fact.
