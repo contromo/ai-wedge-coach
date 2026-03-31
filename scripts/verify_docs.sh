@@ -138,8 +138,14 @@ assert_file "agents/openai.yaml"
 assert_contains "README.md" "Paste your messy founder story"
 assert_contains "README.md" "optional shortcuts for power users"
 assert_contains "README.md" 'Phase`, `What we know`, and `Why this next question matters`'
+assert_contains "README.md" "That phased kickoff is deliberate, not withheld value:"
+assert_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake with progress cue, kickoff readback, short plan of attack, then company snapshot and diagnosis when justified |'
+assert_contains "README.md" "Expected progression:"
+assert_contains "README.md" "- readback phase: kickoff readback plus short plan of attack"
+assert_contains "README.md" "- diagnosis phase: company snapshot and diagnosis only when enough intake and evidence exist"
 assert_contains "README.md" '| `autonomy` | Alias of `trust` | Same as `trust` |'
 assert_contains "README.md" '| `market` | Alias of `research` | Same as `research` |'
+assert_not_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | Guided intake, plan of attack, then company snapshot and diagnosis when justified |'
 assert_not_contains "README.md" "### Planned Commands"
 assert_not_contains "README.md" '| `signals` |'
 assert_not_contains "README.md" '| `objections` |'
