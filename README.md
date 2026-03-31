@@ -42,7 +42,51 @@ See `examples/` for a worked coaching session.
 
 ## Quick Start
 
-### Option 1: OpenAI Codex Local Repo Mode (recommended)
+### Option 1: Standalone Python CLI
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/contromo/ai-wedge-coach.git
+cd ai-wedge-coach
+```
+
+2. Install the CLI:
+
+```bash
+python3 -m pip install -e .
+```
+
+3. Set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY=...
+```
+
+4. Start a structured workspace and run the coach:
+
+```bash
+wedge-coach init
+wedge-coach kickoff
+```
+
+You can also run single turns non-interactively:
+
+```bash
+wedge-coach kickoff --message "We're building AI-generated onboarding briefs for finance ops teams."
+wedge-coach progress
+wedge-coach export --format html
+```
+
+The CLI stores canonical state in `.wedge-coach/state.json`, writes append-only JSONL logs under `.wedge-coach/logs/`, keeps session transcripts under `.wedge-coach/sessions/`, and exports advisor-ready reports to `exports/`.
+
+If you already have a markdown-based founder workspace, import it once:
+
+```bash
+wedge-coach import --from-markdown .
+```
+
+### Option 2: OpenAI Codex Local Repo Mode (recommended for doc-first use)
 
 1. Clone the repo:
 
@@ -69,7 +113,7 @@ Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. Yo
 Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
 On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
 
-### Option 2: Installed Session Skill
+### Option 3: Installed Session Skill
 
 1. Clone the repo:
 
