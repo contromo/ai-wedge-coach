@@ -27,64 +27,16 @@ Keep observed trust facts, founder assertions, and model inferences separate bef
 If `cohort_memory/objection_patterns.md` exists and a concrete objection surfaced, append a normalized objection pattern entry.
 If `cohort_memory/trust_patterns.md` exists and the trust boundary is concrete enough, append a normalized trust-pattern entry using [../cohort-memory.md](../cohort-memory.md).
 
-## Output Schema
+## Founder-Facing Response
 
-If the trust boundary is still ambiguous, return exactly:
-
-```markdown
-Phase: [Workflow steps / AI role / Irreversible actions / Review boundary / Compliance clarification]
-What we know: [running readback]
-Why this next question matters: [what operating mode or trust recommendation is still blocked]
-
-[one best next trust question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## Automation Map
-- Safe for autonomy:
-- Requires review:
-- Human-only:
-
-## Failure Taxonomy
-- Wrong answer:
-- Missing context:
-- Hallucinated action:
-- Bad retrieval:
-- Compliance miss:
-- Silent degradation:
-
-## Operating Recommendation
-- Copilot / review queue / constrained agent / full automation:
-- Why:
-
-## Minimum Trust Artifacts
-- Audit log:
-- Confidence scoring:
-- Approval queue:
-- Fallback behavior:
-- Eval set:
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If the trust boundary is still ambiguous, ask one best next trust question only.
+- Once there is enough clarity, keep the visible response concise. Cover:
+  - what is safe for autonomy
+  - what requires review
+  - what must stay human-only
+  - the highest-risk failure or irreversible step
+  - the recommended operating mode, the main trust blocker, one next move, and, when another command is clearly next, a consent-first handoff sentence
+- Audit requirements, fallback behavior, confidence scoring, and evidence classification still matter, but surface them only when they materially support the recommendation.
 
 ## State Updates
 

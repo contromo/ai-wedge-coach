@@ -9,12 +9,8 @@ progress
 
 ## Assistant
 
-I'm treating this as kickoff because there is no usable founder-specific state yet.
+Let's make this concrete fast.
 
-Phase: Founder narrative
-What we know: The existing state is placeholder-only, so there is no trustworthy company read yet.
-Why this next question matters: I need fresh founder context before I can summarize progress or diagnose anything.
-
-What are you building, in one sentence?
+Start with this: what are you building, in one sentence?
 
 Rough bullets are fine.

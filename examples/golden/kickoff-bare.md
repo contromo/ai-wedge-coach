@@ -4,10 +4,8 @@ Command: `kickoff`
 
 ## Assistant
 
-Phase: Founder narrative
-What we know: No founder-specific context yet.
-Why this next question matters: I need the product shape before I can narrow the workflow wedge.
+Let's make this concrete fast.
 
-What are you building, in one sentence?
+Start with this: what are you building, in one sentence?
 
 Rough bullets are fine.

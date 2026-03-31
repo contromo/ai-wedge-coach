@@ -120,64 +120,57 @@ assert_file "AGENTS.md"
 assert_file "SKILL.md"
 assert_file "references/rubrics.md"
 assert_file "references/conversation-protocol.md"
+assert_file "references/state-system.md"
 assert_file "references/commands/kickoff.md"
 assert_file "references/commands/help.md"
-assert_file "references/commands/signals.md"
-assert_file "references/commands/objections.md"
-assert_file "references/commands/pivot.md"
-assert_file "references/commands/evals.md"
 assert_file "examples/golden/kickoff-bare.md"
 assert_file "examples/golden/kickoff-discovery.md"
 assert_file "examples/golden/kickoff-readback.md"
+assert_file "examples/golden/help.md"
 assert_file "examples/golden/implicit-kickoff-story.md"
 assert_file "examples/golden/progress-routes-to-kickoff.md"
-assert_file "examples/golden/wedge-clarify.md"
 assert_file "examples/golden/wedge-diagnosis.md"
 assert_file "agents/openai.yaml"
 
-assert_contains "README.md" "Paste your messy founder story"
-assert_contains "README.md" "optional shortcuts for power users"
-assert_contains "README.md" 'Phase`, `What we know`, and `Why this next question matters`'
-assert_contains "README.md" "That phased kickoff is deliberate, not withheld value:"
-assert_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake with progress cue, kickoff readback, short plan of attack, then company snapshot and diagnosis when justified |'
-assert_contains "README.md" "Expected progression:"
-assert_contains "README.md" "- readback phase: kickoff readback plus short plan of attack"
-assert_contains "README.md" "- diagnosis phase: company snapshot and diagnosis only when enough intake and evidence exist"
-assert_contains "README.md" '| `autonomy` | Alias of `trust` | Same as `trust` |'
-assert_contains "README.md" '| `market` | Alias of `research` | Same as `research` |'
-assert_not_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | Guided intake, plan of attack, then company snapshot and diagnosis when justified |'
-assert_not_contains "README.md" "### Planned Commands"
-assert_not_contains "README.md" '| `signals` |'
-assert_not_contains "README.md" '| `objections` |'
-assert_not_contains "README.md" '| `pivot` |'
-assert_not_contains "README.md" '| `evals` |'
-assert_contains "AGENTS.md" "Founders do not need to learn the command model before they get value."
-assert_contains "AGENTS.md" 'only working commands or aliases belong in `help`, startup menus, and `**Recommended next**` guidance'
-assert_not_contains "AGENTS.md" "Planned stubs:"
-assert_contains "SKILL.md" "These are internal working modes and optional shortcuts for power users."
-assert_contains "SKILL.md" "Hidden compatibility redirects:"
-assert_contains "SKILL.md" 'Do not list these in `help`, startup menus, or `**Recommended next**` guidance.'
+assert_contains "README.md" "Founder-facing replies stay conversational; the durable structure lives in the runtime files and command logic."
+assert_contains "README.md" "They hold the durable structure; founder-facing replies do not need to mirror the file schemas."
+assert_contains "README.md" "Typical progression:"
+assert_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake, short readbacks, and a plan of attack before any hard diagnosis |'
+assert_contains "README.md" 'golden transcript fixtures cover bare kickoff, multi-turn kickoff discovery, kickoff readback before diagnosis, inferred kickoff, auto-routing from `progress` into kickoff, a lean `help` reply, and a diagnosis-allowed `wedge` turn'
+assert_contains "README.md" "The coach should usually carry the conversation forward with a lightweight consent question instead of telling the founder to type the next command."
+assert_not_contains "README.md" 'Phase / What we know / Why this next question matters'
+
+assert_contains "AGENTS.md" "founder-facing copy: concise conversational replies that surface only the structure the founder actually needs"
+assert_contains "AGENTS.md" 'only working commands or aliases belong in `help`, startup menus, and named next-step handoffs'
+assert_contains "AGENTS.md" 'if another command is clearly next, default to one conversational consent question such as `Next best move is trust. Want me to map that now?`'
+assert_contains "SKILL.md" "Founder-facing copy: keep replies conversational and concise."
+assert_contains "SKILL.md" 'Do not list these in `help`, startup menus, or named next-step handoffs.'
+assert_contains "SKILL.md" 'If another command is clearly next, default to one conversational consent question such as `Next best move is trust. Want me to map that now?`'
+assert_not_contains "SKILL.md" "All working commands must return the same diagnosis structure"
+assert_contains "references/rubrics.md" "This skill uses two rubric layers:"
+assert_contains "references/conversation-protocol.md" "Separate internal working structure from founder-facing copy."
 assert_contains "references/conversation-protocol.md" "ask exactly one best next question"
-assert_contains "references/conversation-protocol.md" "Routing precedence:"
-assert_contains "references/conversation-protocol.md" "I'm treating this as [command] because [brief reason]."
-assert_contains "references/conversation-protocol.md" "Phase: [current phase]"
-assert_contains "references/conversation-protocol.md" "What we know: [running readback in 1-2 concrete clauses]"
-assert_contains "references/conversation-protocol.md" "Why this next question matters: [the decision, assessment, or diagnosis that is still blocked]"
-assert_contains "references/commands/kickoff.md" "Rough bullets are fine."
-assert_contains "references/commands/kickoff.md" 'If `kickoff` was inferred from a founder story'
-assert_contains "references/commands/kickoff.md" "Phase: Founder narrative"
-assert_contains "references/commands/wedge.md" "Why this next question matters:"
-assert_contains "references/commands/icp.md" "Why this next question matters:"
-assert_contains "references/commands/trust.md" "Why this next question matters:"
-assert_contains "references/commands/research.md" "Why this next question matters:"
-assert_contains "references/commands/experiment.md" "Why this next question matters:"
-assert_contains "references/commands/progress.md" "Why this next question matters:"
-assert_contains "references/commands/help.md" "Commands are optional shortcuts for direct control."
-assert_contains "references/commands/help.md" '- `help` - Show story-first starting guidance and the optional command shortcuts.'
-assert_not_contains "references/commands/help.md" '- `signals` - Planned.'
-assert_not_contains "references/commands/help.md" '- `objections` - Planned.'
-assert_not_contains "references/commands/help.md" '- `pivot` - Planned.'
-assert_not_contains "references/commands/help.md" '- `evals` - Planned.'
+assert_contains "references/conversation-protocol.md" "use a consent-first transition, not a menu recommendation"
+assert_not_contains "references/conversation-protocol.md" "Phase: [current phase]"
+assert_contains "references/state-system.md" "Founder-facing replies do not need to mirror this schema"
+assert_contains "references/state-system.md" "Next coach-led move:"
+
+for path in \
+  "references/commands/kickoff.md" \
+  "references/commands/wedge.md" \
+  "references/commands/icp.md" \
+  "references/commands/trust.md" \
+  "references/commands/research.md" \
+  "references/commands/experiment.md" \
+  "references/commands/progress.md" \
+  "references/commands/help.md"; do
+  assert_not_contains "$path" "## Output Schema"
+  assert_not_contains "$path" "Return exactly:"
+done
+
+assert_contains "references/commands/kickoff.md" "use this exact opener:"
+assert_contains "references/commands/help.md" 'Keep `help` short and story-first.'
+assert_contains "references/commands/help.md" 'Do not append a diagnosis, recommendation, or next-move block to `help`.'
 assert_contains "references/commands/signals.md" '`signals` is a hidden compatibility shortcut.'
 assert_contains "references/commands/objections.md" '`objections` is a hidden compatibility shortcut.'
 assert_contains "references/commands/pivot.md" '`pivot` is a hidden compatibility shortcut.'
@@ -187,62 +180,53 @@ assert_contains "agents/openai.yaml" "default to kickoff when the wedge is still
 assert_contains "examples/golden/kickoff-bare.md" 'Command: `kickoff`'
 assert_not_contains "examples/golden/kickoff-bare.md" "## Diagnosis"
 assert_assistant_block_count "examples/golden/kickoff-bare.md" "1"
-assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "Phase: Founder narrative"
-assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "What we know: No founder-specific context yet."
-assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "Why this next question matters: I need the product shape before I can narrow the workflow wedge."
+assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "Let's make this concrete fast."
 assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "Rough bullets are fine."
 assert_assistant_question_count "examples/golden/kickoff-bare.md" "1" "1"
 
 assert_contains "examples/golden/kickoff-discovery.md" 'Command: `kickoff`'
-assert_contains "examples/golden/kickoff-discovery.md" 'State: missing founder-specific intake'
 assert_not_contains "examples/golden/kickoff-discovery.md" "## Diagnosis"
 assert_assistant_block_count "examples/golden/kickoff-discovery.md" "2"
-assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "1" "Phase: Founder narrative"
-assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "1" "Rough bullets are fine."
+assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "1" "Let's make this concrete fast."
+assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "2" "That gives us a product shape and an AI role."
 assert_assistant_question_count "examples/golden/kickoff-discovery.md" "1" "1"
-assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "2" "Phase: Workflow extraction"
-assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "2" "What we know: You help compliance teams answer security questionnaires faster by drafting from prior responses and evidence."
-assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "2" "Why this next question matters: I need the day-to-day owner before I can narrow the wedge and buyer path."
-assert_assistant_block_not_contains "examples/golden/kickoff-discovery.md" "2" "## Diagnosis"
 assert_assistant_question_count "examples/golden/kickoff-discovery.md" "2" "1"
 
 assert_contains "examples/golden/kickoff-readback.md" 'Command: `kickoff`'
-assert_contains "examples/golden/kickoff-readback.md" 'State: discovery sufficient for readback but not diagnosis'
 assert_not_contains "examples/golden/kickoff-readback.md" "## Diagnosis"
 assert_assistant_block_count "examples/golden/kickoff-readback.md" "1"
-assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Current Thesis"
-assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Open Questions"
-assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Evidence Collected"
-assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Next Move"
-assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "**Recommended next**:"
-assert_assistant_question_count "examples/golden/kickoff-readback.md" "1" "0"
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Kickoff Readback"
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## What Looks Promising"
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## What Needs Validation"
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Plan Of Attack"
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" 'Next best move is `research`.'
+assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "Want me to validate buyer ownership, urgency, and substitute behavior now?"
+assert_assistant_question_count "examples/golden/kickoff-readback.md" "1" "1"
+
+assert_contains "examples/golden/help.md" 'Command: `help`'
+assert_not_contains "examples/golden/help.md" "## Diagnosis"
+assert_assistant_block_count "examples/golden/help.md" "1"
+assert_assistant_block_contains "examples/golden/help.md" "1" "You can just paste the messy founder story."
 
 assert_contains "examples/golden/implicit-kickoff-story.md" "I'm treating this as kickoff because the wedge is still fuzzy."
 assert_not_contains "examples/golden/implicit-kickoff-story.md" "## Diagnosis"
-assert_not_contains "examples/golden/implicit-kickoff-story.md" "what are you building, in one sentence?"
 assert_assistant_block_count "examples/golden/implicit-kickoff-story.md" "1"
-assert_assistant_block_contains "examples/golden/implicit-kickoff-story.md" "1" "Phase: Workflow extraction"
-assert_assistant_block_contains "examples/golden/implicit-kickoff-story.md" "1" "Why this next question matters: I need the day-to-day owner before I can narrow the wedge and buyer path."
 assert_assistant_question_count "examples/golden/implicit-kickoff-story.md" "1" "1"
 
 assert_contains "examples/golden/progress-routes-to-kickoff.md" 'Command: `progress`'
 assert_contains "examples/golden/progress-routes-to-kickoff.md" 'State: placeholder-only state.md'
 assert_not_contains "examples/golden/progress-routes-to-kickoff.md" "## Diagnosis"
 assert_assistant_block_count "examples/golden/progress-routes-to-kickoff.md" "1"
-assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "I'm treating this as kickoff because there is no usable founder-specific state yet."
-assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "Phase: Founder narrative"
-assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "Rough bullets are fine."
+assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "Let's make this concrete fast."
 assert_assistant_question_count "examples/golden/progress-routes-to-kickoff.md" "1" "1"
-
-assert_contains "examples/golden/wedge-clarify.md" 'Command: `wedge`'
-assert_not_contains "examples/golden/wedge-clarify.md" "## Diagnosis"
-assert_assistant_block_count "examples/golden/wedge-clarify.md" "1"
-assert_assistant_block_contains "examples/golden/wedge-clarify.md" "1" "Phase: Workflow clarification"
-assert_assistant_block_contains "examples/golden/wedge-clarify.md" "1" "Why this next question matters: I need one specific recurring workflow before I can assess pain, recurrence, or buyer fit."
-assert_assistant_question_count "examples/golden/wedge-clarify.md" "1" "1"
 
 assert_contains "examples/golden/wedge-diagnosis.md" 'Command: `wedge`'
 assert_contains "examples/golden/wedge-diagnosis.md" "## Diagnosis"
-assert_contains "examples/golden/wedge-diagnosis.md" "**Recommended next**:"
+assert_contains "examples/golden/wedge-diagnosis.md" 'Next best move is `trust`.'
+assert_not_contains "examples/golden/wedge-diagnosis.md" "## Scorecard"
+assert_assistant_block_count "examples/golden/wedge-diagnosis.md" "1"
+assert_assistant_block_contains "examples/golden/wedge-diagnosis.md" "1" "## Diagnosis"
+assert_assistant_block_contains "examples/golden/wedge-diagnosis.md" "1" "Want me to map that now?"
+assert_assistant_question_count "examples/golden/wedge-diagnosis.md" "1" "1"
 
 printf 'verify_docs.sh: OK\n'

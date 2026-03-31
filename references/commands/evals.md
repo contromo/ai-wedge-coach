@@ -1,7 +1,7 @@
 # evals
 
 `evals` is a hidden compatibility shortcut.
-Do not advertise it in `help`, startup menus, or `**Recommended next**` guidance.
+Do not advertise it in `help`, startup menus, or named next-step handoffs.
 
 If the founder explicitly invokes it:
 

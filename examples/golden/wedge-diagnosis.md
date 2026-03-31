@@ -27,4 +27,4 @@ Command: `wedge`
 ## Next Move
 - Run a one-week shadow-mode test on inbound batches and measure triage time saved plus partner edit rate.
 
-**Recommended next**: `[trust]` - Tighten the autonomy boundary before expanding scope.
+Next best move is `trust`. Want me to map that now?
