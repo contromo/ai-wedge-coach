@@ -9,11 +9,9 @@ kickoff
 
 ## Assistant
 
-Phase: Founder narrative
-What we know: No founder-specific context yet.
-Why this next question matters: I need the product shape before I can narrow the workflow wedge.
+Let's make this concrete fast.
 
-What are you building, in one sentence?
+Start with this: what are you building, in one sentence?
 
 Rough bullets are fine.
 
@@ -23,8 +21,6 @@ We help compliance teams answer security questionnaires faster by drafting from 
 
 ## Assistant
 
-Phase: Workflow extraction
-What we know: You help compliance teams answer security questionnaires faster by drafting from prior responses and evidence.
-Why this next question matters: I need the day-to-day owner before I can narrow the wedge and buyer path.
+That gives us a product shape and an AI role.
 
 Which team owns that workflow day to day?

@@ -20,56 +20,16 @@ If they share objections, append them to `objection_log.md`, creating the file i
 Keep observed facts, founder assertions, and model inferences separate in the ICP read.
 If `cohort_memory/objection_patterns.md` exists and a concrete objection surfaced, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
 
-## Output Schema
+## Founder-Facing Response
 
-If the ICP is still too ambiguous, return exactly:
-
-```markdown
-Phase: [Primary persona / User / Buyer / Champion / Trigger / Exclusions clarification]
-What we know: [running readback]
-Why this next question matters: [what part of the beachhead verdict is still blocked]
-
-[one best next ICP question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## ICP Snapshot
-- Primary persona:
-- Company type:
-- User:
-- Economic buyer:
-- Champion:
-- Trigger event:
-- Current workaround:
-
-## Exclusions
-- Explicit non-targets:
-
-## Beachhead Verdict
-- Narrowest credible beachhead:
-- Why this segment first:
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If the ICP is still too ambiguous, ask one best next ICP question only.
+- Once there is enough clarity, keep the visible response concise. Cover:
+  - the narrowest credible beachhead
+  - the user, buyer, and champion split
+  - the trigger and current workaround when relevant
+  - explicit exclusions
+  - the main ICP bottleneck, one next move, and, when another command is clearly next, a consent-first handoff sentence
+- Keep the evidence classification internally and surface it only when it materially changes the beachhead verdict.
 
 ## State Updates
 

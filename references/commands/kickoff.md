@@ -119,113 +119,30 @@ You have enough to initialize useful founder state when you have at least:
 
 Do not block on having every buyer, trust, and evidence detail perfectly filled in before moving forward.
 
-## Output Schema
+## Founder-Facing Response
 
-If this is a bare `kickoff` with no founder-specific context yet, return exactly:
+Separate internal state work from visible copy. The founder-facing message should stay conversational and only surface the minimum structure that helps.
+
+- On a bare `kickoff` with no useful founder context yet, use this exact opener:
 
 ```markdown
-Phase: Founder narrative
-What we know: No founder-specific context yet.
-Why this next question matters: I need the product shape before I can narrow the workflow wedge.
+Let's make this concrete fast.
 
-What are you building, in one sentence?
+Start with this: what are you building, in one sentence?
 
 Rough bullets are fine.
 ```
 
-If `kickoff` was inferred from a founder story or the founder has already given partial intake, and one more answer is needed before readback, return exactly:
-
-```markdown
-I'm treating this as kickoff because [brief reason].
-
-Phase: [Founder narrative / Workflow extraction / Evidence audit / Market reality check / Plan of attack]
-What we know: [running readback]
-Why this next question matters: [what decision or diagnosis is still blocked]
-
-[one best next question]
-```
-
-If `kickoff` is already active and discovery is still in progress, return exactly:
-
-```markdown
-Phase: [Founder narrative / Workflow extraction / Evidence audit / Market reality check / Plan of attack]
-What we know: [running readback]
-Why this next question matters: [what decision or diagnosis is still blocked]
-
-[one best next question]
-```
-
-If intake is sufficient for discovery but not yet sufficient for a hard diagnosis, return exactly:
-
-```markdown
-## Current Thesis
-- Company / product:
-- Candidate workflow:
-- Primary user:
-- Economic buyer:
-- Current workaround:
-- Trust boundary:
-
-## Open Questions
-- ...
-
-## Evidence Collected
-- Observed fact:
-- Founder assertion:
-- Model inference:
-
-## Next Move
-- Immediate action:
-- Why this now:
-
-**Recommended next**: `[command]` - ...
-```
-
-If intake is complete enough to initialize state, return exactly:
-
-```markdown
-## Current Thesis
-- Company:
-- Product one-liner:
-- Workflow wedge:
-- Primary user:
-- Economic buyer:
-- Trigger:
-- Current workaround:
-- Trust boundary:
-
-## Open Questions
-- ...
-
-## Evidence Collected
-- Observed fact:
-- Founder assertion:
-- Model inference:
-
-## Next Move
-- Immediate action:
-- Why this now:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If `kickoff` was inferred from a founder story and one more answer is needed before readback, acknowledge the inferred route in one sentence and ask one best next question.
+- If `kickoff` is already active and discovery is still in progress, ask one best next question only.
+- If intake is sufficient for discovery but not yet for a hard diagnosis, give a short readback plus a 2-4 move plan of attack. Cover the product, candidate workflow, primary user, buyer clarity or ambiguity, current workaround, trust boundary or AI role when relevant, what looks promising, what still needs validation, and, when another command is clearly next, a consent-first handoff sentence. Headings are optional.
+- If kickoff is mature enough for diagnosis, keep the visible response brief. Cover the current thesis, the main bottleneck, why that bottleneck matters, one concrete next move, and, when another command is clearly next, a consent-first handoff sentence such as `Next best move is research. Want me to validate buyer ownership now?` Detailed evidence splits and state structure can stay internal unless they materially help the founder.
 
 ## Routing Guidance
 
 - If the founder story is still mostly narrative and no usable state exists yet, keep `kickoff` active until the guided flow is complete.
-- If the founder story needs external validation, recommend `research`.
-- If the wedge is broad, recommend `wedge`.
-- If the wedge was killed and a new segment is emerging, recommend `icp`.
-- If the product ambition is "full agent" without a boundary, recommend `trust`.
-- If evidence is thin, recommend `experiment`.
+- If the founder story needs external validation, hand off into `research`.
+- If the wedge is broad, hand off into `wedge`.
+- If the wedge was killed and a new segment is emerging, hand off into `icp`.
+- If the product ambition is "full agent" without a boundary, hand off into `trust`.
+- If evidence is thin, hand off into `experiment`.
