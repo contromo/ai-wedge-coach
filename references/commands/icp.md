@@ -25,6 +25,10 @@ If `cohort_memory/objection_patterns.md` exists and a concrete objection surface
 If the ICP is still too ambiguous, return exactly:
 
 ```markdown
+Phase: [Primary persona / User / Buyer / Champion / Trigger / Exclusions clarification]
+What we know: [running readback]
+Why this next question matters: [what part of the beachhead verdict is still blocked]
+
 [one best next ICP question]
 ```
 

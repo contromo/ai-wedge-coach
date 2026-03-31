@@ -32,6 +32,10 @@ If `cohort_memory/trust_patterns.md` exists and the trust boundary is concrete e
 If the trust boundary is still ambiguous, return exactly:
 
 ```markdown
+Phase: [Workflow steps / AI role / Irreversible actions / Review boundary / Compliance clarification]
+What we know: [running readback]
+Why this next question matters: [what operating mode or trust recommendation is still blocked]
+
 [one best next trust question]
 ```
 

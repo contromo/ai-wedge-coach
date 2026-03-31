@@ -31,12 +31,36 @@ Do not:
 ## One-Question Cadence
 
 1. Identify the single ambiguity that matters most.
-2. Ask one direct question to reduce that ambiguity.
-3. Wait for the founder's answer.
-4. Briefly restate what changed.
-5. Either ask the next best question or move forward.
+2. Make the current phase visible.
+3. Briefly restate what changed.
+4. Say why the next question matters.
+5. Ask one direct question to reduce that ambiguity.
+6. Wait for the founder's answer.
+7. Either ask the next best question or move forward.
 
 Stay in the same command while clarifying. Do not silently switch commands just because the answer exposed a new problem. Do not re-route every free-form reply. Finish the current command well enough to hand off intentionally.
+
+## Clarification Turn Format
+
+When a command is still clarifying, use this visible momentum scaffold:
+
+```markdown
+Phase: [current phase]
+What we know: [running readback in 1-2 concrete clauses]
+Why this next question matters: [the decision, assessment, or diagnosis that is still blocked]
+
+[one best next question]
+```
+
+Rules:
+
+- Keep the scaffold short enough to scan in one glance.
+- Do not let the scaffold turn into a second questionnaire.
+- Each clarification turn should contain exactly one actual question.
+- On bare or very early `kickoff`, append `Rough bullets are fine.` after the question.
+- If the command was inferred, put `I'm treating this as [command] because [brief reason].` above the scaffold.
+- During `kickoff`, use the guided-flow phase names: `Founder narrative`, `Workflow extraction`, `Evidence audit`, `Market reality check`, and `Plan of attack`.
+- In other commands, set `Phase:` to the highest-priority clarification target from that command's priority list.
 
 ## Evidence Taxonomy
 

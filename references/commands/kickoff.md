@@ -124,9 +124,11 @@ Do not block on having every buyer, trust, and evidence detail perfectly filled 
 If this is a bare `kickoff` with no founder-specific context yet, return exactly:
 
 ```markdown
-Let's make this concrete fast.
+Phase: Founder narrative
+What we know: No founder-specific context yet.
+Why this next question matters: I need the product shape before I can narrow the workflow wedge.
 
-Start with this: what are you building, in one sentence?
+What are you building, in one sentence?
 
 Rough bullets are fine.
 ```
@@ -136,12 +138,20 @@ If `kickoff` was inferred from a founder story or the founder has already given 
 ```markdown
 I'm treating this as kickoff because [brief reason].
 
+Phase: [Founder narrative / Workflow extraction / Evidence audit / Market reality check / Plan of attack]
+What we know: [running readback]
+Why this next question matters: [what decision or diagnosis is still blocked]
+
 [one best next question]
 ```
 
 If `kickoff` is already active and discovery is still in progress, return exactly:
 
 ```markdown
+Phase: [Founder narrative / Workflow extraction / Evidence audit / Market reality check / Plan of attack]
+What we know: [running readback]
+Why this next question matters: [what decision or diagnosis is still blocked]
+
 [one best next question]
 ```
 

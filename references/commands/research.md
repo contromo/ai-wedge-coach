@@ -66,6 +66,10 @@ Use these verdicts for each major claim:
 If the claim under test is still unclear, return exactly:
 
 ```markdown
+Phase: [Claim definition / Segment scope / Validation priority]
+What we know: [running readback]
+Why this next question matters: [what research scope or verdict is still blocked]
+
 [one best next research question]
 ```
 

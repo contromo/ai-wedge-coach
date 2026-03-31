@@ -36,7 +36,7 @@ See `examples/` for a worked coaching session.
 
 **Evidence discipline** - Separates observed facts, founder assertions, and model inferences so the coach does not smuggle guesses into the evidence base.
 
-**Guided conversation** - Every working command should guide the founder one question at a time, force clarity step by step, and hold diagnosis until the command has enough signal.
+**Guided conversation** - Every working command should guide the founder one question at a time, show visible momentum with `Phase`, `What we know`, and `Why this next question matters`, and hold diagnosis until the command has enough signal.
 
 ---
 
@@ -68,6 +68,8 @@ The wedge still feels fuzzy and I'm not sure which team we should own first.
 Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
 Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
 On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
+A fresh `kickoff` turn should show one intake question plus a compact progress cue with `Phase`, `What we know`, and `Why this next question matters`. It should not jump straight to a summary, scorecard, or diagnosis.
+That phased kickoff is deliberate, not withheld value: the first turn removes the biggest ambiguity, the next useful stage is a kickoff readback plus short plan of attack, and the company snapshot or diagnosis should only appear once the founder-specific evidence is strong enough to justify them.
 
 ### Option 2: Installed Session Skill
 
@@ -97,7 +99,7 @@ The story is still broad and I need help finding the first workflow wedge.
 
 Installed session-skill mode should also accept a free-form founder story first and route implicitly.
 If you want to force a specific command in session-skill mode, use the `$ai-wedge-coach` prefix, for example `$ai-wedge-coach kickoff`.
-On first use, the inferred path should normally be `kickoff`, request the missing founder intake one question at a time, then build a plan of attack before issuing a hard diagnosis.
+On first use, the inferred path should normally be `kickoff`, request the missing founder intake one question at a time with visible progress cues, then build a plan of attack before issuing a hard diagnosis.
 
 Installer options:
 
@@ -151,9 +153,9 @@ bash scripts/verify_docs.sh
 What it checks:
 
 - story-first onboarding copy still exists and commands are framed as optional shortcuts
-- the conversation protocol still enforces one-question cadence
-- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and supports inferred kickoff from a founder story
-- golden transcript fixtures exist for a bare `kickoff` turn, an inferred `kickoff` turn, and a diagnosis-allowed `wedge` turn
+- the conversation protocol still enforces one-question cadence with visible progress cues
+- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, shows `Phase`, `What we know`, and `Why this next question matters`, and keeps the kickoff readback before diagnosis
+- golden transcript fixtures cover bare kickoff, multi-turn kickoff discovery, kickoff readback before diagnosis, inferred kickoff, auto-routing from `progress` into kickoff, a non-kickoff clarification turn, and a diagnosis-allowed `wedge` turn
 
 ---
 
@@ -165,7 +167,7 @@ You do not need to pick one before the coach can help.
 
 | Command | Purpose | Typical Output |
 | --- | --- | --- |
-| `kickoff` | Force onboarding or reseed after a dead wedge | Guided intake, plan of attack, then company snapshot and diagnosis when justified |
+| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake with progress cue, kickoff readback, short plan of attack, then company snapshot and diagnosis when justified |
 | `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis wedge assessment, `Why AI?` check, keep/narrow/kill/split recommendation |
 | `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
 | `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
@@ -215,7 +217,20 @@ It also runs a non-rubric `Why AI?` check to make sure the product actually bene
 
 ## Fast Workflow Examples
 
-### 1) Paste a messy founder story
+### 1) Direct `kickoff` on a fresh workspace
+
+```text
+kickoff
+```
+
+Expected progression:
+
+- first turn: one intake question plus `Phase / What we know / Why this next question matters`
+- discovery phase: no diagnosis, recommendation, or next-move block yet
+- readback phase: kickoff readback plus short plan of attack
+- diagnosis phase: company snapshot and diagnosis only when enough intake and evidence exist
+
+### 2) Paste a messy founder story
 
 ```text
 We're building an AI copilot for procurement teams.
@@ -226,10 +241,11 @@ I know the pain is real, but the wedge and buyer are still fuzzy.
 Expected output:
 
 - inferred command acknowledgement
+- `Phase / What we know / Why this next question matters` cue
 - one best next question
 - kickoff readback and plan of attack before diagnosis
 
-### 2) Broad product claim that needs compression
+### 3) Broad product claim that needs compression
 
 ```text
 wedge
@@ -248,7 +264,7 @@ Expected output:
 - `Why AI?` check
 - keep / narrow / kill / split recommendation
 
-### 3) Buyer and user are blurred
+### 4) Buyer and user are blurred
 
 ```text
 icp
@@ -260,7 +276,7 @@ Expected output:
 - explicit exclusions
 - narrowest credible beachhead
 
-### 4) The founder wants a full agent
+### 5) The founder wants a full agent
 
 ```text
 trust
@@ -273,7 +289,7 @@ Expected output:
 - human-only
 - operating recommendation
 
-### 5) The founder needs the next test
+### 6) The founder needs the next test
 
 ```text
 experiment
@@ -289,7 +305,7 @@ Expected output:
 - one decision rule
 - automatic state feedback when results are reported
 
-### 6) The founder needs market validation
+### 7) The founder needs market validation
 
 ```text
 research
@@ -306,7 +322,7 @@ Expected output:
 - substitutes and competitors
 - research-backed next move
 
-### 7) The founder wants the hard truth
+### 8) The founder wants the hard truth
 
 ```text
 progress

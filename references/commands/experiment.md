@@ -68,6 +68,10 @@ If the current coaching posture is `containment`, make the experiment define the
 If the experiment is not yet well-formed, return exactly:
 
 ```markdown
+Phase: [Hypothesis / Linked dimension / Method / Falsifier / Owner / Deadline / Threshold / Decision rule clarification]
+What we know: [running readback]
+Why this next question matters: [what makes the experiment non-runnable right now]
+
 [one best next experiment question]
 ```
 
