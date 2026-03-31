@@ -137,6 +137,7 @@ assert_file "agents/openai.yaml"
 
 assert_contains "README.md" "Paste your messy founder story"
 assert_contains "README.md" "optional shortcuts for power users"
+assert_contains "README.md" 'A fresh `kickoff` turn starts with one intake question'
 assert_contains "README.md" 'Phase`, `What we know`, and `Why this next question matters`'
 assert_contains "README.md" "That phased kickoff is deliberate, not withheld value:"
 assert_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake with progress cue, kickoff readback, short plan of attack, then company snapshot and diagnosis when justified |'
@@ -186,6 +187,8 @@ assert_contains "agents/openai.yaml" "default to kickoff when the wedge is still
 
 assert_contains "examples/golden/kickoff-bare.md" 'Command: `kickoff`'
 assert_not_contains "examples/golden/kickoff-bare.md" "## Diagnosis"
+assert_not_contains "examples/golden/kickoff-bare.md" "## Recommendation"
+assert_not_contains "examples/golden/kickoff-bare.md" "## Next Move"
 assert_assistant_block_count "examples/golden/kickoff-bare.md" "1"
 assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "Phase: Founder narrative"
 assert_assistant_block_contains "examples/golden/kickoff-bare.md" "1" "What we know: No founder-specific context yet."
@@ -196,6 +199,7 @@ assert_assistant_question_count "examples/golden/kickoff-bare.md" "1" "1"
 assert_contains "examples/golden/kickoff-discovery.md" 'Command: `kickoff`'
 assert_contains "examples/golden/kickoff-discovery.md" 'State: missing founder-specific intake'
 assert_not_contains "examples/golden/kickoff-discovery.md" "## Diagnosis"
+assert_not_contains "examples/golden/kickoff-discovery.md" "## Current Thesis"
 assert_assistant_block_count "examples/golden/kickoff-discovery.md" "2"
 assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "1" "Phase: Founder narrative"
 assert_assistant_block_contains "examples/golden/kickoff-discovery.md" "1" "Rough bullets are fine."
@@ -209,6 +213,7 @@ assert_assistant_question_count "examples/golden/kickoff-discovery.md" "2" "1"
 assert_contains "examples/golden/kickoff-readback.md" 'Command: `kickoff`'
 assert_contains "examples/golden/kickoff-readback.md" 'State: discovery sufficient for readback but not diagnosis'
 assert_not_contains "examples/golden/kickoff-readback.md" "## Diagnosis"
+assert_not_contains "examples/golden/kickoff-readback.md" "## Recommendation"
 assert_assistant_block_count "examples/golden/kickoff-readback.md" "1"
 assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Current Thesis"
 assert_assistant_block_contains "examples/golden/kickoff-readback.md" "1" "## Open Questions"
@@ -228,6 +233,7 @@ assert_assistant_question_count "examples/golden/implicit-kickoff-story.md" "1" 
 assert_contains "examples/golden/progress-routes-to-kickoff.md" 'Command: `progress`'
 assert_contains "examples/golden/progress-routes-to-kickoff.md" 'State: placeholder-only state.md'
 assert_not_contains "examples/golden/progress-routes-to-kickoff.md" "## Diagnosis"
+assert_not_contains "examples/golden/progress-routes-to-kickoff.md" "## Current Scoreboard"
 assert_assistant_block_count "examples/golden/progress-routes-to-kickoff.md" "1"
 assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "I'm treating this as kickoff because there is no usable founder-specific state yet."
 assert_assistant_block_contains "examples/golden/progress-routes-to-kickoff.md" "1" "Phase: Founder narrative"
@@ -244,5 +250,8 @@ assert_assistant_question_count "examples/golden/wedge-clarify.md" "1" "1"
 assert_contains "examples/golden/wedge-diagnosis.md" 'Command: `wedge`'
 assert_contains "examples/golden/wedge-diagnosis.md" "## Diagnosis"
 assert_contains "examples/golden/wedge-diagnosis.md" "**Recommended next**:"
+assert_assistant_block_count "examples/golden/wedge-diagnosis.md" "1"
+assert_assistant_block_contains "examples/golden/wedge-diagnosis.md" "1" "## Diagnosis"
+assert_assistant_block_contains "examples/golden/wedge-diagnosis.md" "1" "**Recommended next**:"
 
 printf 'verify_docs.sh: OK\n'

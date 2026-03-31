@@ -68,7 +68,7 @@ The wedge still feels fuzzy and I'm not sure which team we should own first.
 Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
 Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
 On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
-A fresh `kickoff` turn should show one intake question plus a compact progress cue with `Phase`, `What we know`, and `Why this next question matters`. It should not jump straight to a summary, scorecard, or diagnosis.
+A fresh `kickoff` turn starts with one intake question plus a compact progress cue with `Phase`, `What we know`, and `Why this next question matters`. It should not jump straight to a summary, scorecard, or diagnosis.
 That phased kickoff is deliberate, not withheld value: the first turn removes the biggest ambiguity, the next useful stage is a kickoff readback plus short plan of attack, and the company snapshot or diagnosis should only appear once the founder-specific evidence is strong enough to justify them.
 
 ### Option 2: Installed Session Skill
