@@ -134,6 +134,7 @@ Default to `kickoff` when:
 - `kickoff` is a guided discovery flow, not a placeholder summary. When founder facts are missing, start with one compact conversational ask.
 - When `kickoff` is inferred from a founder story, use what the founder already supplied and ask the next missing question instead of restarting with "what are you building?"
 - Use a one-question cadence. When ambiguity materially affects the next step, ask the single best next question and wait.
+- On clarification turns, make momentum visible with `Phase`, `What we know`, and `Why this next question matters` before the single question.
 - This applies to all working commands, not just `kickoff`.
 - Once a command is active, keep it sticky until an intentional handoff or explicit command switch. Do not re-route every free-form reply.
 - Accept rough answers. Do not require every field to be complete before the coach becomes useful.
@@ -182,11 +183,12 @@ Only recommend working commands or aliases in `**Recommended next**`. Never reco
 Exception:
 
 - for any working command, if a critical fact is missing, do not force the full output schema yet
+- use the visible momentum scaffold: `Phase`, `What we know`, and `Why this next question matters`
 - ask one best next question, wait, and stay in the same command until enough clarity exists
 - on bare `kickoff` with no real founder intake yet, do not use the diagnosis structure
 - during early kickoff discovery, it is acceptable to return a readback plus plan of attack before formal diagnosis
 - while kickoff discovery is incomplete, stay in kickoff mode implicitly until the founder changes commands or the guided flow is complete
-- open conversationally, ask for the minimum missing context in one compact message, and wait for the founder's reply
+- open conversationally, show visible momentum, ask for the minimum missing context in one compact message, and wait for the founder's reply
 
 When a working command has enough context to produce a substantive output, include an evidence split somewhere before diagnosis:
 

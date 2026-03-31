@@ -10,4 +10,8 @@
 
 I'm treating this as kickoff because the wedge is still fuzzy.
 
+Phase: Workflow extraction
+What we know: You're building an AI copilot for security questionnaire workflows that drafts first-pass answers from past responses and cited evidence.
+Why this next question matters: I need the day-to-day owner before I can narrow the wedge and buyer path.
+
 Which team owns that workflow today: sales engineering, security, or someone else?

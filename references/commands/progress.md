@@ -66,6 +66,10 @@ When a trigger fires:
 If progress cannot be summarized honestly yet, return exactly:
 
 ```markdown
+Phase: [Change log / Evidence delta / Uncertainty clarification]
+What we know: [running readback]
+Why this next question matters: [what honest progress summary is still blocked]
+
 [one best next progress question]
 ```
 

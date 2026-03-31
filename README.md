@@ -36,7 +36,7 @@ See `examples/` for a worked coaching session.
 
 **Evidence discipline** - Separates observed facts, founder assertions, and model inferences so the coach does not smuggle guesses into the evidence base.
 
-**Guided conversation** - Every working command should guide the founder one question at a time, force clarity step by step, and hold diagnosis until the command has enough signal.
+**Guided conversation** - Every working command should guide the founder one question at a time, show visible momentum with `Phase`, `What we know`, and `Why this next question matters`, and hold diagnosis until the command has enough signal.
 
 ---
 
@@ -68,6 +68,7 @@ The wedge still feels fuzzy and I'm not sure which team we should own first.
 Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
 Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
 On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
+A fresh `kickoff` turn should show one intake question plus a compact progress cue with `Phase`, `What we know`, and `Why this next question matters`. It should not jump straight to a summary, scorecard, or diagnosis.
 
 ### Option 2: Installed Session Skill
 
@@ -97,7 +98,7 @@ The story is still broad and I need help finding the first workflow wedge.
 
 Installed session-skill mode should also accept a free-form founder story first and route implicitly.
 If you want to force a specific command in session-skill mode, use the `$ai-wedge-coach` prefix, for example `$ai-wedge-coach kickoff`.
-On first use, the inferred path should normally be `kickoff`, request the missing founder intake one question at a time, then build a plan of attack before issuing a hard diagnosis.
+On first use, the inferred path should normally be `kickoff`, request the missing founder intake one question at a time with visible progress cues, then build a plan of attack before issuing a hard diagnosis.
 
 Installer options:
 
@@ -151,9 +152,9 @@ bash scripts/verify_docs.sh
 What it checks:
 
 - story-first onboarding copy still exists and commands are framed as optional shortcuts
-- the conversation protocol still enforces one-question cadence
-- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and supports inferred kickoff from a founder story
-- golden transcript fixtures exist for a bare `kickoff` turn, an inferred `kickoff` turn, and a diagnosis-allowed `wedge` turn
+- the conversation protocol still enforces one-question cadence with visible progress cues
+- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and shows `Phase`, `What we know`, and `Why this next question matters`
+- golden transcript fixtures cover bare kickoff, multi-turn kickoff discovery, kickoff readback before diagnosis, inferred kickoff, auto-routing from `progress` into kickoff, a non-kickoff clarification turn, and a diagnosis-allowed `wedge` turn
 
 ---
 
@@ -226,6 +227,7 @@ I know the pain is real, but the wedge and buyer are still fuzzy.
 Expected output:
 
 - inferred command acknowledgement
+- `Phase / What we know / Why this next question matters` cue
 - one best next question
 - kickoff readback and plan of attack before diagnosis
 

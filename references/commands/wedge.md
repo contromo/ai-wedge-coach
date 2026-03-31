@@ -72,6 +72,10 @@ If the result is `split`:
 If the wedge is still too fuzzy to assess, return exactly:
 
 ```markdown
+Phase: [Workflow / User / Trigger / Desired outcome / Current workaround / Recurrence / Buyer clarification]
+What we know: [running readback]
+Why this next question matters: [what part of the wedge assessment or recommendation is still blocked]
+
 [one best next wedge question]
 ```
 
