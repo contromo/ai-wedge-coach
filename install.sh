@@ -16,6 +16,9 @@ usage() {
   cat <<'EOF'
 Usage: ./install.sh [--force] [--copy] [--no-restart]
 
+This installs the Codex session skill for this repo.
+For Claude Code, open the repo directly so `CLAUDE.md` can load `AGENTS.md`.
+
 Options:
   --force       Replace an existing install at the target path.
   --copy        Copy the repo into the Codex skills directory instead of symlinking it.
@@ -109,6 +112,10 @@ $restart_message
 Best first move:
   Paste a messy founder story into Codex.
   The coach will infer kickoff when the wedge is still fuzzy.
+
+Packaging note:
+  This installer configures the Codex session skill.
+  For Claude Code, open the repo directly so `CLAUDE.md` loads `AGENTS.md`.
 
 If you want direct control, use:
   \$ai-wedge-coach kickoff

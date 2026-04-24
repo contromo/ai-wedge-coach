@@ -40,6 +40,7 @@ assert_question_count() {
 
 assert_file "README.md"
 assert_file "AGENTS.md"
+assert_file "CLAUDE.md"
 assert_file "SKILL.md"
 assert_file "references/rubrics.md"
 assert_file "references/conversation-protocol.md"
@@ -53,9 +54,14 @@ assert_file "examples/golden/kickoff-bare.md"
 assert_file "examples/golden/implicit-kickoff-story.md"
 assert_file "examples/golden/wedge-diagnosis.md"
 assert_file "agents/openai.yaml"
+assert_file "install.sh"
 
 assert_contains "README.md" "Paste your messy founder story"
 assert_contains "README.md" "optional shortcuts for power users"
+assert_contains "README.md" "In repo mode, it works in both Codex and Claude Code. The installed session-skill packaging remains Codex-specific."
+assert_contains "README.md" "### Option 2: Claude Code Repo Mode"
+assert_contains "README.md" 'This repo already includes `CLAUDE.md`, which imports `AGENTS.md`, so Claude Code uses the same repo-local coaching instructions as Codex repo mode.'
+assert_contains "README.md" 'The `./install.sh` flow and `agents/openai.yaml` are Codex-only packaging, not Claude Code setup.'
 assert_contains "README.md" '| `autonomy` | Alias of `trust` | Same as `trust` |'
 assert_contains "README.md" '| `market` | Alias of `research` | Same as `research` |'
 assert_not_contains "README.md" "### Planned Commands"
@@ -63,9 +69,12 @@ assert_not_contains "README.md" '| `signals` |'
 assert_not_contains "README.md" '| `objections` |'
 assert_not_contains "README.md" '| `pivot` |'
 assert_not_contains "README.md" '| `evals` |'
+assert_contains "AGENTS.md" 'Codex can read this file directly. Claude Code should load it via `CLAUDE.md`.'
 assert_contains "AGENTS.md" "Founders do not need to learn the command model before they get value."
 assert_contains "AGENTS.md" 'only working commands or aliases belong in `help`, startup menus, and `**Recommended next**` guidance'
 assert_not_contains "AGENTS.md" "Planned stubs:"
+assert_contains "CLAUDE.md" "@AGENTS.md"
+assert_contains "CLAUDE.md" "Codex-specific session-skill packaging, not Claude Code setup."
 assert_contains "SKILL.md" "These are internal working modes and optional shortcuts for power users."
 assert_contains "SKILL.md" "Hidden compatibility redirects:"
 assert_contains "SKILL.md" 'Do not list these in `help`, startup menus, or `**Recommended next**` guidance.'
@@ -85,6 +94,8 @@ assert_contains "references/commands/objections.md" '`objections` is a hidden co
 assert_contains "references/commands/pivot.md" '`pivot` is a hidden compatibility shortcut.'
 assert_contains "references/commands/evals.md" '`evals` is a hidden compatibility shortcut.'
 assert_contains "agents/openai.yaml" "default to kickoff when the wedge is still fuzzy or state is missing"
+assert_contains "install.sh" "This installs the Codex session skill for this repo."
+assert_contains "install.sh" 'For Claude Code, open the repo directly so `CLAUDE.md` can load `AGENTS.md`.'
 
 assert_contains "examples/golden/kickoff-bare.md" 'Command: `kickoff`'
 assert_contains "examples/golden/kickoff-bare.md" "Rough bullets are fine."
