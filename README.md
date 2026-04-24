@@ -1,10 +1,14 @@
 # AI Agent Wedge Coach
 
-A Codex-based coaching system for early-stage B2B AI founders who need to find a real workflow wedge, define trust boundaries, avoid demo traps, and run the next highest-signal experiment.
+A repo-driven coaching system for early-stage B2B AI founders who need to find a real workflow wedge, define trust boundaries, avoid demo traps, and run the next highest-signal experiment.
+
+In repo mode, it works in both Codex and Claude Code. The installed session-skill packaging remains Codex-specific.
 
 This is not generic startup advice. It is a debugging system for the company.
 
 It assesses the business across six top-level dimensions with qualitative evidence states, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and carries each session toward one concrete next move without turning the product into a command menu.
+
+Behavior follows the instructions in `SKILL.md` and `AGENTS.md`, not a hardcoded engine. In Codex repo mode, the app reads `AGENTS.md` directly. In Claude Code repo mode, `CLAUDE.md` imports the same `AGENTS.md`. The `./install.sh` flow and `agents/openai.yaml` are Codex-only packaging, not Claude Code setup.
 
 Paste your messy founder story and the coach will infer the right mode, explain the route, and start narrowing the wedge immediately. Commands like `kickoff` or `wedge` remain available as optional shortcuts for power users.
 
@@ -115,7 +119,32 @@ On a fresh repo with no founder-specific state yet, the inferred path should def
 A fresh `kickoff` turn starts with one intake question, not a summary, scorecard, or diagnosis.
 That phased kickoff is deliberate, not withheld value: the first turn removes the biggest ambiguity, the next useful stage is a readback plus short plan of attack, and scores or diagnosis only appear when the founder-specific evidence is strong enough to justify them.
 
-### Option 3: Installed Session Skill
+### Option 2: Claude Code Repo Mode
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/contromo/ai-wedge-coach.git
+cd ai-wedge-coach
+```
+
+Or download it as a ZIP and unzip it.
+
+2. Open the folder in Claude Code.
+
+This repo already includes `CLAUDE.md`, which imports `AGENTS.md`, so Claude Code uses the same repo-local coaching instructions as Codex repo mode.
+
+3. Paste your founder story:
+
+```text
+We're building AI workflow tooling for vendor onboarding.
+The pain feels real, but the first wedge and trust boundary are still fuzzy.
+```
+
+Claude Code repo mode should behave the same as Codex repo mode because both paths resolve to the same underlying coaching instructions.
+You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
+
+### Option 3: Installed Session Skill (Codex only)
 
 1. Clone the repo:
 
@@ -133,6 +162,7 @@ Or download it as a ZIP and unzip it.
 ```
 
 By default this installs a symlink into Codex's skill directory. If `$CODEX_HOME` is unset, the installer uses `~/.codex/skills`.
+This packaging is Codex-only. It depends on Codex session-skill loading plus `agents/openai.yaml`; it does not configure Claude Code. For Claude Code, use repo mode instead.
 
 3. Restart Codex, then paste a founder story like:
 
@@ -346,7 +376,7 @@ Typical result: the coach gives a concise progress read, explicitly calls out re
 
 ## Local Repo Mode vs Installed Skill Mode
 
-If you open the repo directly in Codex, you can just paste a founder story. If you want direct control, use plain commands like:
+If you open the repo directly in Codex or Claude Code, you can just paste a founder story. If you want direct control, use plain commands like:
 
 ```text
 kickoff
@@ -355,7 +385,7 @@ trust
 research
 ```
 
-If you install it as a session skill with `./install.sh`, you can still start with a founder story. If you want to force a command, use:
+If you install it as a session skill with `./install.sh`, that path is Codex-only. You can still start with a founder story. If you want to force a command, use:
 
 ```text
 $ai-wedge-coach kickoff
@@ -364,4 +394,5 @@ $ai-wedge-coach trust
 $ai-wedge-coach research
 ```
 
-The behavior is the same. The only difference is whether Codex is reading the repo-local `AGENTS.md` or the installed session skill package.
+In repo mode, Codex reads the repo-local `AGENTS.md` directly and Claude Code reads `CLAUDE.md`, which imports the same `AGENTS.md`.
+Installed session-skill mode is only for Codex and uses the packaged skill metadata instead of the repo-local Claude entrypoint.

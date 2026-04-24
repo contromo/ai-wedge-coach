@@ -1,6 +1,7 @@
 # AI Agent Wedge Coach
 
-This repo is configured for local Codex use.
+This repo is configured for repo-mode use.
+Codex can read this file directly. Claude Code should load it via `CLAUDE.md`.
 
 Use [SKILL.md](SKILL.md) as the authoritative skill definition and load the referenced files there as needed. The command logic lives in `references/commands/`, and the shared rubric, state, diagnosis, and archetype logic lives in `references/`.
 Use [references/conversation-protocol.md](references/conversation-protocol.md) for the question cadence.

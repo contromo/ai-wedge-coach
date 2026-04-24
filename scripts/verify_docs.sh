@@ -117,6 +117,7 @@ assert_assistant_question_count() {
 
 assert_file "README.md"
 assert_file "AGENTS.md"
+assert_file "CLAUDE.md"
 assert_file "SKILL.md"
 assert_file "references/rubrics.md"
 assert_file "references/conversation-protocol.md"
@@ -131,24 +132,30 @@ assert_file "examples/golden/implicit-kickoff-story.md"
 assert_file "examples/golden/progress-routes-to-kickoff.md"
 assert_file "examples/golden/wedge-diagnosis.md"
 assert_file "agents/openai.yaml"
+assert_file "install.sh"
 
-assert_contains "README.md" "Founder-facing replies stay conversational; the durable structure lives in the runtime files and command logic."
-assert_contains "README.md" "They hold the durable structure; founder-facing replies do not need to mirror the file schemas."
-assert_contains "README.md" "Typical progression:"
-assert_contains "README.md" '| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake, short readbacks, and a plan of attack before any hard diagnosis |'
-assert_contains "README.md" 'golden transcript fixtures cover bare kickoff, multi-turn kickoff discovery, kickoff readback before diagnosis, inferred kickoff, auto-routing from `progress` into kickoff, a lean `help` reply, and a diagnosis-allowed `wedge` turn'
-assert_contains "README.md" "The coach should usually carry the conversation forward with a lightweight consent question instead of telling the founder to type the next command."
-assert_not_contains "README.md" 'Phase / What we know / Why this next question matters'
-
-assert_contains "AGENTS.md" "founder-facing copy: concise conversational replies that surface only the structure the founder actually needs"
-assert_contains "AGENTS.md" 'only working commands or aliases belong in `help`, startup menus, and named next-step handoffs'
-assert_contains "AGENTS.md" 'if another command is clearly next, default to one conversational consent question such as `Next best move is trust. Want me to map that now?`'
-assert_contains "SKILL.md" "Founder-facing copy: keep replies conversational and concise."
-assert_contains "SKILL.md" 'Do not list these in `help`, startup menus, or named next-step handoffs.'
-assert_contains "SKILL.md" 'If another command is clearly next, default to one conversational consent question such as `Next best move is trust. Want me to map that now?`'
-assert_not_contains "SKILL.md" "All working commands must return the same diagnosis structure"
-assert_contains "references/rubrics.md" "This skill uses two rubric layers:"
-assert_contains "references/conversation-protocol.md" "Separate internal working structure from founder-facing copy."
+assert_contains "README.md" "Paste your messy founder story"
+assert_contains "README.md" "optional shortcuts for power users"
+assert_contains "README.md" "In repo mode, it works in both Codex and Claude Code. The installed session-skill packaging remains Codex-specific."
+assert_contains "README.md" "### Option 2: Claude Code Repo Mode"
+assert_contains "README.md" 'This repo already includes `CLAUDE.md`, which imports `AGENTS.md`, so Claude Code uses the same repo-local coaching instructions as Codex repo mode.'
+assert_contains "README.md" 'The `./install.sh` flow and `agents/openai.yaml` are Codex-only packaging, not Claude Code setup.'
+assert_contains "README.md" '| `autonomy` | Alias of `trust` | Same as `trust` |'
+assert_contains "README.md" '| `market` | Alias of `research` | Same as `research` |'
+assert_not_contains "README.md" "### Planned Commands"
+assert_not_contains "README.md" '| `signals` |'
+assert_not_contains "README.md" '| `objections` |'
+assert_not_contains "README.md" '| `pivot` |'
+assert_not_contains "README.md" '| `evals` |'
+assert_contains "AGENTS.md" 'Codex can read this file directly. Claude Code should load it via `CLAUDE.md`.'
+assert_contains "AGENTS.md" "Founders do not need to learn the command model before they get value."
+assert_contains "AGENTS.md" 'only working commands or aliases belong in `help`, startup menus, and `**Recommended next**` guidance'
+assert_not_contains "AGENTS.md" "Planned stubs:"
+assert_contains "CLAUDE.md" "@AGENTS.md"
+assert_contains "CLAUDE.md" "Codex-specific session-skill packaging, not Claude Code setup."
+assert_contains "SKILL.md" "These are internal working modes and optional shortcuts for power users."
+assert_contains "SKILL.md" "Hidden compatibility redirects:"
+assert_contains "SKILL.md" 'Do not list these in `help`, startup menus, or `**Recommended next**` guidance.'
 assert_contains "references/conversation-protocol.md" "ask exactly one best next question"
 assert_contains "references/conversation-protocol.md" "use a consent-first transition, not a menu recommendation"
 assert_not_contains "references/conversation-protocol.md" "Phase: [current phase]"
@@ -176,6 +183,8 @@ assert_contains "references/commands/objections.md" '`objections` is a hidden co
 assert_contains "references/commands/pivot.md" '`pivot` is a hidden compatibility shortcut.'
 assert_contains "references/commands/evals.md" '`evals` is a hidden compatibility shortcut.'
 assert_contains "agents/openai.yaml" "default to kickoff when the wedge is still fuzzy or state is missing"
+assert_contains "install.sh" "This installs the Codex session skill for this repo."
+assert_contains "install.sh" 'For Claude Code, open the repo directly so `CLAUDE.md` can load `AGENTS.md`.'
 
 assert_contains "examples/golden/kickoff-bare.md" 'Command: `kickoff`'
 assert_not_contains "examples/golden/kickoff-bare.md" "## Diagnosis"
