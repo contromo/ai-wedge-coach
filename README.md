@@ -6,7 +6,7 @@ In repo mode, it works in both Codex and Claude Code. The installed session-skil
 
 This is not generic startup advice. It is a debugging system for the company.
 
-It assesses the business across six top-level dimensions with qualitative evidence states, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and pushes every session toward one concrete next move.
+It assesses the business across six top-level dimensions with qualitative evidence states, pressure-tests wedges with a dedicated rubric, keeps persistent founder state across sessions, logs customer interviews and objections, preserves dead wedges in a graveyard, and carries each session toward one concrete next move without turning the product into a command menu.
 
 Behavior follows the instructions in `SKILL.md` and `AGENTS.md`, not a hardcoded engine. In Codex repo mode, the app reads `AGENTS.md` directly. In Claude Code repo mode, `CLAUDE.md` imports the same `AGENTS.md`. The `./install.sh` flow and `agents/openai.yaml` are Codex-only packaging, not Claude Code setup.
 
@@ -40,13 +40,57 @@ See `examples/` for a worked coaching session.
 
 **Evidence discipline** - Separates observed facts, founder assertions, and model inferences so the coach does not smuggle guesses into the evidence base.
 
-**Guided conversation** - Every working command should guide the founder one question at a time, force clarity step by step, and hold diagnosis until the command has enough signal.
+**Guided conversation** - Every working command should guide the founder one question at a time, force clarity step by step, and hold diagnosis until the command has enough signal. Founder-facing replies stay conversational; the durable structure lives in the runtime files and command logic. When a deeper mode switch is needed, the coach should usually use a consent-first handoff like `Next best move is trust. Want me to map that now?`
 
 ---
 
 ## Quick Start
 
-### Option 1: Codex Local Repo Mode (recommended)
+### Option 1: Standalone Python CLI
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/contromo/ai-wedge-coach.git
+cd ai-wedge-coach
+```
+
+2. Install the CLI:
+
+```bash
+python3 -m pip install -e .
+```
+
+3. Set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY=...
+```
+
+4. Start a structured workspace and run the coach:
+
+```bash
+wedge-coach init
+wedge-coach kickoff
+```
+
+You can also run single turns non-interactively:
+
+```bash
+wedge-coach kickoff --message "We're building AI-generated onboarding briefs for finance ops teams."
+wedge-coach progress
+wedge-coach export --format html
+```
+
+The CLI stores canonical state in `.wedge-coach/state.json`, writes append-only JSONL logs under `.wedge-coach/logs/`, keeps session transcripts under `.wedge-coach/sessions/`, and exports advisor-ready reports to `exports/`.
+
+If you already have a markdown-based founder workspace, import it once:
+
+```bash
+wedge-coach import --from-markdown .
+```
+
+### Option 2: OpenAI Codex Local Repo Mode (recommended for doc-first use)
 
 1. Clone the repo:
 
@@ -72,6 +116,8 @@ The wedge still feels fuzzy and I'm not sure which team we should own first.
 Local repo mode uses the instructions in `AGENTS.md` and `SKILL.md` directly. You can start with a free-form story and the coach will infer the right command, say which one it chose, and stay in that mode until an intentional handoff or explicit command switch.
 Plain commands like `kickoff`, `wedge`, `icp`, `trust`, `research`, `experiment`, and `progress` still work as direct shortcuts.
 On a fresh repo with no founder-specific state yet, the inferred path should default to `kickoff`, guide the founder one question at a time, run a market-reality check, and only then settle into diagnosis.
+A fresh `kickoff` turn starts with one intake question, not a summary, scorecard, or diagnosis.
+That phased kickoff is deliberate, not withheld value: the first turn removes the biggest ambiguity, the next useful stage is a readback plus short plan of attack, and scores or diagnosis only appear when the founder-specific evidence is strong enough to justify them.
 
 ### Option 2: Claude Code Repo Mode
 
@@ -156,6 +202,7 @@ Expanded mode creates these on demand:
 - `wedge_graveyard.md`
 
 These files are created and updated automatically when the workflow justifies them. If you test the skill from this repo root, they are gitignored.
+They hold the durable structure; founder-facing replies do not need to mirror the file schemas.
 
 Optional shared accelerator memory:
 
@@ -175,36 +222,37 @@ This repo is still doc-driven, but it now includes lightweight checks so the pro
 Run:
 
 ```bash
-bash scripts/verify_docs.sh
+./scripts/verify_docs.sh
 ```
 
 What it checks:
 
 - story-first onboarding copy still exists and commands are framed as optional shortcuts
 - the conversation protocol still enforces one-question cadence
-- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and supports inferred kickoff from a founder story
-- golden transcript fixtures exist for a bare `kickoff` turn, an inferred `kickoff` turn, and a diagnosis-allowed `wedge` turn
+- `kickoff` still forbids diagnosis on a bare first turn, preserves the "rough bullets are fine" onboarding language, and keeps the kickoff readback before diagnosis
+- golden transcript fixtures cover bare kickoff, multi-turn kickoff discovery, kickoff readback before diagnosis, inferred kickoff, auto-routing from `progress` into kickoff, a lean `help` reply, and a diagnosis-allowed `wedge` turn
 
 ---
 
 ## Command Shortcuts
 
 You do not need to pick one before the coach can help.
+The coach should usually carry the conversation forward with a lightweight consent question instead of telling the founder to type the next command.
 
 ### Core Commands
 
-| Command | Purpose | Typical Output |
+| Command | Purpose | Typical result |
 | --- | --- | --- |
-| `kickoff` | Force onboarding or reseed after a dead wedge | Guided intake, plan of attack, then company snapshot and diagnosis when justified |
-| `wedge` | Pressure-test the current workflow wedge | Wedge compression, evidence-backed 7-axis wedge assessment, `Why AI?` check, keep/narrow/kill/split recommendation |
-| `icp` | Pressure-test who this is really for | User/buyer/champion split, exclusions, beachhead verdict |
-| `trust` | Design the AI autonomy boundary | Automation map, failure taxonomy, copilot/review queue/constrained agent/full automation recommendation |
+| `kickoff` | Force onboarding or reseed after a dead wedge | One-question intake, short readbacks, and a plan of attack before any hard diagnosis |
+| `wedge` | Pressure-test the current workflow wedge | A compressed wedge read, recurrence callout, main bottleneck, and keep/narrow/kill/split verdict |
+| `icp` | Pressure-test who this is really for | A narrow beachhead read with user/buyer/champion separation and exclusions |
+| `trust` | Design the AI autonomy boundary | A concise autonomy boundary, key risk, and operating recommendation |
 | `autonomy` | Alias of `trust` | Same as `trust` |
-| `research` | Validate founder claims against the market | Source mix, claim verdicts, contradictions, `insufficient evidence` calls, research-backed next move |
+| `research` | Validate founder claims against the market | A focused market read showing what supports, weakens, and changes the thesis |
 | `market` | Alias of `research` | Same as `research` |
-| `experiment` | Design or update one high-signal experiment | Hypothesis, falsifier, owner, deadline, thresholds, decision rule, automatic state feedback |
-| `progress` | Summarize accumulated learning and current bottleneck | Six-dimension assessment read, founder handling read, cohort memory read, partner briefing, weekly delta, red-flag memo, human-help triggers |
-| `help` | Explain story-first entry and optional command shortcuts | Story-first starting guidance plus command list |
+| `experiment` | Design or update one high-signal experiment | One compact experiment brief with a falsifier and decision rule |
+| `progress` | Summarize accumulated learning and current bottleneck | A concise trajectory read with explicit recurrence guidance and the next move |
+| `help` | Explain story-first entry and optional command shortcuts | A lean start-here reply plus shortcut guidance |
 
 ---
 
@@ -245,7 +293,20 @@ It also runs a non-rubric `Why AI?` check to make sure the product actually bene
 
 ## Fast Workflow Examples
 
-### 1) Paste a messy founder story
+### 1) Direct `kickoff` on a fresh workspace
+
+```text
+kickoff
+```
+
+Typical progression:
+
+- first turn: one intake question
+- discovery phase: no diagnosis, recommendation, or next-move block yet
+- readback phase: kickoff readback plus short plan of attack
+- diagnosis phase: company snapshot and diagnosis only when enough intake and evidence exist
+
+### 2) Paste a messy founder story
 
 ```text
 We're building an AI copilot for procurement teams.
@@ -253,13 +314,9 @@ It reads vendor emails, drafts responses, and pulls contract context.
 I know the pain is real, but the wedge and buyer are still fuzzy.
 ```
 
-Expected output:
+Typical result: the coach infers `kickoff`, says why, asks one best next question, and keeps the conversation in discovery mode until it can give a short readback and plan of attack.
 
-- inferred command acknowledgement
-- one best next question
-- kickoff readback and plan of attack before diagnosis
-
-### 2) Broad product claim that needs compression
+### 3) Broad product claim that needs compression
 
 ```text
 wedge
@@ -271,87 +328,47 @@ Then describe the product. The coach will force three wedge versions:
 - narrower
 - brutally narrow
 
-Expected output:
+Typical result: the coach compresses the wedge, calls out recurrence explicitly, explains the main weakness, and lands on `keep`, `narrow`, `kill`, or `split`.
 
-- wedge assessment with cited evidence per axis
-- recurrence read
-- `Why AI?` check
-- keep / narrow / kill / split recommendation
-
-### 3) Buyer and user are blurred
+### 4) Buyer and user are blurred
 
 ```text
 icp
 ```
 
-Expected output:
+Typical result: the coach names the narrowest credible beachhead, separates user from buyer and champion, and makes the exclusions explicit.
 
-- user vs buyer vs champion separation
-- explicit exclusions
-- narrowest credible beachhead
-
-### 4) The founder wants a full agent
+### 5) The founder wants a full agent
 
 ```text
 trust
 ```
 
-Expected output:
+Typical result: the coach draws the autonomy boundary, names the highest-risk failure, and recommends the safest operating mode.
 
-- safe for autonomy
-- requires review
-- human-only
-- operating recommendation
-
-### 5) The founder needs the next test
+### 6) The founder needs the next test
 
 ```text
 experiment
 ```
 
-Expected output:
+Typical result: the coach gives one compact experiment brief with a falsifier, owner, deadline, thresholds, and a decision rule.
 
-- one hypothesis
-- one falsifier
-- one owner
-- one deadline
-- one threshold set
-- one decision rule
-- automatic state feedback when results are reported
-
-### 6) The founder needs market validation
+### 7) The founder needs market validation
 
 ```text
 research
 ```
 
-Expected output:
+Typical result: the coach gives a focused market read that shows what supports the story, what weakens it, and what should happen next.
 
-- observed facts vs founder assertions vs model inferences
-- source types reviewed and whether the threshold was met
-- founder claims to validate
-- claim verdicts: supported / mixed / contradicted / insufficient evidence
-- what the market evidence supports
-- what contradicts the story
-- substitutes and competitors
-- research-backed next move
-
-### 7) The founder wants the hard truth
+### 8) The founder wants the hard truth
 
 ```text
 progress
 ```
 
-Expected output:
-
-- current six-dimension assessment read
-- value recurrence read
-- primary archetype
-- coaching posture
-- current best thesis
-- cohort memory read
-- partner briefing
-- weekly company status delta
+Typical result: the coach gives a concise progress read, explicitly calls out recurrence, and names the next critical move.
 - red-flag memo
 - `needs human help now` triggers
 

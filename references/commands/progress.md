@@ -61,108 +61,16 @@ When a trigger fires:
 - recommend the human owner or type of operator who should step in
 - recommend the immediate intervention, not just more analysis
 
-## Output Schema
+## Founder-Facing Response
 
-If progress cannot be summarized honestly yet, return exactly:
-
-```markdown
-[one best next progress question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## Current Thesis
-- Best current wedge:
-- Primary user:
-- Economic buyer:
-- Trust boundary:
-- Current bottleneck:
-
-## Open Questions
-- Most important unresolved question:
-- Second unresolved question:
-
-## Evidence Collected
-- Observed fact:
-- Founder assertion:
-- Model inference:
-
-## Progress Read
-- Biggest improvement:
-- Biggest unresolved drag:
-- Value recurrence read:
-
-## Pattern Read
-- Repeated pathology:
-- Current best thesis:
-
-## Founder Handling
-- Primary archetype:
-- Coaching posture:
-- Why this posture now:
-- What the coach should do next:
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Market Reality
-- Strongest external confirmation:
-- Biggest external contradiction:
-- What still needs validation:
-
-## Cohort Memory
-- Similar failed wedge pattern:
-- Repeated objection pattern:
-- Relevant trust-boundary pattern:
-- Segment benchmark:
-- Where this company is above cohort:
-- Where this company is below cohort:
-- Cohort sample caveat:
-
-## Partner Briefing
-- Company in one line:
-- What matters this week:
-- Primary bottleneck for partners:
-- Best current thesis:
-- Recommended partner action:
-
-## Weekly Status Delta
-- New observed facts since last snapshot:
-- Thesis change since last snapshot:
-- Assessment changes since last snapshot:
-- Decision changes since last snapshot:
-
-## Red-Flag Memo
-- Status: [none / active]
-- Primary red flag:
-- Why this matters:
-- Evidence:
-- Immediate mitigation:
-
-## Needs Human Help Now
-- Triggered: [yes / no]
-- Trigger(s):
-- Suggested human owner:
-- Suggested intervention:
-- By when:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If progress cannot be summarized honestly yet, ask one best next progress question only. If the real issue is missing or placeholder state, route to `kickoff`.
+- Once there is enough clarity, keep the visible response concise. Cover:
+  - the current trajectory across the company dimensions in use
+  - an explicit read on `Value Recurrence`
+  - the biggest improvement and biggest unresolved drag
+  - the current best thesis, repeated pathology, or coaching posture when one materially matters
+  - the next move and, when another command is clearly next, a consent-first handoff sentence
+- Cohort memory, partner briefing, weekly delta, red-flag, and human-help outputs can still exist, but surface them only when they materially change the decision.
 
 ## State Updates
 

@@ -61,70 +61,13 @@ Use these verdicts for each major claim:
 - If `cohort_memory/objection_patterns.md` exists and research uncovered a concrete objection with direct evidence, append a normalized objection pattern entry using [../cohort-memory.md](../cohort-memory.md).
 - Record the source types reviewed, whether the minimum threshold was met, the strongest contradiction, and the overall verdict.
 
-## Output Schema
+## Founder-Facing Response
 
-If the claim under test is still unclear, return exactly:
-
-```markdown
-[one best next research question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## Research Focus
-- Workflow / claim under test:
-- Why this matters:
-- Segment in scope:
-
-## Evidence Standard
-- Required source types:
-- Minimum evidence threshold:
-- Threshold met:
-
-## Sources Reviewed
-- Source type 1:
-- Source type 2:
-- Source type 3:
-
-## Claim Verdicts
-- Claim 1: [supported / mixed / contradicted / insufficient evidence] - ...
-- Claim 2: [supported / mixed / contradicted / insufficient evidence] - ...
-- Claim 3: [supported / mixed / contradicted / insufficient evidence] - ...
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Contradictions
-- Highest-signal contradiction:
-- What weakens it:
-- What would change my mind:
-
-## Market Reality Check
-- What supports the founder story:
-- Visible substitutes / competitors:
-- Buyer and implementation clues:
-- Trust / deployment concerns:
-- Still unknown:
-
-## Research Outcome
-- Overall verdict:
-- Why:
-- Missing evidence:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If the claim under test is still unclear, ask one best next research question only.
+- Once there is enough clarity, keep the visible response concise. Cover:
+  - the workflow or claim under test and why it matters
+  - the strongest support for the founder story
+  - the strongest contradiction or weakening signal
+  - visible substitutes, buyer clues, or trust concerns when they matter
+  - what the research changes, one next move, and, when another command is clearly next, a consent-first handoff sentence
+- The source mix, evidence threshold, claim verdicts, and evidence classification still matter, but do not force them into the visible reply if a tighter market read communicates the result more clearly.

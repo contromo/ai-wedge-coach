@@ -63,59 +63,13 @@ If the current coaching posture is `containment`, make the experiment define the
 - Always append the experiment itself to `experiment_log.md`, creating the file if needed.
 - Separate observed facts, founder assertions, and model inferences before choosing the experiment.
 
-## Output Schema
+## Founder-Facing Response
 
-If the experiment is not yet well-formed, return exactly:
-
-```markdown
-[one best next experiment question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## Experiment Brief
-- Status: [planned / running / complete / killed]
-- Mode:
-- Linked dimension:
-- Hypothesis:
-- Falsifier:
-- Owner:
-- Deadline:
-
-## Method
-- Steps:
-- Required inputs:
-
-## Signal Thresholds
-- Success means:
-- Failure means:
-- Ambiguous result means:
-
-## Decision Rule
-- If success:
-- If failure:
-- If ambiguous:
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- ...
-
-## Next Move
-- ...
-
-**Recommended next**: `[command]` - ...
-```
+- If the experiment is not yet well-formed, ask one best next experiment question only.
+- Once there is enough clarity, give a compact experiment brief. Cover the status, mode, linked dimension, hypothesis, falsifier, owner, deadline, method, signal thresholds, and decision rule.
+- A little structure is fine here because the output is operational, but keep it tight. Do not pad the response with a separate diagnosis block unless it adds real clarity.
+- Keep the evidence classification internally and surface it only when it materially changes the experiment choice.
+- If another command is clearly next after the experiment is framed, end with a consent-first handoff sentence instead of a menu recommendation.
 
 ## State Updates
 

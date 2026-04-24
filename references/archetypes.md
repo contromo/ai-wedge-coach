@@ -91,7 +91,7 @@ Good examples:
 - Pick at most one primary archetype per session unless a second pattern is clearly blocking the first.
 - Detect the archetype as soon as evidence allows in `kickoff` and refresh it in `progress`.
 - Store both the `Current archetype` and `Coaching posture` in founder state.
-- Let the posture shape the next question, the pressure style, and the recommended next command.
+- Let the posture shape the next question, the pressure style, and the next coach-led move.
 - Mention the archetype only if it adds clarity. Do not turn the session into personality commentary.
-- Use the archetype to shape the recommended next command and the "If I'm wrong" alternative in the diagnosis.
+- Use the archetype to shape the next coach-led move and the "If I'm wrong" alternative in the diagnosis.
 - If the archetype is still unclear, do not invent one. Use the default posture rules above until the evidence improves.

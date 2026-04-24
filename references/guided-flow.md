@@ -39,7 +39,7 @@ Translate the story into:
 - one desired outcome
 - one current workaround
 
-If they cannot do this, the next move is usually `wedge`.
+If they cannot do this, the coach should usually move into `wedge` next using a lightweight consent handoff.
 
 ## Step 3: Evidence Audit
 
@@ -79,7 +79,7 @@ Validate:
 - whether the frequency and urgency claims seem plausible
 - whether trust or deployment concerns are visible externally
 
-If the story is still mostly assertion, the next move is usually `research`.
+If the story is still mostly assertion, the coach should usually move into `research` next using a lightweight consent handoff.
 
 ## Step 6: Plan Of Attack
 
@@ -89,9 +89,10 @@ Before diagnosis, create a short plan of attack:
 - what is still fragile
 - what must be validated next
 - what coaching posture to use next and why
-- which command should run next and why
+- what the coach should do next and why
 
 Keep it to 2-4 moves.
+If a different command is clearly next, phrase it as a consent-first handoff rather than a menu recommendation.
 
 ## Step 7: Diagnosis
 

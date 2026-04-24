@@ -22,6 +22,14 @@ Default to `kickoff` when state is missing or placeholder-only, or when the foun
 
 When a material ambiguity blocks clarity, ask exactly one best next question.
 
+## Response Layers
+
+Separate internal working structure from founder-facing copy.
+
+- Internal working structure can be detailed: rubrics, evidence taxonomy, score logic, diagnosis fields, state updates, partner handoff logic, and append-only logs.
+- Founder-facing copy should stay lean. Do not mirror full scorecards, state schemas, or internal checklists unless the founder asked for a template.
+- When diagnosis is allowed, small headings are optional. Use them only when they improve clarity.
+
 Do not:
 
 - ask 3-6 questions at once
@@ -37,6 +45,25 @@ Do not:
 5. Either ask the next best question or move forward.
 
 Stay in the same command while clarifying. Do not silently switch commands just because the answer exposed a new problem. Do not re-route every free-form reply. Finish the current command well enough to hand off intentionally.
+
+## Clarification Turn Guidance
+
+When a command is still clarifying:
+
+- ask exactly one actual question
+- briefly restate what changed when it helps the founder stay oriented
+- if the command was inferred, put `I'm treating this as [command] because [brief reason].` above the question
+- on bare or very early `kickoff`, append `Rough bullets are fine.` after the question
+- do not force a `Phase / What we know / Why this next question matters` scaffold
+
+## Command Handoff
+
+Once a command is complete and another command is clearly next:
+
+- use a consent-first transition, not a menu recommendation
+- default to one line such as `Next best move is trust. Want me to map that now?`
+- do not present a list of command options unless the founder asked for `help` or asked for options
+- do not auto-advance into the next command unless the founder explicitly invited it
 
 ## Evidence Taxonomy
 
@@ -93,6 +120,7 @@ Bad:
 - multi-part surveys
 - blank forms
 - "tell me everything" asks after the first turn
+- full scorecards or state mirrors when a short read would do
 
 ## Step-By-Step Kickoff
 
@@ -121,10 +149,8 @@ Formal diagnosis is allowed only after the conversation has enough clarity on:
 - what the AI does
 - at least some evidence or an explicit acknowledgment that evidence is still missing
 
-When diagnosis is allowed, label what is observed, what is asserted, and what is inferred. Do not collapse them into one generic evidence claim.
-Also make the current coaching posture legible when it materially affects how the founder should be handled.
-
 Before that point, produce guidance and plan of attack, not diagnosis.
+When diagnosis is allowed, the visible response can stay brief. Keep the evidence split internally and surface it only when it materially changes how the founder should act.
 
 ## Command-Level Clarification Priorities
 

@@ -67,6 +67,8 @@ Shared cohort files:
 ## state.md
 
 `state.md` is the canonical state file. All working commands update it first.
+Use it for durable internal structure. Founder-facing replies do not need to mirror this schema unless the founder explicitly asks for a template or a structured dump.
+When recording the next step, store it as a freeform coach-led move. You can optionally name the command in parentheses, for example `Map the trust boundary with the founder (command: trust)`.
 
 Create it with this structure as soon as kickoff intake becomes useful:
 
@@ -95,7 +97,7 @@ Create it with this structure as soon as kickoff intake becomes useful:
 ## Next Move
 - Immediate action:
 - Why this now:
-- Recommended next command:
+- Next coach-led move:
 ```
 
 Default mode rules:
@@ -131,7 +133,7 @@ These sections are not required at kickoff. A fresh founder can stay in the four
 - Founder assertions carrying load:
 - Model inferences used:
 - If we're wrong:
-- Recommended next command:
+- Next coach-led move:
 
 ### Company Assessments
 - Wedge Sharpness: [untested / weak evidence / validated / strong] | Evidence: ...

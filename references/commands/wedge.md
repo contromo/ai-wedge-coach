@@ -67,63 +67,16 @@ If the result is `split`:
 - Append the deprioritized branch to `wedge_graveyard.md` as `split-deprioritized`.
 - If `cohort_memory/wedge_failures.md` exists, append the deprioritized branch as a normalized failed-wedge pattern using [../cohort-memory.md](../cohort-memory.md).
 
-## Output Schema
+## Founder-Facing Response
 
-If the wedge is still too fuzzy to assess, return exactly:
-
-```markdown
-[one best next wedge question]
-```
-
-Once there is enough clarity, return exactly:
-
-```markdown
-## Current Workflow
-- Workflow:
-- Primary user:
-- Economic buyer:
-- Trigger:
-- Current workaround:
-- Desired outcome:
-
-## Wedge Compression
-- Broad:
-- Narrower:
-- Brutally narrow:
-
-## Wedge Assessment
-- Specificity: [untested / weak evidence / validated / strong] | Evidence: ...
-- Pain: [untested / weak evidence / validated / strong] | Evidence: ...
-- Recurrence: [untested / weak evidence / validated / strong] | Evidence: ...
-- Buyer Alignment: [untested / weak evidence / validated / strong] | Evidence: ...
-- Trust Fit: [untested / weak evidence / validated / strong] | Evidence: ...
-- Value Realization: [untested / weak evidence / validated / strong] | Evidence: ...
-- Deployment Fit: [untested / weak evidence / validated / strong] | Evidence: ...
-
-## Why AI?
-- Step-change:
-- If AI disappeared:
-
-## Evidence Classification
-- Observed facts:
-- Founder assertions:
-- Model inferences:
-
-## Diagnosis
-- Primary bottleneck:
-- Confidence:
-- Evidence:
-- If I'm wrong:
-
-## Recommendation
-- keep / narrow / kill / split:
-- Why:
-
-## Next Move
-- One 7-day test:
-
-**Recommended next**: `[command]` - ...
-```
+- If the wedge is still too fuzzy to assess honestly, ask one best next wedge question only.
+- Once there is enough clarity, keep the visible response tight. Cover:
+  - a concise wedge restatement or compression
+  - an explicit recurrence read
+  - the main bottleneck and why it matters
+  - a `keep`, `narrow`, `kill`, or `split` verdict
+  - one concrete next move and, when another command is clearly next, a consent-first handoff sentence such as `Next best move is trust. Want me to map that now?`
+- The evidence-backed wedge assessment, `Why AI?` check, and evidence classification still matter, but they are internal by default. Surface only the score or evidence detail that materially explains the verdict.
 
 ## State Updates
 
